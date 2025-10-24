@@ -1828,7 +1828,7 @@
                     question: "\"right-click\" ဆိုသည်မှာ အဘယ်နည်း? 🖱️",
                     options: [
                         "mouse ၏ ညာဘက်ခလုတ်ကို နှိပ်ရန်",
-                        "ဖိုင်ကို သိမ်းဆည်း�ရန်",
+                        "ဖိုင်ကို သိမ်းဆည်းရန်",
                         "ဖိုင်ကို ဖျက်ရန်",
                         "ဖိုင်ကို မျှဝေရန်"
                     ],
@@ -1842,7 +1842,7 @@
                     options: [
                         "ကြိုးမဲ့အင်တာနက်ဆက်သွယ်မှုနည်းပညာ",
                         "ကွန်ပျူတာကို အပူချိန်ထိန်းညှိပေးသော စနစ်",
-                        "ဖိုင်များကို စီမံခန့်ခွဲရန် အသုံးပြုသည့် ပရိုဂရမ်",
+                        "ဖိုင်များ�ကို စီမံခန့်ခွဲရန် အသုံးပြုသည့် ပရိုဂရမ်",
                         "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် ပရိုဂရမ်"
                     ],
                     correct: 0,
@@ -1952,7 +1952,7 @@
                 {
                     question: "\"antivirus\" software ဆိုသည်မှာ အဘယ်နည်း? 🛡️",
                     options: [
-                        "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် ပရိုဂရမ်",
+                        "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်�ရန် အသုံးပြုသည့် ပရိုဂရမ်",
                         "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် ပရိုဂရမ်",
                         "ဖိုင်များကို စီမံခန့်ခွဲရန် အသုံးပြုသည့် ပရိုဂရမ်",
                         "အင်တာနက်ကို အသုံးပြုရန် အသုံးပြုသည့် ပရိုဂရမ်"
@@ -1987,7 +1987,7 @@
                     options: [
                         "အသုံးမဝင်သော အီးမေးလ်များ သို့မဟုတ် မက်ဆေ့ချ်များ",
                         "အသုံးဝင်သော အီးမေးလ်များ သို့မဟုတ် မက်ဆေ့ချ်များ",
-                        "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် ပရိုဂရမ်",
+                        "ကွန်ပျူတာကို အမြန်နှုန်း�မြှင့်တင်ရန် အသုံးပြုသည့် ပရိုဂရမ်",
                         "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် ပရိုဂရမ်"
                     ],
                     correct: 0,
@@ -2434,6 +2434,7 @@
         // Create celebration animation
         function createCelebration() {
             const techIcons = ['💻', '🖥️', '⌨️', '🖱️', '💾', '💿', '📱', '🌐', '🔒', '🔧', '📡', '⚡'];
+            celebration.innerHTML = '';
             for (let i = 0; i < 50; i++) {
                 const techCeleb = document.createElement('div');
                 techCeleb.className = 'tech-celeb';
@@ -2446,68 +2447,56 @@
 
         // Show screen function
         function showScreen(screen) {
-            document.querySelectorAll('.quiz-screen').forEach(s => s.classList.add('hidden'));
+            const screens = [nameScreen, startScreen, quizScreen, resultsScreen, certificateScreen, failedScreen, verificationScreen];
+            screens.forEach(s => s.classList.add('hidden'));
             screen.classList.remove('hidden');
         }
 
-        // Generate part selector
-        function generatePartSelector() {
+        // Start quiz
+        startBtn.addEventListener('click', () => {
+            if (userNameInput.value.trim() === '') {
+                alert('ကျေးဇူးပြု၍ သင်၏ အမည်ကို ထည့်သွင်းပါ');
+                return;
+            }
+            
+            currentState.userName = userNameInput.value.trim();
+            userWelcome.textContent = `${currentState.userName} မင်္ဂလာပါ! စမ်းသပ်မှုအပိုင်းတစ်ခုကို ရွေးချယ်ပါ!`;
+            initPartSelector();
+            showScreen(startScreen);
+        });
+
+        // Initialize part selector
+        function initPartSelector() {
             partSelector.innerHTML = '';
             for (let i = 1; i <= 10; i++) {
                 const partBtn = document.createElement('button');
                 partBtn.className = 'part-btn';
                 partBtn.textContent = `အပိုင်း ${i}`;
-                partBtn.dataset.part = i;
                 
-                if (currentState.partStatus[i] === 'passed') {
-                    partBtn.classList.add('active');
+                if (currentState.partStatus[i] === 'locked') {
+                    partBtn.classList.add('locked');
+                    partBtn.disabled = true;
                 } else if (currentState.partStatus[i] === 'failed') {
                     partBtn.classList.add('failed');
-                } else if (currentState.partStatus[i] === 'locked') {
-                    partBtn.classList.add('locked');
-                    partBtn.innerHTML = `အပိုင်း ${i} <span class="lock-icon">🔒</span>`;
-                } else {
+                } else if (currentState.partStatus[i] === 'current') {
                     partBtn.classList.add('active');
                 }
                 
                 partBtn.addEventListener('click', () => {
-                    if (!partBtn.classList.contains('locked')) {
-                        startPart(parseInt(partBtn.dataset.part));
-                    }
+                    startPart(i);
                 });
                 
                 partSelector.appendChild(partBtn);
             }
         }
 
-        // Generate part completion dots
-        function generatePartCompletion() {
-            partCompletion.innerHTML = '';
-            for (let i = 1; i <= 10; i++) {
-                const dot = document.createElement('div');
-                dot.className = 'part-dot';
-                
-                if (currentState.partStatus[i] === 'passed') {
-                    dot.classList.add('completed');
-                } else if (currentState.partStatus[i] === 'failed') {
-                    dot.classList.add('failed');
-                } else if (currentState.partStatus[i] === 'current') {
-                    dot.classList.add('current');
-                }
-                
-                partCompletion.appendChild(dot);
-            }
-        }
-
-        // Start a part
-        function startPart(part) {
-            currentState.currentPart = part;
+        // Start a specific part
+        function startPart(partNumber) {
+            currentState.currentPart = partNumber;
             currentState.currentQuestionIndex = 0;
-            
-            partDisplay.textContent = `အပိုင်း: ${part}`;
-            generatePartCompletion();
-            loadQuestion();
             showScreen(quizScreen);
+            loadQuestion();
+            updateProgress();
         }
 
         // Load question
@@ -2516,26 +2505,35 @@
             const questionIndex = currentState.currentQuestionIndex;
             const question = quizData[part][questionIndex];
             
+            partDisplay.textContent = `အပိုင်း: ${part}`;
             currentQuestion.textContent = questionIndex + 1;
             questionText.textContent = question.question;
             
-            // Update progress
-            techProgress.textContent = question.emoji;
-            progressText.textContent = `မေးခွန်း ${questionIndex + 1}/${quizData[part].length}`;
+            // Update part completion dots
+            updatePartCompletion();
             
-            // Load options
+            // Clear options
             optionsContainer.innerHTML = '';
+            
+            // Add options
             question.options.forEach((option, index) => {
                 const optionElement = document.createElement('div');
                 optionElement.className = 'option';
+                
+                // Check if this option was previously selected
                 if (currentState.userAnswers[part][questionIndex] === index) {
                     optionElement.classList.add('selected');
                 }
+                
                 optionElement.innerHTML = `
-                    <span class="option-indicator">${String.fromCharCode(65 + index)}</span>
+                    <span class="option-emoji">${String.fromCharCode(65 + index)}</span>
                     <span class="option-text">${option}</span>
                 `;
-                optionElement.addEventListener('click', () => selectOption(index));
+                
+                optionElement.addEventListener('click', () => {
+                    selectOption(index);
+                });
+                
                 optionsContainer.appendChild(optionElement);
             });
             
@@ -2551,37 +2549,96 @@
             const questionIndex = currentState.currentQuestionIndex;
             
             // Clear previous selection
-            document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => option.classList.remove('selected'));
             
-            // Select new option
-            document.querySelectorAll('.option')[optionIndex].classList.add('selected');
+            // Set new selection
+            options[optionIndex].classList.add('selected');
             
             // Save answer
             currentState.userAnswers[part][questionIndex] = optionIndex;
         }
 
-        // Calculate score for a part
-        function calculatePartScore(part) {
-            const answers = currentState.userAnswers[part];
-            let correctCount = 0;
+        // Update progress
+        function updateProgress() {
+            const part = currentState.currentPart;
+            const questionIndex = currentState.currentQuestionIndex;
+            const totalQuestions = quizData[part].length;
             
+            progressText.textContent = `မေးခွန်း ${questionIndex + 1}/${totalQuestions}`;
+            
+            // Update tech progress emoji
+            const progressPercent = ((questionIndex + 1) / totalQuestions) * 100;
+            if (progressPercent < 25) {
+                techProgress.textContent = '💻';
+            } else if (progressPercent < 50) {
+                techProgress.textContent = '🖥️';
+            } else if (progressPercent < 75) {
+                techProgress.textContent = '⌨️';
+            } else {
+                techProgress.textContent = '🌐';
+            }
+        }
+
+        // Update part completion dots
+        function updatePartCompletion() {
+            partCompletion.innerHTML = '';
+            const totalQuestions = quizData[currentState.currentPart].length;
+            
+            for (let i = 0; i < totalQuestions; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'part-dot';
+                
+                if (i < currentState.currentQuestionIndex) {
+                    dot.classList.add('completed');
+                } else if (i === currentState.currentQuestionIndex) {
+                    dot.classList.add('current');
+                }
+                
+                partCompletion.appendChild(dot);
+            }
+        }
+
+        // Navigation
+        prevBtn.addEventListener('click', () => {
+            if (currentState.currentQuestionIndex > 0) {
+                currentState.currentQuestionIndex--;
+                loadQuestion();
+                updateProgress();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentState.currentQuestionIndex < quizData[currentState.currentPart].length - 1) {
+                currentState.currentQuestionIndex++;
+                loadQuestion();
+                updateProgress();
+            }
+        });
+
+        // Submit part
+        submitBtn.addEventListener('click', () => {
+            submitPart();
+        });
+
+        // Submit part and calculate score
+        function submitPart() {
+            const part = currentState.currentPart;
+            let score = 0;
+            
+            // Calculate score
             quizData[part].forEach((question, index) => {
-                if (answers[index] === question.correct) {
-                    correctCount++;
+                if (currentState.userAnswers[part][index] === question.correct) {
+                    score++;
                 }
             });
             
-            return Math.round((correctCount / quizData[part].length) * 100);
-        }
-
-        // Submit part
-        function submitPart() {
-            const part = currentState.currentPart;
-            const score = calculatePartScore(part);
-            currentState.partScores[part] = score;
+            // Calculate percentage
+            const percentage = (score / quizData[part].length) * 100;
+            currentState.partScores[part] = percentage;
             
-            if (score >= 80) {
-                // Passed
+            // Check if passed (80% or higher)
+            if (percentage >= 80) {
                 currentState.partStatus[part] = 'passed';
                 
                 // Unlock next part if exists
@@ -2589,52 +2646,28 @@
                     currentState.partStatus[part + 1] = 'current';
                 }
                 
-                // Check if all parts are completed
+                // Check if all parts completed
                 const allPartsCompleted = Object.values(currentState.partStatus).every(status => 
-                    status === 'passed' || (part === 10 && status === 'passed')
+                    status === 'passed' || status === 'failed'
                 );
                 
                 if (allPartsCompleted) {
                     showResults();
                 } else {
+                    initPartSelector();
                     showScreen(startScreen);
-                    generatePartSelector();
                 }
             } else {
-                // Failed
                 currentState.partStatus[part] = 'failed';
                 showFailedScreen(part);
             }
-        }
-
-        // Show results
-        function showResults() {
-            // Calculate overall score
-            let totalScore = 0;
-            let totalParts = 0;
-            
-            for (let i = 1; i <= 10; i++) {
-                if (currentState.partScores[i] > 0) {
-                    totalScore += currentState.partScores[i];
-                    totalParts++;
-                }
-            }
-            
-            const overallScore = Math.round(totalScore / totalParts);
-            scoreDisplay.textContent = `သင့်ရမှတ်: ${overallScore}%`;
-            
-            // Create celebration
-            celebration.innerHTML = '';
-            createCelebration();
-            
-            showScreen(resultsScreen);
         }
 
         // Show failed screen
         function showFailedScreen(part) {
             failedPart.textContent = part;
             
-            // Generate feedback
+            // Populate feedback
             feedbackList.innerHTML = '';
             partFeedback[part].forEach(feedback => {
                 const li = document.createElement('li');
@@ -2645,20 +2678,68 @@
             showScreen(failedScreen);
         }
 
-        // Generate certificate
-        function generateCertificate() {
-            // Calculate overall score
+        // Show results
+        function showResults() {
+            // Calculate total score
             let totalScore = 0;
-            let totalParts = 0;
+            let totalPossible = 0;
             
             for (let i = 1; i <= 10; i++) {
-                if (currentState.partScores[i] > 0) {
+                if (currentState.partStatus[i] === 'passed') {
                     totalScore += currentState.partScores[i];
-                    totalParts++;
+                    totalPossible += 100;
                 }
             }
             
-            const overallScore = Math.round(totalScore / totalParts);
+            const overallPercentage = totalPossible > 0 ? (totalScore / totalPossible) * 100 : 0;
+            scoreDisplay.textContent = `သင့်ရမှတ်: ${Math.round(overallPercentage)}%`;
+            
+            createCelebration();
+            showScreen(resultsScreen);
+        }
+
+        // Restart quiz
+        restartBtn.addEventListener('click', () => {
+            // Reset state
+            currentState = {
+                userName: currentState.userName,
+                currentPart: 1,
+                currentQuestionIndex: 0,
+                userAnswers: {},
+                partScores: {},
+                partStatus: {}
+            };
+            
+            // Initialize part status
+            for (let i = 1; i <= 10; i++) {
+                currentState.partStatus[i] = i === 1 ? 'current' : 'locked';
+                currentState.userAnswers[i] = [];
+                currentState.partScores[i] = 0;
+            }
+            
+            initPartSelector();
+            showScreen(startScreen);
+        });
+
+        // View certificate
+        viewCertificateBtn.addEventListener('click', () => {
+            showCertificate();
+        });
+
+        // Show certificate
+        function showCertificate() {
+            // Calculate total score for certificate
+            let totalScore = 0;
+            let totalPossible = 0;
+            
+            for (let i = 1; i <= 10; i++) {
+                if (currentState.partStatus[i] === 'passed') {
+                    totalScore += currentState.partScores[i];
+                    totalPossible += 100;
+                }
+            }
+            
+            const overallPercentage = totalPossible > 0 ? (totalScore / totalPossible) * 100 : 0;
             
             // Set certificate details
             certificateName.textContent = currentState.userName;
@@ -2667,77 +2748,73 @@
                 month: 'long',
                 day: 'numeric'
             });
-            certificateScore.textContent = `${overallScore}%`;
+            certificateScore.textContent = `${Math.round(overallPercentage)}%`;
             
             // Generate certificate ID
-            const certificateId = `MCST-${new Date().getFullYear()}-${Math.floor(10000 + Math.random() * 90000)}`;
-            certificateIdDisplay.textContent = certificateId;
+            const certId = `MCST-${new Date().getFullYear()}-${Math.floor(10000 + Math.random() * 90000)}`;
+            certificateIdDisplay.textContent = certId;
             
             // Set verification link
-            verificationLink.href = "https://certificate-verify-system.netlify.app";
-            verificationLink.textContent = "https://certificate-verify-system.netlify.app";
+            verificationLink.textContent = `https://certificate-verify-system.netlify.app/?id=${certId}`;
+            verificationLink.href = `https://certificate-verify-system.netlify.app/?id=${certId}`;
             
             showScreen(certificateScreen);
         }
 
-        // Download certificate as PDF
-        function downloadCertificate() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF('l', 'mm', 'a4');
+        // Download certificate
+        downloadCertificateBtn.addEventListener('click', () => {
+            const certificateElement = document.getElementById('certificateContent');
             
-            // Add certificate content
-            doc.setFontSize(20);
-            doc.setTextColor(46, 109, 180);
-            doc.text('My Computer Studio & Training', 105, 30, { align: 'center' });
-            
-            doc.setFontSize(16);
-            doc.setTextColor(100, 100, 100);
-            doc.text('ကွန်ပျူတာ အခြေခံသင်တန်း', 105, 45, { align: 'center' });
-            
-            doc.setFontSize(12);
-            doc.text('This certificate is presented to', 105, 65, { align: 'center' });
-            
-            doc.setFontSize(20);
-            doc.setTextColor(0, 0, 0);
-            doc.text(currentState.userName, 105, 80, { align: 'center' });
-            
-            doc.setFontSize(12);
-            doc.setTextColor(100, 100, 100);
-            doc.text('has successfully completed the Courses, non-credit Professional Certificate', 105, 95, { align: 'center' });
-            
-            doc.setTextColor(46, 109, 180);
-            doc.text(`Completed on ${new Date().toLocaleDateString('my-MM', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            })}`, 105, 110, { align: 'center' });
-            
-            doc.setTextColor(0, 0, 0);
-            doc.text(`Certificate ID: ${certificateIdDisplay.textContent}`, 105, 125, { align: 'center' });
-            
-            doc.setTextColor(46, 109, 180);
-            doc.text('Final Assessment Score:', 70, 150);
-            doc.setTextColor(0, 0, 0);
-            doc.text(`${certificateScore.textContent}`, 140, 150);
-            
-            doc.setTextColor(46, 109, 180);
-            doc.text('Verify this certificate at:', 70, 170);
-            doc.setTextColor(0, 0, 0);
-            doc.text('https://certificate-verify-system.netlify.app', 70, 180);
-            
-            // Add signature
-            doc.setFontSize(10);
-            doc.setTextColor(100, 100, 100);
-            doc.text('Than Zaw Htaik', 50, 220);
-            doc.text('Trainer of My Computer Studio & Training', 50, 225);
-            
-            // Save the PDF
-            doc.save(`Certificate_${currentState.userName.replace(/\s+/g, '_')}.pdf`);
-        }
+            // Use html2canvas and jsPDF to generate and download PDF
+            html2canvas(certificateElement, {
+                scale: 2,
+                useCORS: true,
+                logging: false
+            }).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF('l', 'mm', 'a4');
+                const imgWidth = 297; // A4 width in mm
+                const imgHeight = canvas.height * imgWidth / canvas.width;
+                
+                pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+                pdf.save(`MyComputerStudio_Certificate_${currentState.userName}.pdf`);
+            });
+        });
+
+        // Back to results from certificate
+        backToResultsBtn.addEventListener('click', () => {
+            showScreen(resultsScreen);
+        });
+
+        // Retry failed part
+        retryBtn.addEventListener('click', () => {
+            startPart(currentState.currentPart);
+        });
+
+        // Back to home from failed screen
+        backToHomeBtn.addEventListener('click', () => {
+            initPartSelector();
+            showScreen(startScreen);
+        });
+
+        // Go to verification screen
+        goToVerificationBtn.addEventListener('click', () => {
+            showScreen(verificationScreen);
+        });
 
         // Verify certificate
-        function verifyCertificate(event) {
-            event.preventDefault();
+        verifyCertificateBtn.addEventListener('click', () => {
+            showScreen(verificationScreen);
+        });
+
+        // Back to start from verification
+        backToStartFromVerificationBtn.addEventListener('click', () => {
+            showScreen(startScreen);
+        });
+
+        // Handle verification form submission
+        verificationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
             
             const certificateId = document.getElementById('certificateId').value.trim();
             const studentName = document.getElementById('studentName').value.trim();
@@ -2749,143 +2826,84 @@
                 // Check if name matches
                 if (certificate.name === studentName) {
                     // Valid certificate
-                    showVerificationResult(true, certificate);
+                    showVerificationResult(true, certificate, certificateId);
                 } else {
-                    // Name doesn't match
-                    showVerificationResult(false, null, "အမည် မကိုက်ညီပါ");
+                    // Invalid name
+                    showVerificationResult(false, null, certificateId);
                 }
             } else {
-                // Certificate not found
-                showVerificationResult(false, null, "Certificate ID မတွေ့ပါ");
+                // Invalid certificate ID
+                showVerificationResult(false, null, certificateId);
             }
-        }
+        });
 
         // Show verification result
-        function showVerificationResult(isValid, certificate, errorMessage = "") {
-            // Create result container
-            const resultContainer = document.createElement('div');
-            resultContainer.className = `result-box ${isValid ? '' : 'invalid'}`;
-            
-            if (isValid) {
-                resultContainer.innerHTML = `
-                    <h3>✅ Certificate Verified Successfully</h3>
-                    <div class="verification-result">VALID CERTIFICATE</div>
-                    <div class="result-details">
-                        <div class="result-item">
-                            <span class="result-label">Certificate ID:</span>
-                            <span class="result-value">${document.getElementById('certificateId').value}</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-label">Name:</span>
-                            <span class="result-value">${certificate.name}</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-label">Completion Date:</span>
-                            <span class="result-value">${certificate.date}</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-label">Score:</span>
-                            <span class="result-value">${certificate.score}</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-label">Parts Completed:</span>
-                            <span class="result-value">${certificate.part}</span>
-                        </div>
+        function showVerificationResult(isValid, certificate, certificateId) {
+            const resultHTML = `
+                <div class="result-box ${isValid ? '' : 'invalid'}">
+                    <h2>${isValid ? '✅ Certificate Verified' : '❌ Certificate Not Valid'}</h2>
+                    <div class="verification-result ${isValid ? '' : 'invalid'}">
+                        ${isValid ? 'Valid Certificate' : 'Invalid Certificate'}
                     </div>
-                    <p>This certificate has been successfully verified and is authentic.</p>
-                `;
-            } else {
-                resultContainer.innerHTML = `
-                    <h3>❌ Certificate Verification Failed</h3>
-                    <div class="verification-result invalid">INVALID CERTIFICATE</div>
-                    <p>${errorMessage}</p>
-                    <p>Please check the Certificate ID and Name and try again.</p>
-                `;
-            }
+                    
+                    ${isValid ? `
+                        <div class="result-details">
+                            <div class="result-item">
+                                <span class="result-label">Certificate ID:</span>
+                                <span class="result-value">${certificateId}</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Student Name:</span>
+                                <span class="result-value">${certificate.name}</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Completion Date:</span>
+                                <span class="result-value">${certificate.date}</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Final Score:</span>
+                                <span class="result-value">${certificate.score}</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Parts Completed:</span>
+                                <span class="result-value">${certificate.part}</span>
+                            </div>
+                        </div>
+                        
+                        <p style="margin-top: 20px; color: #4CAF50; font-weight: bold;">
+                            This certificate has been successfully verified and is valid.
+                        </p>
+                    ` : `
+                        <div class="result-details">
+                            <p>The certificate with ID <strong>${certificateId}</strong> could not be verified.</p>
+                            <p>Please check:</p>
+                            <ul>
+                                <li>Certificate ID is correct</li>
+                                <li>Student name matches exactly</li>
+                                <li>Certificate has not been revoked</li>
+                            </ul>
+                        </div>
+                    `}
+                </div>
+            `;
             
-            // Add result to the form
+            // Insert result after the form
             const existingResult = document.querySelector('.result-box');
             if (existingResult) {
                 existingResult.remove();
             }
             
-            verificationForm.parentNode.insertBefore(resultContainer, verificationForm.nextSibling);
+            verificationForm.insertAdjacentHTML('afterend', resultHTML);
         }
 
-        // Event listeners
-        startBtn.addEventListener('click', () => {
-            if (userNameInput.value.trim()) {
-                currentState.userName = userNameInput.value.trim();
-                userWelcome.textContent = `${currentState.userName} မင်္ဂလာပါ! စမ်းသပ်မှုအပိုင်းတစ်ခုကို ရွေးချယ်ပါ!`;
-                generatePartSelector();
-                showScreen(startScreen);
-            } else {
-                alert('ကျေးဇူးပြု၍ သင်၏ အမည်ကို ထည့်သွင်းပါ');
-            }
-        });
-
-        prevBtn.addEventListener('click', () => {
-            if (currentState.currentQuestionIndex > 0) {
-                currentState.currentQuestionIndex--;
-                loadQuestion();
-            }
-        });
-
-        nextBtn.addEventListener('click', () => {
-            if (currentState.currentQuestionIndex < quizData[currentState.currentPart].length - 1) {
-                currentState.currentQuestionIndex++;
-                loadQuestion();
-            }
-        });
-
-        submitBtn.addEventListener('click', submitPart);
-
-        restartBtn.addEventListener('click', () => {
-            // Reset state
-            for (let i = 1; i <= 10; i++) {
-                currentState.partStatus[i] = i === 1 ? 'current' : 'locked';
-                currentState.userAnswers[i] = [];
-                currentState.partScores[i] = 0;
-            }
-            
-            generatePartSelector();
-            showScreen(startScreen);
-        });
-
-        viewCertificateBtn.addEventListener('click', generateCertificate);
-
-        retryBtn.addEventListener('click', () => {
-            currentState.userAnswers[currentState.currentPart] = [];
-            startPart(currentState.currentPart);
-        });
-
-        backToHomeBtn.addEventListener('click', () => {
-            showScreen(startScreen);
-        });
-
-        downloadCertificateBtn.addEventListener('click', downloadCertificate);
-
-        backToResultsBtn.addEventListener('click', () => {
-            showScreen(resultsScreen);
-        });
-
-        verifyCertificateBtn.addEventListener('click', () => {
-            showScreen(verificationScreen);
-        });
-
-        goToVerificationBtn.addEventListener('click', () => {
-            showScreen(verificationScreen);
-        });
-
-        backToStartFromVerificationBtn.addEventListener('click', () => {
-            showScreen(startScreen);
-        });
-
-        verificationForm.addEventListener('submit', verifyCertificate);
-
         // Initialize the app
-        initFloatingTech();
-        showScreen(nameScreen);
+        function init() {
+            initFloatingTech();
+            showScreen(nameScreen);
+        }
+
+        // Start the app
+        init();
     </script>
 </body>
 </html>
