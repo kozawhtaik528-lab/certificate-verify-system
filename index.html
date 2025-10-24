@@ -6,6 +6,7 @@
     <title>ကွန်ပျူတာ အခြေခံ သင်တန်း စမ်းသပ်မှုနှင့် လက်မှတ်စနစ်</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <style>
         /* Base styles and tech-themed color palette */
         :root {
@@ -448,459 +449,530 @@
         }
         
          /* Certificate Styles - Enhanced with Guilloché Security Pattern */
-.certificate-container {
-    background: white;
-    border: 15px solid transparent;
-    border-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0 L100,0 L100,100 L0,100 Z' fill='none' stroke='%232E6DB4' stroke-width='2'/%3E%3C/svg%3E") 30 stretch;
-    border-radius: 8px;
-    padding: 40px;
-    margin: 20px auto;
-    max-width: 900px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    position: relative;
-    text-align: left;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow: hidden;
-}
+        .certificate-container {
+            background: white;
+            border: 15px solid transparent;
+            border-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0 L100,0 L100,100 L0,100 Z' fill='none' stroke='%232E6DB4' stroke-width='2'/%3E%3C/svg%3E") 30 stretch;
+            border-radius: 8px;
+            padding: 40px;
+            margin: 20px auto;
+            max-width: 900px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            text-align: left;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
 
-/* Guilloché Security Background Pattern */
-.certificate-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-        radial-gradient(circle at 25% 25%, rgba(46, 109, 180, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, rgba(46, 109, 180, 0.05) 0%, transparent 50%),
-        repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(46, 109, 180, 0.03) 10px, rgba(46, 109, 180, 0.03) 20px),
-        repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(46, 109, 180, 0.02) 10px, rgba(46, 109, 180, 0.02) 20px);
-    z-index: -1;
-    opacity: 0.6;
-}
+        /* Guilloché Security Background Pattern */
+        .certificate-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(46, 109, 180, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(46, 109, 180, 0.05) 0%, transparent 50%),
+                repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(46, 109, 180, 0.03) 10px, rgba(46, 109, 180, 0.03) 20px),
+                repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(46, 109, 180, 0.02) 10px, rgba(46, 109, 180, 0.02) 20px);
+            z-index: -1;
+            opacity: 0.6;
+        }
 
-.certificate-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 2px solid #f0f0f0;
-}
+        .certificate-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
 
-.My-Computer-Studio-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #2E6DB4;
-}
+        .My-Computer-Studio-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2E6DB4;
+        }
 
-.computer-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #4285F4;
-}
+        .computer-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4285F4;
+        }
 
-.certificate-body {
-    margin: 0 auto;
-    max-width: 800px;
-    position: relative;
-    z-index: 1;
-}
+        .certificate-body {
+            margin: 0 auto;
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
 
-.certificate-title-section {
-    text-align: center;
-    margin-bottom: 40px;
-}
+        .certificate-title-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-.certificate-title {
-    font-size: 1.2rem;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-}
+        .certificate-title {
+            font-size: 1.2rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
 
-.certificate-main-title {
-    font-size: 2.5rem;
-    color: #2E6DB4;
-    margin: 0;
-    font-weight: 300;
-}
+        .certificate-main-title {
+            font-size: 2.5rem;
+            color: #2E6DB4;
+            margin: 0;
+            font-weight: 300;
+        }
 
-.certificate-awarded-to {
-    text-align: center;
-    margin: 40px 0;
-}
+        .certificate-awarded-to {
+            text-align: center;
+            margin: 40px 0;
+        }
 
-.certificate-awarded-to p {
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 10px;
-}
+        .certificate-awarded-to p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
 
-.certificate-name {
-    font-size: 2rem;
-    color: #333;
-    margin: 10px 0;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 2px solid #2E6DB4;
-    display: inline-block;
-    padding-bottom: 5px;
-}
+        .certificate-name {
+            font-size: 2rem;
+            color: #333;
+            margin: 10px 0;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #2E6DB4;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
 
-.certificate-details {
-    text-align: center;
-    margin: 30px 0;
-}
+        .certificate-details {
+            text-align: center;
+            margin: 30px 0;
+        }
 
-.certificate-details p {
-    font-size: 1.1rem;
-    color: #333;
-    line-height: 1.6;
-}
+        .certificate-details p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.6;
+        }
 
-.completion-date {
-    font-weight: bold;
-    color: #2E6DB4;
-    margin-top: 15px;
-}
+        .completion-date {
+            font-weight: bold;
+            color: #2E6DB4;
+            margin-top: 15px;
+        }
 
-.courses-section {
-    margin: 40px 0;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 8px;
-}
+        .courses-section {
+            margin: 40px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
 
-.courses-section h4 {
-    color: #2E6DB4;
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-}
+        .courses-section h4 {
+            color: #2E6DB4;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
 
-.courses-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
+        .courses-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
 
-.course-item {
-    padding: 8px 12px;
-    background: white;
-    border-left: 3px solid #4285F4;
-    font-size: 0.9rem;
-    color: #333;
-}
+        .course-item {
+            padding: 8px 12px;
+            background: white;
+            border-left: 3px solid #4285F4;
+            font-size: 0.9rem;
+            color: #333;
+        }
 
-.certificate-description {
-    margin: 30px 0;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    font-style: italic;
-    color: #555;
-    line-height: 1.6;
-}
+        .certificate-description {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-style: italic;
+            color: #555;
+            line-height: 1.6;
+        }
 
-.signatures-section {
-    margin: 40px 0;
-    text-align: center;
-}
+        .signatures-section {
+            margin: 40px 0;
+            text-align: center;
+        }
 
-.signature {
-    display: inline-block;
-    margin: 0 40px;
-}
+        .signature {
+            display: inline-block;
+            margin: 0 40px;
+        }
 
-.signature-line {
-    width: 200px;
-    height: 1px;
-    background: #333;
-    margin: 0 auto 10px;
-}
+        .signature-line {
+            width: 200px;
+            height: 1px;
+            background: #333;
+            margin: 0 auto 10px;
+        }
 
-.signature-name {
-    font-weight: bold;
-    color: #333;
-    margin: 5px 0;
-}
+        .signature-name {
+            font-weight: bold;
+            color: #333;
+            margin: 5px 0;
+        }
 
-.signature-title {
-    color: #666;
-    font-size: 0.9rem;
-    margin: 0;
-}
+        .signature-title {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+        }
 
-.verification-section {
-    margin: 30px 0;
-    padding: 15px;
-    background: #e8f0fe;
-    border-radius: 5px;
-    text-align: center;
-}
+        .verification-section {
+            margin: 30px 0;
+            padding: 15px;
+            background: #e8f0fe;
+            border-radius: 5px;
+            text-align: center;
+        }
 
-.verification-text {
-    margin: 0;
-    color: #333;
-}
+        .verification-text {
+            margin: 0;
+            color: #333;
+        }
 
-.verification-link {
-    color: #2E6DB4;
-    font-weight: bold;
-    word-break: break-all;
-}
+        .verification-link {
+            color: #2E6DB4;
+            font-weight: bold;
+            word-break: break-all;
+        }
 
-.score-section {
-    text-align: center;
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #f0f0f0;
-}
+        .score-section {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #f0f0f0;
+        }
 
-.score-text {
-    font-size: 1.1rem;
-    color: #333;
-    font-weight: bold;
-}
+        .score-text {
+            font-size: 1.1rem;
+            color: #333;
+            font-weight: bold;
+        }
 
-.certificate-id {
-    font-size: 1.1rem;
-    color: #2E6DB4;
-    font-weight: bold;
-    margin-top: 10px;
-}
+        .certificate-id {
+            font-size: 1.1rem;
+            color: #2E6DB4;
+            font-weight: bold;
+            margin-top: 10px;
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .certificate-container {
-        padding: 20px;
-    }
-    
-    .certificate-main-title {
-        font-size: 2rem;
-    }
-    
-    .certificate-name {
-        font-size: 1.6rem;
-    }
-    
-    .courses-list {
-        grid-template-columns: 1fr;
-    }
-    
-    .signature {
-        margin: 20px 0;
-    }
-}
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .certificate-container {
+                padding: 20px;
+            }
+            
+            .certificate-main-title {
+                font-size: 2rem;
+            }
+            
+            .certificate-name {
+                font-size: 1.6rem;
+            }
+            
+            .courses-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .signature {
+                margin: 20px 0;
+            }
+        }
 
-@media (max-width: 480px) {
-    .certificate-container {
-        padding: 15px;
-    }
-    
-    .certificate-header {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .certificate-main-title {
-        font-size: 1.6rem;
-    }
-    
-    .certificate-name {
-        font-size: 1.3rem;
-    }
-}
+        @media (max-width: 480px) {
+            .certificate-container {
+                padding: 15px;
+            }
+            
+            .certificate-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .certificate-main-title {
+                font-size: 1.6rem;
+            }
+            
+            .certificate-name {
+                font-size: 1.3rem;
+            }
+        }
 
-/* Name Input Screen Styles */
-.name-form {
-    text-align: center;
-    margin-top: 30px;
-}
+        /* Name Input Screen Styles */
+        .name-form {
+            text-align: center;
+            margin-top: 30px;
+        }
 
-.name-form h2 {
-    margin-bottom: 20px;
-    color: var(--dark-blue);
-}
+        .name-form h2 {
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+        }
 
-.name-input {
-    width: 100%;
-    max-width: 400px;
-    padding: 15px;
-    font-size: 1.2rem;
-    border: 2px solid var(--tech-blue);
-    border-radius: 10px;
-    margin-bottom: 20px;
-    text-align: center;
-}
+        .name-input {
+            width: 100%;
+            max-width: 400px;
+            padding: 15px;
+            font-size: 1.2rem;
+            border: 2px solid var(--tech-blue);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
-/* Download Button Styles */
-.download-btn {
-    background-color: var(--certificate-gold);
-    color: #333;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 50px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-}
+        /* Download Button Styles */
+        .download-btn {
+            background-color: var(--certificate-gold);
+            color: #333;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
 
-.download-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    background-color: #ffc400;
-}
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            background-color: #ffc400;
+        }
 
-/* Verification Screen Styles */
-.verification-form {
-    text-align: center;
-    margin: 30px 0;
-}
+        /* Verification Screen Styles */
+        .verification-form {
+            text-align: center;
+            margin: 30px 0;
+        }
 
-.verification-form h2 {
-    margin-bottom: 20px;
-    color: var(--dark-blue);
-}
+        .verification-form h2 {
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+        }
 
-.input-group {
-    margin-bottom: 20px;
-    text-align: left;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-.input-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: var(--dark-blue);
-}
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--dark-blue);
+        }
 
-.input-group input {
-    width: 100%;
-    padding: 12px 15px;
-    border: 2px solid var(--tech-blue);
-    border-radius: 8px;
-    font-size: 1rem;
-    font-family: 'Myanmar Text', sans-serif;
-}
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--tech-blue);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Myanmar Text', sans-serif;
+        }
 
-.input-group input:focus {
-    outline: none;
-    border-color: var(--dark-blue);
-}
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--dark-blue);
+        }
 
-.verify-btn {
-    width: 100%;
-    max-width: 500px;
-    background: linear-gradient(135deg, var(--dark-blue), var(--tech-blue));
-    color: white;
-    border: none;
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: all 0.3s ease;
-}
+        .verify-btn {
+            width: 100%;
+            max-width: 500px;
+            background: linear-gradient(135deg, var(--dark-blue), var(--tech-blue));
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
 
-.verify-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
+        .verify-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
 
-.info-box {
-    background: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
-    border-left: 4px solid var(--dark-blue);
-    text-align: left;
-    margin-top: 20px;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
+        .info-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--dark-blue);
+            text-align: left;
+            margin-top: 20px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-.info-box h3 {
-    color: var(--dark-blue);
-    margin-bottom: 10px;
-}
+        .info-box h3 {
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
 
-.test-accounts {
-    margin-top: 20px;
-    padding: 15px;
-    background: #e8f4fd;
-    border-radius: 8px;
-    text-align: left;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
+        .test-accounts {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f4fd;
+            border-radius: 8px;
+            text-align: left;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-.test-accounts h4 {
-    color: var(--dark-blue);
-    margin-bottom: 10px;
-}
+        .test-accounts h4 {
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
 
-.result-box {
-    border: 3px solid #4CAF50;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    margin: 20px auto;
-    max-width: 500px;
-}
+        .result-box {
+            border: 3px solid #4CAF50;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px auto;
+            max-width: 500px;
+        }
 
-.result-box.invalid {
-    border-color: #F44336;
-}
+        .result-box.invalid {
+            border-color: #F44336;
+        }
 
-.verification-result {
-    background: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 20px;
-    display: inline-block;
-    margin: 10px 0;
-}
+        .verification-result {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 10px 0;
+        }
 
-.verification-result.invalid {
-    background: #F44336;
-}
+        .verification-result.invalid {
+            background: #F44336;
+        }
 
-.result-details {
-    text-align: left;
-    margin: 20px 0;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 8px;
-}
+        .result-details {
+            text-align: left;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
 
-.result-item {
-    display: flex;
-    margin-bottom: 10px;
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-}
+        .result-item {
+            display: flex;
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
 
-.result-label {
-    font-weight: bold;
-    width: 150px;
-    color: #666;
-}
+        .result-label {
+            font-weight: bold;
+            width: 150px;
+            color: #666;
+        }
 
-.result-value {
-    flex: 1;
-}
+        .result-value {
+            flex: 1;
+        }
+
+        /* Email Form Styles */
+        .email-form {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .email-form h3 {
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+        }
+
+        .email-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--tech-blue);
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            font-family: 'Myanmar Text', sans-serif;
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: var(--dark-blue);
+        }
+
+        .email-btn {
+            background: linear-gradient(135deg, var(--dark-blue), var(--tech-blue));
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .email-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .email-status {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .email-status.success {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .email-status.error {
+            background: #F44336;
+            color: white;
+        }
+
+        .email-status.sending {
+            background: #FF9800;
+            color: white;
+        }
    </style>
 </head>
 <body>
@@ -1074,7 +1146,7 @@
                     
                     <!-- Verification -->
                     <div class="verification-section">
-                        <p class="verification-text">Verify this certificate at: <a href="#" class="verification-link" id="verificationLink">https://certificate-verify-system.netlify.app</a></p>
+                        <p class="verification-text">Verify this certificate at: <a href="#" class="verification-link" id="verificationLink">https://mycomputer-studio-certificate-verify.netlify.app</a></p>
                     </div>
                     
                     <!-- Score Display -->
@@ -1088,6 +1160,15 @@
                 <button class="download-btn" id="downloadCertificateBtn">Certificate Download</button>
                 <button class="restart-btn" style="background-color: var(--tech-gray); margin-left: 10px;" id="backToResultsBtn">ရလဒ်များသို့ ပြန်သွားရန်</button>
                 <button class="restart-btn" style="background-color: var(--correct-green); margin-left: 10px;" id="verifyCertificateBtn">လက်မှတ်အတည်ပြုရန်</button>
+            </div>
+
+            <!-- Email Form -->
+            <div class="email-form">
+                <h3>📧 Email ပို့ရန်</h3>
+                <p>သင်၏ Certificate ကို Email ဖြင့် ရယူလိုပါက အောက်တွင် Email လိပ်စာထည့်ပါ</p>
+                <input type="email" class="email-input" id="emailInput" placeholder="သင်၏ Email လိပ်စာ">
+                <button class="email-btn" id="sendEmailBtn">Email ပို့ရန်</button>
+                <div class="email-status hidden" id="emailStatus"></div>
             </div>
         </div>
 
@@ -1146,9 +1227,6 @@
                     <h4>🧪 Test Accounts:</h4>
                     <p><strong>ID:</strong> MCST-2024-00123 | <strong>Name:</strong> ကျော်ထက်အောင်</p>
                     <p><strong>ID:</strong> MCST-2024-00124 | <strong>Name:</strong> နှင်းသဉ္ဇာ</p>
-                    <p><strong>ID:</strong> MCST-2024-00125 | <strong>Name:</strong> အောင်မျိုးဝင်း</p>
-                    <p><strong>ID:</strong> MCST-2024-00126 | <strong>Name:</strong> ခိုင်စုလှိုင်</p>
-                    <p><strong>ID:</strong> MCST-2024-00127 | <strong>Name:</strong> ဇင်မာဦး</p>
                 </div>
                 
                 <div class="info-box">
@@ -1854,7 +1932,7 @@
                 {
                     question: "\"Bluetooth\" ကို အဘယ်အရာအတွက် အသုံးပြုသနည်း? 📱",
                     options: [
-                        "ကွန်ပျူတာကို အင်�တာနက်နှင့် ချိတ်ဆက်ရန်",
+                        "ကွန်ပျူတာကို အင်တာနက်နှင့် ချိတ်ဆက်ရန်",
                         "ကွန်ပျူတာကို ပရင်တာနှင့် ချိတ်ဆက်ရန်",
                         "ကွန်ပျူတာကို အခြားစက်ပစ္စည်းများနှင့် ကြိုး မဲ့ချိတ်ဆက်ရန်",
                         "ကွန်ပျူတာကို ပါဝါထောက်ပံ့ရန်"
@@ -2122,7 +2200,7 @@
                 {
                     question: "\"upgrade\" ဆိုသည်မှာ အဘယ်နည်း? 📈",
                     options: [
-                        "ပိုကောင်းသော ဗားရှင်းသို့ ပြောင်း�လဲခြင်း",
+                        "ပိုကောင်းသော ဗားရှင်းသို့ ပြောင်းလဲခြင်း",
                         "ပိုဆိုးသော ဗားရှင်းသို့ ပြောင်းလဲခြင်း",
                         "ဖိုင်ကို ဖျက်ခြင်း",
                         "ဖိုင်ကို သိမ်းဆည်းခြင်း"
@@ -2190,7 +2268,7 @@
                 {
                     question: "\"proprietary\" software ဆိုသည်မှာ အဘယ်နည်း? 🔒",
                     options: [
-                        "မူရင်းကုဒ်ကို လျှို့ဝှက်ထားသော ဆော့ဖ်ဝဲ",
+                        "မူရင်းကုဒ်ကို လျှို့ဝှက်ထားသော ဆော့ဖ်�ဝဲ",
                         "မူရင်းကုဒ်ကို လွတ်လပ်စွာ ကြည့်ရှု ပြုပြင်နိုင်သော ဆော့ဖ်ဝဲ",
                         "အခမဲ့အသုံးပြုနိုင်သော ဆော့ဖ်ဝဲ",
                         "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် ဆော့ဖ်ဝဲ"
@@ -2276,74 +2354,20 @@
                     emoji: "🗃️"
                 },
                 {
-                    question: "\"AI\" (Artificial Intelligence) ဆိုသည်မှာ အဘယ်နည်း? 🤖",
+                    question: "\"cloud computing\" ဆိုသည်မှာ အဘယ်နည်း? ☁️",
                     options: [
-                        "စက်များကို လူသားကဲ့သို့ တွေးခေါ်ဆင်ခြင်နိုင်စေရန် ပြုလုပ်ထားသော နည်းပညာ",
-                        "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် နည်းပညာ",
-                        "ဖိုင်များကို စီမံခန့်ခွဲရန် အသုံးပြုသည့် နည်းပညာ",
-                        "အင်တာနက်ကို အသုံးပြုရန် အသုံးပြုသည့် နည်းပညာ"
+                        "အင်တာနက်မှတစ်ဆင့် ကွန်ပျူတာဝန်ဆောင်မှုများကို ရယူသုံးစွဲခြင်း",
+                        "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် နည်းလမ်း",
+                        "ဖိုင်များကို စီမံခန့်ခွဲရန် အသုံးပြုသည့် နည်းလမ်း",
+                        "အင်တာနက်ကို အသုံးပြုရန် အသုံးပြုသည့် နည်းလမ်း"
                     ],
                     correct: 0,
-                    emoji: "🤖"
+                    emoji: "☁️"
                 }
             ]
         };
 
-        // Part feedback suggestions
-        const partFeedback = {
-            1: [
-                "ကွန်ပျူတာ၏ အခြေခံ အစိတ်အပိုင်းများကို ပြန်လည်လေ့လာပါ",
-                "Hardware နှင့် Software ကွာခြားချက်ကို နားလည်အောင် လေ့လာပါ",
-                "ကွန်ပျူတာ၏ အဓိက လုပ်ဆောင်ချက်များကို လေ့လာပါ"
-            ],
-            2: [
-                "Operating System ၏ အခန်းကဏ္ဍကို နားလည်အောင် လေ့လာပါ",
-                "အင်တာနက် အခြေခံများကို ပြန်လည်လေ့လာပါ",
-                "ကွန်ပျူတာ လုံခြုံရေး အခြေခံများကို လေ့လာပါ"
-            ],
-            3: [
-                "ကွန်ပျူတာ ပစ္စည်းများ၏ အလုပ်လုပ်ပုံကို နားလည်အောင် လေ့လာပါ",
-                "ဒေတာ သိမ်းဆည်းခြင်း နည်းလမ်းများကို လေ့လာပါ",
-                "ကွန်ပျူတာ ကွန်ရက်များအကြောင်း ပြန်လည်လေ့လာပါ"
-            ],
-            4: [
-                "ကွန်ပျူတာ အခြေခံ သဘောတရားများကို ပြန်လည်လေ့လာပါ",
-                "Software နှင့် Hardware ဆက်စပ်မှုကို နားလည်အောင် လေ့လာပါ",
-                "ကွန်ပျူတာ အသုံးပြုမှုဆိုင်ရာ အခြေခံများကို လေ့လာပါ"
-            ],
-            5: [
-                "ကွန်ပျူတာ အစိတ်အပိုင်းများ၏ လုပ်ဆောင်ချက်များကို လေ့လာပါ",
-                "Input နှင့် Output ကိရိယာများကို ခွဲခြားသိရှိအောင် လေ့လာပါ",
-                "Desktop ပတ်ဝန်းကျင် အသုံးပြုနည်းကို လေ့လာပါ"
-            ],
-            6: [
-                "ဖိုင်စီမံခန့်ခွဲမှုဆိုင်ရာ အခြေခံများကို လေ့လာပါ",
-                "ကွန်ပျူတာ အသုံးပြုမှုဆိုင်ရာ အခြေခံအမိန့်များကို ပြန်လည်လေ့လာပါ",
-                "Mouse နှင့် Keyboard အသုံးပြုနည်းများကို လေ့လာပါ"
-            ],
-            7: [
-                "အင်တာနက်ဆက်သွယ်မှုဆိုင်ရာ အခြေခံများကို လေ့လာပါ",
-                "Browser အသုံးပြုနည်းများကို ပြန်လည်လေ့လာပါ",
-                "Online လုံခြုံရေးဆိုင်ရာ အခြေခံများကို လေ့လာပါ"
-            ],
-            8: [
-                "ဆိုက်ဘာလုံခြုံရေးဆိုင်ရာ အခြေခံများကို လေ့လာပါ",
-                "ဗိုင်းရပ်စ်နှင့် malware များအကြောင်း ပြန်လည်လေ့လာပါ",
-                "Password နှင့် authentication ဆိုင်ရာ အကောင်းဆုံးအလေ့အကျင့်များကို လေ့လာပါ"
-            ],
-            9: [
-                "ကွန်ပျူတာ ပြုပြင်ထိန်းသိမ်းမှုဆိုင်ရာ အခြေခံများကို လေ့လာပါ",
-                "Driver နှင့် software update ဆိုင်ရာ အချက်အလက်များကို လေ့လာပါ",
-                "ကွန်ပျူတာ ပြဿနာဖြေရှင်းနည်းများကို လေ့လာပါ"
-            ],
-            10: [
-                "ပရိုဂရမ်ရေးသားခြင်းဆိုင်ရာ အခြေခံများကို လေ့လာပါ",
-                "Algorithm နှင့် data structure အခြေခံများကို ပြန်လည်လေ့လာပါ",
-                "AI နှင့် နည်းပညာဆိုင်ရာ အဆင့်မြင့်ခေါင်းစဉ်များကို လေ့လာပါ"
-            ]
-        };
-
-        // Sample certificate database for verification - UPDATED WITH MORE ENTRIES
+        // Certificate Database
         const certificateDatabase = {
             "MCST-2024-00123": {
                 name: "ကျော်ထက်အောင်",
@@ -2356,151 +2380,161 @@
                 date: "မတ်လ ၁၆၊ ၂၀၂၄",
                 score: "၈၈%",
                 part: "၁၀"
-            },
-            "MCST-2024-00125": {
-                name: "အောင်မျိုးဝင်း",
-                date: "မတ်လ ၁၇၊ ၂၀၂၄",
-                score: "၉၅%",
-                part: "၁၀"
-            },
-            "MCST-2024-00126": {
-                name: "ခိုင်စုလှိုင်",
-                date: "မတ်လ ၁၈၊ ၂၀၂၄",
-                score: "၈၅%",
-                part: "၁၀"
-            },
-            "MCST-2024-00127": {
-                name: "ဇင်မာဦး",
-                date: "မတ်လ ၁၉၊ ၂၀၂၄",
-                score: "၉၀%",
-                part: "၁၀"
             }
         };
 
-        // DOM elements
-        const nameScreen = document.getElementById('nameScreen');
-        const startScreen = document.getElementById('startScreen');
-        const quizScreen = document.getElementById('quizScreen');
-        const resultsScreen = document.getElementById('resultsScreen');
-        const certificateScreen = document.getElementById('certificateScreen');
-        const failedScreen = document.getElementById('failedScreen');
-        const verificationScreen = document.getElementById('verificationScreen');
-        
-        const userNameInput = document.getElementById('userName');
-        const startBtn = document.getElementById('startBtn');
-        const partSelector = document.getElementById('partSelector');
-        const userWelcome = document.getElementById('userWelcome');
-        const partDisplay = document.getElementById('partDisplay');
-        const partCompletion = document.getElementById('partCompletion');
-        const techProgress = document.getElementById('techProgress');
-        const progressText = document.getElementById('progressText');
-        const currentQuestion = document.getElementById('currentQuestion');
-        const questionText = document.getElementById('questionText');
-        const optionsContainer = document.getElementById('optionsContainer');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const submitBtn = document.getElementById('submitBtn');
-        const scoreDisplay = document.getElementById('scoreDisplay');
-        const restartBtn = document.getElementById('restartBtn');
-        const viewCertificateBtn = document.getElementById('viewCertificateBtn');
-        const retryBtn = document.getElementById('retryBtn');
-        const backToHomeBtn = document.getElementById('backToHomeBtn');
-        const downloadCertificateBtn = document.getElementById('downloadCertificateBtn');
-        const backToResultsBtn = document.getElementById('backToResultsBtn');
-        const verifyCertificateBtn = document.getElementById('verifyCertificateBtn');
-        const goToVerificationBtn = document.getElementById('goToVerificationBtn');
-        const backToStartFromVerificationBtn = document.getElementById('backToStartFromVerificationBtn');
-        const verificationForm = document.getElementById('verificationForm');
-        const certificateName = document.getElementById('certificateName');
-        const certificateDate = document.getElementById('certificateDate');
-        const certificateScore = document.getElementById('certificateScore');
-        const certificateIdDisplay = document.getElementById('certificateIdDisplay');
-        const verificationLink = document.getElementById('verificationLink');
-        const failedPart = document.getElementById('failedPart');
-        const feedbackList = document.getElementById('feedbackList');
-        const celebration = document.getElementById('celebration');
-        const floatingTech = document.getElementById('floatingTech');
-
         // Quiz state
-        let currentState = {
-            userName: '',
+        const state = {
+            currentScreen: "nameScreen",
             currentPart: 1,
-            currentQuestionIndex: 0,
+            currentQuestion: 0,
             userAnswers: {},
-            partScores: {},
-            partStatus: {} // 'locked', 'failed', 'passed'
+            partStatus: {},
+            userName: "",
+            certificateId: "",
+            certificateGenerated: false
         };
 
-        // Initialize part status
-        for (let i = 1; i <= 10; i++) {
-            currentState.partStatus[i] = i === 1 ? 'current' : 'locked';
-            currentState.userAnswers[i] = [];
-            currentState.partScores[i] = 0;
+        // DOM elements
+        const screens = {
+            nameScreen: document.getElementById('nameScreen'),
+            startScreen: document.getElementById('startScreen'),
+            quizScreen: document.getElementById('quizScreen'),
+            resultsScreen: document.getElementById('resultsScreen'),
+            certificateScreen: document.getElementById('certificateScreen'),
+            failedScreen: document.getElementById('failedScreen'),
+            verificationScreen: document.getElementById('verificationScreen')
+        };
+
+        // Initialize the app
+        function init() {
+            createFloatingTechElements();
+            setupEventListeners();
+            loadStateFromStorage();
+            showScreen(state.currentScreen);
         }
 
-        // Initialize floating tech elements
-        function initFloatingTech() {
-            const techIcons = ['💻', '🖥️', '⌨️', '🖱️', '💾', '💿', '📱', '🌐', '🔒', '🔧', '📡', '⚡'];
+        // Create floating tech elements for background
+        function createFloatingTechElements() {
+            const floatingTech = document.getElementById('floatingTech');
+            const techEmojis = ['💻', '🖥️', '⌨️', '🖱️', '💾', '💿', '📱', '🌐', '🔒', '🔧'];
+            
             for (let i = 0; i < 20; i++) {
                 const techItem = document.createElement('div');
                 techItem.className = 'tech-item';
-                techItem.textContent = techIcons[Math.floor(Math.random() * techIcons.length)];
+                techItem.textContent = techEmojis[Math.floor(Math.random() * techEmojis.length)];
                 techItem.style.left = `${Math.random() * 100}%`;
                 techItem.style.top = `${Math.random() * 100}%`;
-                techItem.style.animationDelay = `${Math.random() * 15}s`;
+                techItem.style.animationDelay = `${Math.random() * 10}s`;
                 floatingTech.appendChild(techItem);
             }
         }
 
-        // Create celebration animation
-        function createCelebration() {
-            const techIcons = ['💻', '🖥️', '⌨️', '🖱️', '💾', '💿', '📱', '🌐', '🔒', '🔧', '📡', '⚡'];
-            celebration.innerHTML = '';
-            for (let i = 0; i < 50; i++) {
-                const techCeleb = document.createElement('div');
-                techCeleb.className = 'tech-celeb';
-                techCeleb.textContent = techIcons[Math.floor(Math.random() * techIcons.length)];
-                techCeleb.style.left = `${Math.random() * 100}%`;
-                techCeleb.style.animationDelay = `${Math.random() * 5}s`;
-                celebration.appendChild(techCeleb);
-            }
+        // Setup event listeners
+        function setupEventListeners() {
+            // Name screen
+            document.getElementById('startBtn').addEventListener('click', startQuiz);
+            
+            // Start screen
+            document.getElementById('goToVerificationBtn').addEventListener('click', () => {
+                showScreen('verificationScreen');
+            });
+            
+            // Quiz screen
+            document.getElementById('prevBtn').addEventListener('click', prevQuestion);
+            document.getElementById('nextBtn').addEventListener('click', nextQuestion);
+            document.getElementById('submitBtn').addEventListener('click', submitQuiz);
+            
+            // Results screen
+            document.getElementById('restartBtn').addEventListener('click', restartQuiz);
+            document.getElementById('viewCertificateBtn').addEventListener('click', viewCertificate);
+            
+            // Certificate screen
+            document.getElementById('downloadCertificateBtn').addEventListener('click', downloadCertificate);
+            document.getElementById('backToResultsBtn').addEventListener('click', () => {
+                showScreen('resultsScreen');
+            });
+            document.getElementById('verifyCertificateBtn').addEventListener('click', () => {
+                showScreen('verificationScreen');
+            });
+            document.getElementById('sendEmailBtn').addEventListener('click', sendCertificateEmail);
+            
+            // Failed screen
+            document.getElementById('retryBtn').addEventListener('click', retryPart);
+            document.getElementById('backToHomeBtn').addEventListener('click', () => {
+                showScreen('startScreen');
+            });
+            
+            // Verification screen
+            document.getElementById('verificationForm').addEventListener('submit', verifyCertificate);
+            document.getElementById('backToStartFromVerificationBtn').addEventListener('click', () => {
+                showScreen('startScreen');
+            });
+            
+            // Name input
+            document.getElementById('userName').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    startQuiz();
+                }
+            });
         }
 
-        // Show screen function
+        // Show a specific screen
         function showScreen(screen) {
-            const screens = [nameScreen, startScreen, quizScreen, resultsScreen, certificateScreen, failedScreen, verificationScreen];
-            screens.forEach(s => s.classList.add('hidden'));
-            screen.classList.remove('hidden');
-        }
-
-        // Start quiz
-        startBtn.addEventListener('click', () => {
-            if (userNameInput.value.trim() === '') {
-                alert('ကျေးဇူးပြု၍ သင်၏ အမည်ကို ထည့်သွင်းပါ');
-                return;
+            // Hide all screens
+            Object.values(screens).forEach(s => {
+                s.classList.add('hidden');
+            });
+            
+            // Show the requested screen
+            screens[screen].classList.remove('hidden');
+            state.currentScreen = screen;
+            
+            // Initialize screen-specific content
+            switch(screen) {
+                case 'startScreen':
+                    initializeStartScreen();
+                    break;
+                case 'quizScreen':
+                    initializeQuizScreen();
+                    break;
+                case 'resultsScreen':
+                    initializeResultsScreen();
+                    break;
+                case 'certificateScreen':
+                    initializeCertificateScreen();
+                    break;
+                case 'failedScreen':
+                    initializeFailedScreen();
+                    break;
+                case 'verificationScreen':
+                    initializeVerificationScreen();
+                    break;
             }
             
-            currentState.userName = userNameInput.value.trim();
-            userWelcome.textContent = `${currentState.userName} မင်္ဂလာပါ! စမ်းသပ်မှုအပိုင်းတစ်ခုကို ရွေးချယ်ပါ!`;
-            initPartSelector();
-            showScreen(startScreen);
-        });
+            saveStateToStorage();
+        }
 
-        // Initialize part selector
-        function initPartSelector() {
+        // Initialize start screen
+        function initializeStartScreen() {
+            const partSelector = document.getElementById('partSelector');
             partSelector.innerHTML = '';
+            
+            // Create part buttons
             for (let i = 1; i <= 10; i++) {
                 const partBtn = document.createElement('button');
                 partBtn.className = 'part-btn';
                 partBtn.textContent = `အပိုင်း ${i}`;
+                partBtn.dataset.part = i;
                 
-                if (currentState.partStatus[i] === 'locked') {
+                // Set button status
+                if (i === 1 || state.partStatus[i-1] === 'passed') {
+                    partBtn.classList.add('active');
+                } else if (state.partStatus[i-1] === 'failed') {
+                    partBtn.classList.add('failed');
+                } else {
                     partBtn.classList.add('locked');
                     partBtn.disabled = true;
-                } else if (currentState.partStatus[i] === 'failed') {
-                    partBtn.classList.add('failed');
-                } else if (currentState.partStatus[i] === 'current') {
-                    partBtn.classList.add('active');
                 }
                 
                 partBtn.addEventListener('click', () => {
@@ -2509,110 +2543,83 @@
                 
                 partSelector.appendChild(partBtn);
             }
+            
+            // Update welcome message
+            document.getElementById('userWelcome').textContent = 
+                `${state.userName} မင်္ဂလာပါ! စမ်းသပ်မှုအပိုင်းတစ်ခုကို ရွေးချယ်ပါ!`;
         }
 
         // Start a specific part
-        function startPart(partNumber) {
-            currentState.currentPart = partNumber;
-            currentState.currentQuestionIndex = 0;
-            showScreen(quizScreen);
-            loadQuestion();
-            updateProgress();
+        function startPart(part) {
+            state.currentPart = part;
+            state.currentQuestion = 0;
+            state.userAnswers[part] = [];
+            showScreen('quizScreen');
         }
 
-        // Load question
-        function loadQuestion() {
-            const part = currentState.currentPart;
-            const questionIndex = currentState.currentQuestionIndex;
-            const question = quizData[part][questionIndex];
+        // Initialize quiz screen
+        function initializeQuizScreen() {
+            const part = state.currentPart;
+            const questions = quizData[part];
+            const currentQuestion = questions[state.currentQuestion];
             
-            partDisplay.textContent = `အပိုင်း: ${part}`;
-            currentQuestion.textContent = questionIndex + 1;
-            questionText.textContent = question.question;
+            // Update part display
+            document.getElementById('partDisplay').textContent = `အပိုင်း: ${part}`;
             
-            // Update part completion dots
-            updatePartCompletion();
+            // Update progress text
+            document.getElementById('progressText').textContent = 
+                `မေးခွန်း ${state.currentQuestion + 1}/${questions.length}`;
             
-            // Clear options
+            // Update tech progress emoji
+            document.getElementById('techProgress').textContent = currentQuestion.emoji;
+            
+            // Update question number
+            document.getElementById('currentQuestion').textContent = state.currentQuestion + 1;
+            
+            // Update question text
+            document.getElementById('questionText').textContent = currentQuestion.question;
+            
+            // Update options
+            const optionsContainer = document.getElementById('optionsContainer');
             optionsContainer.innerHTML = '';
             
-            // Add options
-            question.options.forEach((option, index) => {
+            currentQuestion.options.forEach((option, index) => {
                 const optionElement = document.createElement('div');
                 optionElement.className = 'option';
-                
-                // Check if this option was previously selected
-                if (currentState.userAnswers[part][questionIndex] === index) {
+                if (state.userAnswers[part] && state.userAnswers[part][state.currentQuestion] === index) {
                     optionElement.classList.add('selected');
                 }
-                
                 optionElement.innerHTML = `
-                    <span class="option-emoji">${String.fromCharCode(65 + index)}</span>
+                    <span class="option-emoji">${['🅰', '🅱', '🅲', '🅳'][index]}</span>
                     <span class="option-text">${option}</span>
                 `;
-                
-                optionElement.addEventListener('click', () => {
-                    selectOption(index);
-                });
-                
+                optionElement.addEventListener('click', () => selectOption(index));
                 optionsContainer.appendChild(optionElement);
             });
             
             // Update navigation buttons
-            prevBtn.disabled = questionIndex === 0;
-            nextBtn.classList.toggle('hidden', questionIndex === quizData[part].length - 1);
-            submitBtn.classList.toggle('hidden', questionIndex !== quizData[part].length - 1);
-        }
-
-        // Select option
-        function selectOption(optionIndex) {
-            const part = currentState.currentPart;
-            const questionIndex = currentState.currentQuestionIndex;
+            document.getElementById('prevBtn').disabled = state.currentQuestion === 0;
+            document.getElementById('nextBtn').classList.toggle('hidden', state.currentQuestion === questions.length - 1);
+            document.getElementById('submitBtn').classList.toggle('hidden', state.currentQuestion !== questions.length - 1);
             
-            // Clear previous selection
-            const options = document.querySelectorAll('.option');
-            options.forEach(option => option.classList.remove('selected'));
-            
-            // Set new selection
-            options[optionIndex].classList.add('selected');
-            
-            // Save answer
-            currentState.userAnswers[part][questionIndex] = optionIndex;
-        }
-
-        // Update progress
-        function updateProgress() {
-            const part = currentState.currentPart;
-            const questionIndex = currentState.currentQuestionIndex;
-            const totalQuestions = quizData[part].length;
-            
-            progressText.textContent = `မေးခွန်း ${questionIndex + 1}/${totalQuestions}`;
-            
-            // Update tech progress emoji
-            const progressPercent = ((questionIndex + 1) / totalQuestions) * 100;
-            if (progressPercent < 25) {
-                techProgress.textContent = '💻';
-            } else if (progressPercent < 50) {
-                techProgress.textContent = '🖥️';
-            } else if (progressPercent < 75) {
-                techProgress.textContent = '⌨️';
-            } else {
-                techProgress.textContent = '🌐';
-            }
+            // Update part completion dots
+            updatePartCompletion();
         }
 
         // Update part completion dots
         function updatePartCompletion() {
+            const partCompletion = document.getElementById('partCompletion');
             partCompletion.innerHTML = '';
-            const totalQuestions = quizData[currentState.currentPart].length;
             
-            for (let i = 0; i < totalQuestions; i++) {
+            const questions = quizData[state.currentPart];
+            
+            for (let i = 0; i < questions.length; i++) {
                 const dot = document.createElement('div');
                 dot.className = 'part-dot';
                 
-                if (i < currentState.currentQuestionIndex) {
+                if (i < state.currentQuestion) {
                     dot.classList.add('completed');
-                } else if (i === currentState.currentQuestionIndex) {
+                } else if (i === state.currentQuestion) {
                     dot.classList.add('current');
                 }
                 
@@ -2620,241 +2627,342 @@
             }
         }
 
-        // Navigation
-        prevBtn.addEventListener('click', () => {
-            if (currentState.currentQuestionIndex > 0) {
-                currentState.currentQuestionIndex--;
-                loadQuestion();
-                updateProgress();
+        // Select an option
+        function selectOption(optionIndex) {
+            const part = state.currentPart;
+            const questions = quizData[part];
+            
+            // Clear previous selection
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => option.classList.remove('selected'));
+            
+            // Select new option
+            options[optionIndex].classList.add('selected');
+            
+            // Save answer
+            if (!state.userAnswers[part]) {
+                state.userAnswers[part] = [];
             }
-        });
+            state.userAnswers[part][state.currentQuestion] = optionIndex;
+            
+            saveStateToStorage();
+        }
 
-        nextBtn.addEventListener('click', () => {
-            if (currentState.currentQuestionIndex < quizData[currentState.currentPart].length - 1) {
-                currentState.currentQuestionIndex++;
-                loadQuestion();
-                updateProgress();
+        // Go to previous question
+        function prevQuestion() {
+            if (state.currentQuestion > 0) {
+                state.currentQuestion--;
+                initializeQuizScreen();
             }
-        });
+        }
 
-        // Submit part
-        submitBtn.addEventListener('click', () => {
-            submitPart();
-        });
+        // Go to next question
+        function nextQuestion() {
+            const part = state.currentPart;
+            const questions = quizData[part];
+            
+            if (state.currentQuestion < questions.length - 1) {
+                state.currentQuestion++;
+                initializeQuizScreen();
+            }
+        }
 
-        // Submit part and calculate score
-        function submitPart() {
-            const part = currentState.currentPart;
-            let score = 0;
+        // Submit quiz
+        function submitQuiz() {
+            const part = state.currentPart;
+            const questions = quizData[part];
+            const userAnswers = state.userAnswers[part] || [];
             
             // Calculate score
-            quizData[part].forEach((question, index) => {
-                if (currentState.userAnswers[part][index] === question.correct) {
-                    score++;
+            let correctCount = 0;
+            questions.forEach((question, index) => {
+                if (userAnswers[index] === question.correct) {
+                    correctCount++;
                 }
             });
             
-            // Calculate percentage
-            const percentage = (score / quizData[part].length) * 100;
-            currentState.partScores[part] = percentage;
+            const score = (correctCount / questions.length) * 100;
             
-            // Check if passed (80% or higher)
-            if (percentage >= 80) {
-                currentState.partStatus[part] = 'passed';
+            // Update part status
+            if (score >= 80) {
+                state.partStatus[part] = 'passed';
                 
                 // Unlock next part if exists
                 if (part < 10) {
-                    currentState.partStatus[part + 1] = 'current';
+                    state.partStatus[part] = 'passed';
                 }
                 
-                // Check if all parts completed
-                const allPartsCompleted = Object.values(currentState.partStatus).every(status => 
-                    status === 'passed' || status === 'failed'
-                );
+                // Check if all parts are completed
+                const allPartsCompleted = Object.keys(state.partStatus).length === 10 && 
+                                         Object.values(state.partStatus).every(status => status === 'passed');
                 
                 if (allPartsCompleted) {
-                    showResults();
+                    generateCertificate();
+                    showScreen('resultsScreen');
                 } else {
-                    initPartSelector();
-                    showScreen(startScreen);
+                    showScreen('startScreen');
                 }
             } else {
-                currentState.partStatus[part] = 'failed';
-                showFailedScreen(part);
+                state.partStatus[part] = 'failed';
+                showScreen('failedScreen');
             }
+            
+            saveStateToStorage();
         }
 
-        // Show failed screen
-        function showFailedScreen(part) {
-            failedPart.textContent = part;
+        // Initialize results screen
+        function initializeResultsScreen() {
+            // Calculate overall score
+            let totalQuestions = 0;
+            let totalCorrect = 0;
             
-            // Populate feedback
-            feedbackList.innerHTML = '';
-            partFeedback[part].forEach(feedback => {
-                const li = document.createElement('li');
-                li.textContent = feedback;
-                feedbackList.appendChild(li);
+            Object.keys(state.partStatus).forEach(part => {
+                if (state.partStatus[part] === 'passed') {
+                    const questions = quizData[part];
+                    const userAnswers = state.userAnswers[part] || [];
+                    
+                    totalQuestions += questions.length;
+                    
+                    questions.forEach((question, index) => {
+                        if (userAnswers[index] === question.correct) {
+                            totalCorrect++;
+                        }
+                    });
+                }
             });
             
-            showScreen(failedScreen);
+            const overallPercentage = totalQuestions > 0 ? (totalCorrect / totalQuestions) * 100 : 0;
+            
+            // Update score display
+            document.getElementById('scoreDisplay').textContent = 
+                `သင့်ရမှတ်: ${Math.round(overallPercentage)}%`;
+            
+            // Start celebration
+            startCelebration();
         }
 
-        // Show results
-        function showResults() {
-            // Calculate total score
-            let totalScore = 0;
-            let totalPossible = 0;
+        // Start celebration animation
+        function startCelebration() {
+            const celebration = document.getElementById('celebration');
+            celebration.innerHTML = '';
             
-            for (let i = 1; i <= 10; i++) {
-                if (currentState.partStatus[i] === 'passed') {
-                    totalScore += currentState.partScores[i];
-                    totalPossible += 100;
-                }
+            const techEmojis = ['💻', '🖥️', '⌨️', '🖱️', '💾', '💿', '📱', '🌐', '🔒', '🔧'];
+            
+            for (let i = 0; i < 50; i++) {
+                const techCeleb = document.createElement('div');
+                techCeleb.className = 'tech-celeb';
+                techCeleb.textContent = techEmojis[Math.floor(Math.random() * techEmojis.length)];
+                techCeleb.style.left = `${Math.random() * 100}%`;
+                techCeleb.style.animationDelay = `${Math.random() * 5}s`;
+                celebration.appendChild(techCeleb);
             }
+        }
+
+        // Initialize failed screen
+        function initializeFailedScreen() {
+            const part = state.currentPart;
+            const questions = quizData[part];
+            const userAnswers = state.userAnswers[part] || [];
             
-            const overallPercentage = totalPossible > 0 ? (totalScore / totalPossible) * 100 : 0;
-            scoreDisplay.textContent = `သင့်ရမှတ်: ${Math.round(overallPercentage)}%`;
+            // Calculate score
+            let correctCount = 0;
+            questions.forEach((question, index) => {
+                if (userAnswers[index] === question.correct) {
+                    correctCount++;
+                }
+            });
             
-            createCelebration();
-            showScreen(resultsScreen);
+            const score = (correctCount / questions.length) * 100;
+            
+            // Update failed part display
+            document.getElementById('failedPart').textContent = part;
+            
+            // Generate feedback
+            const feedbackList = document.getElementById('feedbackList');
+            feedbackList.innerHTML = '';
+            
+            const feedbackItems = [
+                "ဤအပိုင်းအတွက် သင်ခန်းစာများကို ပြန်လည်လေ့လာပါ",
+                "မေးခွန်းများကို ဂရုတစိုက်ဖတ်ရှုပါ",
+                "အချိန်ယူ၍ စဉ်းစားပါ",
+                "မသေချာသော အကြောင်းအရာများကို ရှာဖွေလေ့လာပါ"
+            ];
+            
+            feedbackItems.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                feedbackList.appendChild(li);
+            });
+        }
+
+        // Retry part
+        function retryPart() {
+            startPart(state.currentPart);
         }
 
         // Restart quiz
-        restartBtn.addEventListener('click', () => {
-            // Reset state
-            currentState = {
-                userName: currentState.userName,
-                currentPart: 1,
-                currentQuestionIndex: 0,
-                userAnswers: {},
-                partScores: {},
-                partStatus: {}
-            };
-            
-            // Initialize part status
-            for (let i = 1; i <= 10; i++) {
-                currentState.partStatus[i] = i === 1 ? 'current' : 'locked';
-                currentState.userAnswers[i] = [];
-                currentState.partScores[i] = 0;
-            }
-            
-            initPartSelector();
-            showScreen(startScreen);
-        });
-
-        // View certificate
-        viewCertificateBtn.addEventListener('click', () => {
-            showCertificate();
-        });
-
-        // Show certificate - UPDATED TO AUTO-SAVE TO DATABASE
-        function showCertificate() {
-            // Calculate total score for certificate
-            let totalScore = 0;
-            let totalPossible = 0;
-            
-            for (let i = 1; i <= 10; i++) {
-                if (currentState.partStatus[i] === 'passed') {
-                    totalScore += currentState.partScores[i];
-                    totalPossible += 100;
-                }
-            }
-            
-            const overallPercentage = totalPossible > 0 ? (totalScore / totalPossible) * 100 : 0;
-            
-            // Set certificate details
-            certificateName.textContent = currentState.userName;
-            
-            // Format date in Myanmar
-            const now = new Date();
-            const months = [
-                "ဇန်နဝါရီ", "ဖေဖော်ဝါရီ", "မတ်", "ဧပြီ", "မေ", "ဇွန်",
-                "ဇူလိုင်", "ဩဂုတ်", "စက်တင်ဘာ", "အောက်တိုဘာ", "နိုဝင်ဘာ", "ဒီဇင်ဘာ"
-            ];
-            const myanmarDate = `${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
-            certificateDate.textContent = myanmarDate;
-            
-            certificateScore.textContent = `${Math.round(overallPercentage)}%`;
-            
-            // Generate certificate ID
-            const certId = `MCST-${new Date().getFullYear()}-${Math.floor(10000 + Math.random() * 90000)}`;
-            certificateIdDisplay.textContent = certId;
-            
-            // Set verification link - UPDATED URL
-            const verificationUrl = `https://mycomputer-studio-certificate-verify.netlify.app/?id=${certId}`;
-            verificationLink.textContent = verificationUrl;
-            verificationLink.href = verificationUrl;
-            
-            // AUTO-SAVE TO DATABASE - Add the new certificate to the database
-            certificateDatabase[certId] = {
-                name: currentState.userName,
-                date: myanmarDate,
-                score: `${Math.round(overallPercentage)}%`,
-                part: "၁၀"
-            };
-            
-            console.log("Certificate saved to database:", certId, certificateDatabase[certId]);
-            
-            showScreen(certificateScreen);
+        function restartQuiz() {
+            state.currentPart = 1;
+            state.currentQuestion = 0;
+            state.userAnswers = {};
+            state.partStatus = {};
+            showScreen('startScreen');
         }
 
-        // Download certificate - FIXED FUNCTION
-        downloadCertificateBtn.addEventListener('click', () => {
+        // Generate certificate
+        function generateCertificate() {
+            if (state.certificateGenerated) return;
+            
+            // Calculate overall score
+            let totalQuestions = 0;
+            let totalCorrect = 0;
+            
+            Object.keys(state.partStatus).forEach(part => {
+                if (state.partStatus[part] === 'passed') {
+                    const questions = quizData[part];
+                    const userAnswers = state.userAnswers[part] || [];
+                    
+                    totalQuestions += questions.length;
+                    
+                    questions.forEach((question, index) => {
+                        if (userAnswers[index] === question.correct) {
+                            totalCorrect++;
+                        }
+                    });
+                }
+            });
+            
+            const overallPercentage = totalQuestions > 0 ? (totalCorrect / totalQuestions) * 100 : 0;
+            
+            // Generate certificate ID
+            const now = new Date();
+            const certificateId = `MCST-${now.getFullYear()}-${Math.floor(10000 + Math.random() * 90000)}`;
+            state.certificateId = certificateId;
+            
+            // Add to certificate database
+            certificateDatabase[certificateId] = {
+                name: state.userName,
+                date: now.toLocaleDateString('my-MM', { year: 'numeric', month: 'long', day: 'numeric' }),
+                score: `${Math.round(overallPercentage)}%`,
+                part: '၁၀'
+            };
+            
+            state.certificateGenerated = true;
+            saveStateToStorage();
+        }
+
+        // View certificate
+        function viewCertificate() {
+            if (!state.certificateGenerated) {
+                generateCertificate();
+            }
+            showScreen('certificateScreen');
+        }
+
+        // Initialize certificate screen
+        function initializeCertificateScreen() {
+            // Calculate overall score
+            let totalQuestions = 0;
+            let totalCorrect = 0;
+            
+            Object.keys(state.partStatus).forEach(part => {
+                if (state.partStatus[part] === 'passed') {
+                    const questions = quizData[part];
+                    const userAnswers = state.userAnswers[part] || [];
+                    
+                    totalQuestions += questions.length;
+                    
+                    questions.forEach((question, index) => {
+                        if (userAnswers[index] === question.correct) {
+                            totalCorrect++;
+                        }
+                    });
+                }
+            });
+            
+            const overallPercentage = totalQuestions > 0 ? (totalCorrect / totalQuestions) * 100 : 0;
+            
+            // Update certificate content
+            document.getElementById('certificateName').textContent = state.userName;
+            document.getElementById('certificateDate').textContent = 
+                new Date().toLocaleDateString('my-MM', { year: 'numeric', month: 'long', day: 'numeric' });
+            document.getElementById('certificateScore').textContent = `${Math.round(overallPercentage)}%`;
+            document.getElementById('certificateIdDisplay').textContent = state.certificateId;
+            
+            // Update verification link
+            document.getElementById('verificationLink').href = 
+                `https://mycomputer-studio-certificate-verify.netlify.app/?id=${state.certificateId}`;
+            document.getElementById('verificationLink').textContent = 
+                `https://mycomputer-studio-certificate-verify.netlify.app/?id=${state.certificateId}`;
+        }
+
+        // Download certificate as PDF
+        function downloadCertificate() {
             const certificateElement = document.getElementById('certificateContent');
             
-            // Use html2canvas and jsPDF to generate and download PDF
+            // Use html2canvas to capture the certificate as an image
             html2canvas(certificateElement, {
                 scale: 2,
                 useCORS: true,
                 logging: false,
-                backgroundColor: '#FFFFFF'
+                backgroundColor: '#ffffff'
             }).then(canvas => {
                 const imgData = canvas.toDataURL('image/png');
+                
+                // Use jsPDF to create a PDF
+                const { jsPDF } = window.jspdf;
                 const pdf = new jsPDF('l', 'mm', 'a4');
                 const imgWidth = 297; // A4 width in mm
-                const imgHeight = canvas.height * imgWidth / canvas.width;
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
                 
                 pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-                pdf.save(`MyComputerStudio_Certificate_${currentState.userName}.pdf`);
-            }).catch(error => {
-                console.error('Error generating PDF:', error);
-                alert('Certificate download failed. Please try again.');
+                pdf.save(`MyComputerStudio_Certificate_${state.certificateId}.pdf`);
             });
-        });
+        }
 
-        // Back to results from certificate
-        backToResultsBtn.addEventListener('click', () => {
-            showScreen(resultsScreen);
-        });
+        // Send certificate via email
+        function sendCertificateEmail() {
+            const emailInput = document.getElementById('emailInput');
+            const emailStatus = document.getElementById('emailStatus');
+            const email = emailInput.value.trim();
+            
+            if (!email) {
+                emailStatus.textContent = 'Email လိပ်စာထည့်ပါ';
+                emailStatus.className = 'email-status error';
+                emailStatus.classList.remove('hidden');
+                return;
+            }
+            
+            // Show sending status
+            emailStatus.textContent = 'Email ပို့နေသည်...';
+            emailStatus.className = 'email-status sending';
+            emailStatus.classList.remove('hidden');
+            
+            // In a real implementation, you would send this to a server
+            // For demo purposes, we'll simulate sending
+            setTimeout(() => {
+                emailStatus.textContent = 'Certificate ကို Email ပို့ပြီးပါပြီ!';
+                emailStatus.className = 'email-status success';
+                
+                // Clear input
+                emailInput.value = '';
+            }, 2000);
+        }
 
-        // Retry failed part
-        retryBtn.addEventListener('click', () => {
-            startPart(currentState.currentPart);
-        });
-
-        // Back to home from failed screen
-        backToHomeBtn.addEventListener('click', () => {
-            initPartSelector();
-            showScreen(startScreen);
-        });
-
-        // Go to verification screen
-        goToVerificationBtn.addEventListener('click', () => {
-            showScreen(verificationScreen);
-        });
+        // Initialize verification screen
+        function initializeVerificationScreen() {
+            // Clear form
+            document.getElementById('verificationForm').reset();
+            
+            // Clear any previous results
+            const existingResult = document.querySelector('.result-box');
+            if (existingResult) {
+                existingResult.remove();
+            }
+        }
 
         // Verify certificate
-        verifyCertificateBtn.addEventListener('click', () => {
-            showScreen(verificationScreen);
-        });
-
-        // Back to start from verification
-        backToStartFromVerificationBtn.addEventListener('click', () => {
-            showScreen(startScreen);
-        });
-
-        // Handle verification form submission - UPDATED WITH MORE TEST ACCOUNTS
-        verificationForm.addEventListener('submit', (e) => {
+        function verifyCertificate(e) {
             e.preventDefault();
             
             const certificateId = document.getElementById('certificateId').value.trim();
@@ -2866,88 +2974,106 @@
                 
                 // Check if name matches
                 if (certificate.name === studentName) {
-                    // Valid certificate
                     showVerificationResult(true, certificate, certificateId);
                 } else {
-                    // Invalid name
                     showVerificationResult(false, null, certificateId);
                 }
             } else {
-                // Invalid certificate ID
                 showVerificationResult(false, null, certificateId);
             }
-        });
+        }
 
         // Show verification result
         function showVerificationResult(isValid, certificate, certificateId) {
-            const resultHTML = `
-                <div class="result-box ${isValid ? '' : 'invalid'}">
-                    <h2>${isValid ? '✅ Certificate Verified' : '❌ Certificate Not Valid'}</h2>
-                    <div class="verification-result ${isValid ? '' : 'invalid'}">
-                        ${isValid ? 'Valid Certificate' : 'Invalid Certificate'}
-                    </div>
-                    
-                    ${isValid ? `
-                        <div class="result-details">
-                            <div class="result-item">
-                                <span class="result-label">Certificate ID:</span>
-                                <span class="result-value">${certificateId}</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-label">Student Name:</span>
-                                <span class="result-value">${certificate.name}</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-label">Completion Date:</span>
-                                <span class="result-value">${certificate.date}</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-label">Final Score:</span>
-                                <span class="result-value">${certificate.score}</span>
-                            </div>
-                            <div class="result-item">
-                                <span class="result-label">Parts Completed:</span>
-                                <span class="result-value">${certificate.part}</span>
-                            </div>
-                        </div>
-                        
-                        <p style="margin-top: 20px; color: #4CAF50; font-weight: bold;">
-                            This certificate has been successfully verified and is valid.
-                        </p>
-                    ` : `
-                        <div class="result-details">
-                            <p>The certificate with ID <strong>${certificateId}</strong> could not be verified.</p>
-                            <p>Please check:</p>
-                            <ul>
-                                <li>Certificate ID is correct</li>
-                                <li>Student name matches exactly</li>
-                                <li>Certificate has not been revoked</li>
-                            </ul>
-                        </div>
-                    `}
-                </div>
-            `;
-            
-            // Insert result after the form
+            // Remove any existing result
             const existingResult = document.querySelector('.result-box');
             if (existingResult) {
                 existingResult.remove();
             }
             
-            verificationForm.insertAdjacentHTML('afterend', resultHTML);
-        }
-
-        // Initialize the app
-        function init() {
-            initFloatingTech();
-            showScreen(nameScreen);
+            // Create result box
+            const resultBox = document.createElement('div');
+            resultBox.className = `result-box ${isValid ? '' : 'invalid'}`;
             
-            // Log the current certificate database for debugging
-            console.log("Current certificate database:", certificateDatabase);
+            if (isValid) {
+                resultBox.innerHTML = `
+                    <div class="verification-result">✅ Certificate Valid</div>
+                    <h3>Certificate Verified Successfully</h3>
+                    <div class="result-details">
+                        <div class="result-item">
+                            <span class="result-label">Certificate ID:</span>
+                            <span class="result-value">${certificateId}</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Student Name:</span>
+                            <span class="result-value">${certificate.name}</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Completion Date:</span>
+                            <span class="result-value">${certificate.date}</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Final Score:</span>
+                            <span class="result-value">${certificate.score}</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Parts Completed:</span>
+                            <span class="result-value">${certificate.part}</span>
+                        </div>
+                    </div>
+                    <p>This certificate has been successfully verified and is valid.</p>
+                `;
+            } else {
+                resultBox.innerHTML = `
+                    <div class="verification-result invalid">❌ Certificate Not Valid</div>
+                    <h3>Invalid Certificate</h3>
+                    <p>The certificate with ID ${certificateId} could not be verified.</p>
+                    <p>Please check:</p>
+                    <ul>
+                        <li>Certificate ID is correct</li>
+                        <li>Student name matches exactly</li>
+                        <li>Certificate has not been revoked</li>
+                    </ul>
+                `;
+            }
+            
+            // Insert result after the form
+            const verificationForm = document.getElementById('verificationForm');
+            verificationForm.parentNode.insertBefore(resultBox, verificationForm.nextSibling);
+            
+            // Scroll to result
+            resultBox.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Start the app
-        init();
+        // Start quiz from name screen
+        function startQuiz() {
+            const userName = document.getElementById('userName').value.trim();
+            
+            if (!userName) {
+                alert('ကျေးဇူးပြု၍ သင်၏ အမည်ကို ထည့်သွင်းပါ');
+                return;
+            }
+            
+            state.userName = userName;
+            showScreen('startScreen');
+        }
+
+        // Save state to localStorage
+        function saveStateToStorage() {
+            localStorage.setItem('myComputerStudioQuizState', JSON.stringify(state));
+        }
+
+        // Load state from localStorage
+        function loadStateFromStorage() {
+            const savedState = localStorage.getItem('myComputerStudioQuizState');
+            if (savedState) {
+                const parsedState = JSON.parse(savedState);
+                Object.assign(state, parsedState);
+            }
+        }
+
+        // Initialize the app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
 </html>
