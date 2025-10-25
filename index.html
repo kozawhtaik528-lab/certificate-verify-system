@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="my">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <style>
         /* Base styles */
-        :root {
+        
+         :root {
             --tech-blue: #2196F3;
             --dark-blue: #1976D2;
             --light-blue: #BBDEFB;
@@ -48,8 +50,8 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
-        
         /* Header styles */
+        
         header {
             background: linear-gradient(135deg, var(--tech-blue) 0%, var(--dark-blue) 100%);
             color: white;
@@ -86,8 +88,8 @@
             background: rgba(255, 255, 255, 0.3);
             transform: translateY(-3px);
         }
-        
         /* Main content area */
+        
         .main-content {
             padding: 30px;
             min-height: 500px;
@@ -100,8 +102,8 @@
         .active {
             display: block;
         }
-        
         /* Home screen styles */
+        
         .welcome-section {
             text-align: center;
             margin-bottom: 40px;
@@ -149,8 +151,8 @@
             color: var(--dark-blue);
             margin-bottom: 15px;
         }
-        
         /* About page styles */
+        
         .about-content {
             max-width: 900px;
             margin: 0 auto;
@@ -206,8 +208,8 @@
             color: var(--tech-blue);
             margin: 10px 0;
         }
-        
         /* Lessons page styles */
+        
         .lessons-content {
             max-width: 900px;
             margin: 0 auto;
@@ -242,8 +244,8 @@
             margin-bottom: 10px;
             line-height: 1.5;
         }
-        
         /* Account system styles */
+        
         .account-form {
             max-width: 500px;
             margin: 0 auto;
@@ -264,7 +266,8 @@
             color: var(--dark-blue);
         }
         
-        .form-group input, .form-group select {
+        .form-group input,
+        .form-group select {
             width: 100%;
             padding: 12px 15px;
             border: 2px solid var(--tech-blue);
@@ -273,7 +276,8 @@
             font-family: 'Myanmar Text', sans-serif;
         }
         
-        .form-group input:focus, .form-group select:focus {
+        .form-group input:focus,
+        .form-group select:focus {
             outline: none;
             border-color: var(--dark-blue);
         }
@@ -340,8 +344,8 @@
             color: var(--incorrect-red);
             border: 1px solid var(--incorrect-red);
         }
-        
         /* Quiz styles */
+        
         .quiz-container {
             max-width: 800px;
             margin: 0 auto;
@@ -448,8 +452,8 @@
             justify-content: space-between;
             margin-top: 20px;
         }
-        
         /* Certificate styles */
+        
         .certificate-container {
             background: white;
             border: 15px solid transparent;
@@ -464,7 +468,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow: hidden;
         }
-
+        
         .certificate-container::before {
             content: '';
             position: absolute;
@@ -472,15 +476,11 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(46, 109, 180, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(46, 109, 180, 0.05) 0%, transparent 50%),
-                repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(46, 109, 180, 0.03) 10px, rgba(46, 109, 180, 0.03) 20px),
-                repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(46, 109, 180, 0.02) 10px, rgba(46, 109, 180, 0.02) 20px);
+            background-image: radial-gradient(circle at 25% 25%, rgba(46, 109, 180, 0.05) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(46, 109, 180, 0.05) 0%, transparent 50%), repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(46, 109, 180, 0.03) 10px, rgba(46, 109, 180, 0.03) 20px), repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(46, 109, 180, 0.02) 10px, rgba(46, 109, 180, 0.02) 20px);
             z-index: -1;
             opacity: 0.6;
         }
-
+        
         .certificate-header {
             display: flex;
             justify-content: space-between;
@@ -489,25 +489,25 @@
             padding-bottom: 20px;
             border-bottom: 2px solid #f0f0f0;
         }
-
+        
         .My-Computer-Studio-logo {
             font-size: 1.5rem;
             font-weight: bold;
             color: #2E6DB4;
         }
-
+        
         .certificate-body {
             margin: 0 auto;
             max-width: 800px;
             position: relative;
             z-index: 1;
         }
-
+        
         .certificate-title-section {
             text-align: center;
             margin-bottom: 40px;
         }
-
+        
         .certificate-title {
             font-size: 1.2rem;
             color: #666;
@@ -515,25 +515,25 @@
             letter-spacing: 2px;
             margin-bottom: 10px;
         }
-
+        
         .certificate-main-title {
             font-size: 2.5rem;
             color: #2E6DB4;
             margin: 0;
             font-weight: 300;
         }
-
+        
         .certificate-awarded-to {
             text-align: center;
             margin: 40px 0;
         }
-
+        
         .certificate-awarded-to p {
             font-size: 1.1rem;
             color: #666;
             margin-bottom: 10px;
         }
-
+        
         .certificate-name {
             font-size: 2rem;
             color: #333;
@@ -545,43 +545,43 @@
             display: inline-block;
             padding-bottom: 5px;
         }
-
+        
         .certificate-details {
             text-align: center;
             margin: 30px 0;
         }
-
+        
         .certificate-details p {
             font-size: 1.1rem;
             color: #333;
             line-height: 1.6;
         }
-
+        
         .completion-date {
             font-weight: bold;
             color: #2E6DB4;
             margin-top: 15px;
         }
-
+        
         .courses-section {
             margin: 40px 0;
             padding: 20px;
             background: #f8f9fa;
             border-radius: 8px;
         }
-
+        
         .courses-section h4 {
             color: #2E6DB4;
             margin-bottom: 15px;
             font-size: 1.1rem;
         }
-
+        
         .courses-list {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
         }
-
+        
         .course-item {
             padding: 8px 12px;
             background: white;
@@ -589,7 +589,7 @@
             font-size: 0.9rem;
             color: #333;
         }
-
+        
         .certificate-description {
             margin: 30px 0;
             padding: 20px;
@@ -599,36 +599,36 @@
             color: #555;
             line-height: 1.6;
         }
-
+        
         .signatures-section {
             margin: 40px 0;
             text-align: center;
         }
-
+        
         .signature {
             display: inline-block;
             margin: 0 40px;
         }
-
+        
         .signature-line {
             width: 200px;
             height: 1px;
             background: #333;
             margin: 0 auto 10px;
         }
-
+        
         .signature-name {
             font-weight: bold;
             color: #333;
             margin: 5px 0;
         }
-
+        
         .signature-title {
             color: #666;
             font-size: 0.9rem;
             margin: 0;
         }
-
+        
         .verification-section {
             margin: 30px 0;
             padding: 15px;
@@ -636,39 +636,39 @@
             border-radius: 5px;
             text-align: center;
         }
-
+        
         .verification-text {
             margin: 0;
             color: #333;
         }
-
+        
         .verification-link {
             color: #2E6DB4;
             font-weight: bold;
             word-break: break-all;
         }
-
+        
         .score-section {
             text-align: center;
             margin-top: 30px;
             padding-top: 20px;
             border-top: 1px solid #f0f0f0;
         }
-
+        
         .score-text {
             font-size: 1.1rem;
             color: #333;
             font-weight: bold;
         }
-
+        
         .certificate-id {
             font-size: 1.1rem;
             color: #2E6DB4;
             font-weight: bold;
             margin-top: 10px;
         }
-        
         /* User profile styles */
+        
         .profile-info {
             background: white;
             padding: 25px;
@@ -737,77 +737,65 @@
             display: flex;
             gap: 10px;
         }
-        
         /* Responsive styles */
+        
         @media (max-width: 768px) {
             .part-selector {
                 grid-template-columns: repeat(3, 1fr);
             }
-            
             .certificate-container {
                 padding: 20px;
             }
-            
             .certificate-main-title {
                 font-size: 2rem;
             }
-            
             .certificate-name {
                 font-size: 1.6rem;
             }
-            
             .courses-list {
                 grid-template-columns: 1fr;
             }
-            
             .signature {
                 margin: 20px 0;
             }
-            
             .features {
                 grid-template-columns: 1fr;
             }
-            
             .course-prices {
                 grid-template-columns: 1fr;
             }
-            
             .certificate-item {
                 flex-direction: column;
                 align-items: flex-start;
             }
-            
             .certificate-actions {
                 margin-top: 15px;
                 width: 100%;
                 justify-content: space-between;
             }
         }
-
+        
         @media (max-width: 480px) {
             .certificate-container {
                 padding: 15px;
             }
-            
             .certificate-header {
                 flex-direction: column;
                 gap: 15px;
             }
-            
             .certificate-main-title {
                 font-size: 1.6rem;
             }
-            
             .certificate-name {
                 font-size: 1.3rem;
             }
-            
             .form-buttons {
                 flex-direction: column;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -821,7 +809,7 @@
                 <button class="nav-btn" data-screen="account">အကောင့်</button>
             </nav>
         </header>
-        
+
         <main class="main-content">
             <!-- Home Screen -->
             <section id="home" class="screen active">
@@ -830,26 +818,26 @@
                     <p>ကျွန်ုပ်တို့၏ ကွန်ပျူတာ အခြေခံ သင်တန်းများဖြင့် Digital Literacy စွမ်းရည်များ တိုးတက်စေရန် ရည်ရွယ်ပါသည်။</p>
                     <p>သင်တန်းပြီးဆုံးပါက Digital Certificate ရယူနိုင်ပါသည်။</p>
                 </div>
-                
+
                 <div class="features">
                     <div class="feature-card">
                         <div class="feature-icon">💻</div>
                         <h3>ကွန်ပျူတာ အခြေခံ</h3>
                         <p>ကွန်ပျူတာ၏ အခြေခံသဘောတရားများကို နားလည်သဘောပေါက်စေရန်</p>
                     </div>
-                    
+
                     <div class="feature-card">
                         <div class="feature-icon">🖥️</div>
                         <h3>Microsoft Office</h3>
                         <p>Word, Excel, PowerPoint နှင့် အခြား Office Application များ</p>
                     </div>
-                    
+
                     <div class="feature-card">
                         <div class="feature-icon">🎨</div>
                         <h3>Adobe Photoshop</h3>
                         <p>ဒီဇိုင်းဆွဲခြင်းနှင့် ဓာတ်ပုံတည်းဖြတ်ခြင်း အခြေခံများ</p>
                     </div>
-                    
+
                     <div class="feature-card">
                         <div class="feature-icon">📜</div>
                         <h3>Digital Certificate</h3>
@@ -857,18 +845,18 @@
                     </div>
                 </div>
             </section>
-            
+
             <!-- About Screen -->
             <section id="about" class="screen">
                 <div class="about-content">
                     <div class="welcome-section">
                         <h1>ကျွန်ုပ်တို့အကြောင်း</h1>
                     </div>
-                    
+
                     <div class="about-section">
                         <h2>📣 ကွန်ပျူတာ ဖြင့် အသက်မွေးဝမ်းကျောင်းလုပ်ချင်သူများ</h2>
                         <p>ရုံးပိုင်းဆိုင်ရာလုပ်ငန်းများတွင် ကွန်ပျူတာပိုင်းဖြင့် အလုပ်ဝင်ရန် ပြင်ဆင်နေသောသူများအတွက် 👇👇👇</p>
-                        
+
                         <h3>🌟 Computer Basic & Microsoft Office Course / Photoshop</h3>
                         <ul>
                             <li>✅ အပြင်သင်တန်း</li>
@@ -876,7 +864,7 @@
                             <li>✅ Video Lesson Class</li>
                         </ul>
                     </div>
-                    
+
                     <div class="about-section">
                         <h3>🎯 သင်တန်းတက်ရောက်သင်ကြားသင့်သောသူများ</h3>
                         <ul>
@@ -889,10 +877,10 @@
                             <li>• မိမိကိုယ်ပိုင်အလုပ်တွင် Computer ကို အသုံးပြုချင်သူများ</li>
                             <li>• အချိန်ညှိနှိုင်း တက်ရောက်သင်ကြားလိုသူများ</li>
                         </ul>
-                        
+
                         <p>📣 My Computer Studio and Training သို့အရောက်လှမ်းခဲ့ပေးဖို့ ဖိတ်ခေါ်လိုက်ပါတယ်ခင်ဗျာ ။</p>
                     </div>
-                    
+
                     <div class="about-section">
                         <h3>📈 သင်တန်းပြီးပါက ရရှိမယ့် အကျိုးကျေးဇူးများ</h3>
                         <ul>
@@ -905,7 +893,7 @@
                             <li>✨ သင်ခန်းစာတစ်ခုချင်းစီတိုင်းကို အသေးစိတ်စနစ်တကျ သင်ကြားပေးမည်ဖြစ်သောကြောင့် တက်မြောက်ကျွမ်းကျင်စေရန် 100% အာမခံသင်ကြားပေးပါသည်။</li>
                         </ul>
                     </div>
-                    
+
                     <div class="about-section">
                         <h3>📌 Computer Basic & I Office Course | Photoshop တွင် သင်ကြားပေးမည့်သင်ခန်းစာများ 👇👇👇</h3>
                         <ul>
@@ -915,66 +903,66 @@
                             <li>✅ Microsoft PowerPoint</li>
                             <li>✅ Adobe Photoshop design ဆွဲနည်းများကို အပိုင်း(5)ပိုင်းဖြင့် သင်ကြားပေးမည့်ဖြစ်ပါသည်။</li>
                         </ul>
-                        
+
                         <div class="course-prices">
                             <div class="price-card">
                                 <h4>အခြေခံ ကွန်ပျူတာ သင်ခန်းစာများ</h4>
                                 <div class="price">50000/ကျပ်</div>
                             </div>
-                            
+
                             <div class="price-card">
                                 <h4>Microsoft Excel သင်ခန်းစာများ</h4>
                                 <div class="price">35000/ကျပ်</div>
                             </div>
-                            
+
                             <div class="price-card">
                                 <h4>Microsoft Word သင်ခန်းစာများ</h4>
                                 <div class="price">35000/ကျပ်</div>
                             </div>
-                            
+
                             <div class="price-card">
                                 <h4>PowerPoint သင်ခန်းစာများ</h4>
                                 <div class="price">35000/ကျပ်</div>
                             </div>
-                            
+
                             <div class="price-card">
                                 <h4>Adobe Photoshop CS3/2023 သင်ခန်းစာများ</h4>
                                 <div class="price">50000/ကျပ်</div>
                             </div>
                         </div>
-                        
+
                         <p>📌 သင်တန်းဆင်းလက်မှတ် Certificate ပေးပါသည်။</p>
                         <p>📌 အချိန်ညှိနှိုင်း တက်ရောက်သင်ကြားနိုင်ပါသည်။</p>
                     </div>
-                    
+
                     <div class="about-section">
                         <h3>🚀 အနာဂတ်အတွက် စွမ်းရည်တိုးတက်မှု… ယနေ့ကတည်းက စတင်လိုက်ပါ!</h3>
                         <p>📌 သင်တန်းသားဦးရေ ကန့်သတ်မထားပါ။ စာရင်းပေးသွင်းမှု hello တစ်ချက်သာ လုပ်လိုက်ပါ၊ လူကြီးမင်းဆီ အရောက်လာခဲ့ပါမယ်။</p>
-                        
+
                         <h3>📞 စာရင်းပေးသွင်း ဆက်သွယ်ရန်</h3>
                         <p>📱 ဖုန်း – 09880167885 ၊ Viber မှလဲ ဆက်သွယ်နိုင်ပါတယ်</p>
                         <p>📲 FB Page Messenger မှတစ်ဆင့်လည်း သင်တန်းအသေးစိတ်ကို ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။</p>
                         <p>http://facebook.com/mycomputerstudioandtraining</p>
                         <p>https://www.youtube.com/@thanzawhtaik</p>
-                        
+
                         <p>သင်တန်း‌လိပ်စာ - ၁၉၅၊ ကြံဖိုစုရွာ၊ တည်တောင်အုပ်စု၊ လယ်ဝေးမြို့နယ်၊ နေပြည်တော်</p>
-                        
+
                         <p>#MyComputerStudioAndTraining<br>#ThanZawHtaik<br>#ComputerTraining<br>#ကွန်ပျူတာသင်တန်း</p>
                     </div>
                 </div>
             </section>
-            
+
             <!-- Lessons Screen -->
             <section id="lessons" class="screen">
                 <div class="lessons-content">
                     <div class="welcome-section">
                         <h1>သင်ခန်းစာများ</h1>
                     </div>
-                    
+
                     <div class="lesson-section">
                         <h2>ကွန်ပျူတာ အခြေခံ သဘောတရားများ</h2>
                         <p>အောက်ပါစာရင်းသည် ကွန်ပျူတာအခြေခံသဘောတရားများကို လေ့လာရာတွင် အထောက်အကူဖြစ်စေရန် ရည်ရွယ်ပါသည်။</p>
-                        
+
                         <h3>၁။ ကွန်ပျူတာ အစိတ်အပိုင်းများ</h3>
                         <ul>
                             <li>Hardware (CPU, RAM, Hard Drive, Motherboard, GPU, etc.)</li>
@@ -982,7 +970,7 @@
                             <li>Input Devices (Keyboard, Mouse, Microphone, Scanner)</li>
                             <li>Output Devices (Monitor, Printer, Speakers)</li>
                         </ul>
-                        
+
                         <h3>၂။ Operating System (OS)</h3>
                         <ul>
                             <li>Windows, macOS, Linux</li>
@@ -990,7 +978,7 @@
                             <li>Taskbar, Start Menu</li>
                             <li>Recycle Bin</li>
                         </ul>
-                        
+
                         <h3>၃။ အင်တာနက် အသုံးပြုခြင်း</h3>
                         <ul>
                             <li>Internet, World Wide Web (WWW)</li>
@@ -999,14 +987,14 @@
                             <li>Links, Bookmarks, Tabs</li>
                             <li>Download, Upload</li>
                         </ul>
-                        
+
                         <h3>၄။ အီးမေးလ် (Email)</h3>
                         <ul>
                             <li>Email Address</li>
                             <li>Sending and Receiving Emails</li>
                             <li>Spam, Phishing</li>
                         </ul>
-                        
+
                         <h3>၅။ ကွန်ပျူတာ လုံခြုံရေး</h3>
                         <ul>
                             <li>Antivirus Software</li>
@@ -1016,7 +1004,7 @@
                             <li>Two-Factor Authentication (2FA)</li>
                             <li>VPN (Virtual Private Network)</li>
                         </ul>
-                        
+
                         <h3>၆။ ဖိုင် စီမံခန့်ခွဲခြင်း</h3>
                         <ul>
                             <li>Save, Copy, Paste, Delete, Rename</li>
@@ -1024,7 +1012,7 @@
                             <li>Click, Double-Click, Right-Click</li>
                             <li>File Extensions</li>
                         </ul>
-                        
+
                         <h3>၇။ အခြေခံ ကွန်ပျူတာ အသုံးအနှုန်းများ</h3>
                         <ul>
                             <li>Bit, Byte</li>
@@ -1035,7 +1023,7 @@
                             <li>Compatible</li>
                             <li>Upgrade, Update, Restore, Backup, Recovery</li>
                         </ul>
-                        
+
                         <h3>၈။ ဆော့ဖ်ဝဲ ဖွံ့ဖြိုးတိုးတက်ရေး အခြေခံများ</h3>
                         <ul>
                             <li>Open Source Software</li>
@@ -1046,12 +1034,12 @@
                             <li>Database</li>
                             <li>Server, Client</li>
                         </ul>
-                        
+
                         <p>အထူးမှတ်ချက်: ဤစာရင်းသည် ကွန်ပျူတာအခြေခံသဘောတရားများကို လေ့လာရန်အတွက် အထောက်အကူဖြစ်စေရန် ရည်ရွယ်ပြီး အသေးစိတ်အချက်အလက်များ ပါဝင်နိုင်ပါသည်။</p>
                     </div>
                 </div>
             </section>
-            
+
             <!-- Quiz Screen -->
             <section id="quiz" class="screen">
                 <div class="quiz-container">
@@ -1059,11 +1047,11 @@
                         <h1>ကွန်ပျူတာ အခြေခံ စမ်းသပ်မှုများ</h1>
                         <p>အောက်ပါအပိုင်းများမှ စမ်းသပ်မှုတစ်ခုကို ရွေးချယ်ပါ</p>
                     </div>
-                    
+
                     <div class="part-selector" id="partSelector">
                         <!-- Part buttons will be generated by JavaScript -->
                     </div>
-                    
+
                     <div id="quizContent">
                         <div class="question-container">
                             <p>စမ်းသပ်မှုအပိုင်းတစ်ခုကို ရွေးချယ်ပါ။ စမ်းသပ်မှုတစ်ခုစီတွင် မေးခွန်း ၁၀ ခုပါဝင်ပါသည်။</p>
@@ -1072,7 +1060,7 @@
                     </div>
                 </div>
             </section>
-            
+
             <!-- Account Screen -->
             <section id="account" class="screen">
                 <div id="accountContent">
@@ -1091,237 +1079,215 @@
         // Database for users and certificates
         const userDatabase = JSON.parse(localStorage.getItem('myComputerStudioUsers')) || {};
         const certificateDatabase = JSON.parse(localStorage.getItem('myComputerStudioCertificates')) || {};
-        
+
         // Quiz questions organized by part (1-10)
         const quizData = {
-            1: [
-                {
-                    question: "ကွန်ပျူတာ၏ အဓိက လုပ်ဆောင်ချက်မှာ အဘယ်နည်း? 💻",
-                    options: [
-                        "သတင်းအချက်အလက်များကို သိမ်းဆည်းခြင်းနှင့် ပြန်လည်ရယူခြင်း",
-                        "ဒေတာကို လုပ်ဆောင်ခြင်း",
-                        "အသုံးပြုသူနှင့် အပြန်အလှန် ဆက်သွယ်ခြင်း",
-                        "အထက်ပါ အားလုံး"
-                    ],
-                    correct: 3,
-                    emoji: "💻"
-                },
-                {
-                    question: "အောက်ပါတို့တွင် မည်သည့်အရာသည် ကွန်ပျူတာ၏ ဟာ့ဒ်ဝဲ (hardware) အစိတ်အပိုင်းဖြစ်သနည်း? 🖥️",
-                    options: [
-                        "operating system",
-                        "web browser",
-                        "CPU",
-                        "word processor"
-                    ],
-                    correct: 2,
-                    emoji: "🖥️"
-                },
-                {
-                    question: "RAM ၏ အဓိက ရည်ရွယ်ချက်မှာ အဘယ်နည်း? 💾",
-                    options: [
-                        "ဒေတာကို အမြဲတမ်း သိမ်းဆည်းရန်",
-                        "ကွန်ပျူတာပိတ်ထားသည့်တိုင် ဒေတာကို သိမ်းဆည်းရန်",
-                        "လက်ရှိအသုံးပြုနေသော ဒေတာနှင့် ပရိုဂရမ်များကို ယာယီ သိမ်းဆည်းရန်",
-                        "ဂရပ်ဖစ်ကို လုပ်ဆောင်ရန်"
-                    ],
-                    correct: 2,
-                    emoji: "💾"
-                },
-                {
-                    question: "အောက်ပါတို့တွင် မည်သည့်အရာသည် operating system (OS) ၏ ဥပမာဖြစ်သနည်း? 🖥️",
-                    options: [
-                        "Microsoft Word",
-                        "Google Chrome",
-                        "Windows 10",
-                        "Adobe Photoshop"
-                    ],
-                    correct: 2,
-                    emoji: "🖥️"
-                },
-                {
-                    question: "အင်တာနက်ဆိုသည်မှာ အဘယ်နည်း? 🌐",
-                    options: [
-                        "ကမ္ဘာတစ်ဝှမ်းရှိ ကွန်ပျူတာများ၏ ကွန်ရက်",
-                        "သီးသန့်ကွန်ပျူတာများ၏ ကွန်ရက်",
-                        "ဒေသတွင်း ကွန်ပျူတာများ၏ ကွန်ရက်",
-                        "အထက်ပါ အားလုံး"
-                    ],
-                    correct: 0,
-                    emoji: "🌐"
-                },
-                {
-                    question: "URL ဆိုသည်မှာ အဘယ်နည်း? 🔗",
-                    options: [
-                        "ကွန်ပျူတာဖိုင်တစ်ခု၏ အမည်",
-                        "ဝဘ်ဆိုဒ်တစ်ခု၏ လိပ်စာ",
-                        "အီးမေးလ်လိပ်စာ",
-                        "ကွန်ပျူတာပရိုဂရမ်တစ်ခု၏ အမည်"
-                    ],
-                    correct: 1,
-                    emoji: "🔗"
-                },
-                {
-                    question: "အောက်ပါတို့တွင် မည်သည့်အရာသည် input device ဖြစ်သနည်း? ⌨️",
-                    options: [
-                        "မော်နီတာ",
-                        "ပရင်တာ",
-                        "ကီးဘုတ်",
-                        "စပီကာ"
-                    ],
-                    correct: 2,
-                    emoji: "⌨️"
-                },
-                {
-                    question: "အောက်ပါတို့တွင် မည်သည့်အရာသည် output device ဖြစ်သနည်း? 🖨️",
-                    options: [
-                        "မောက်စ်",
-                        "မိုက်ခရိုဖုန်း",
-                        "စကင်နာ",
-                        "ပရင်တာ"
-                    ],
-                    correct: 3,
-                    emoji: "🖨️"
-                },
-                {
-                    question: "ဖိုင် extension ၏ ရည်ရွယ်ချက်မှာ အဘယ်နည်း? 📄",
-                    options: [
-                        "ဖိုင်၏အရွယ်အစားကို သတ်မှတ်ရန်",
-                        "ဖိုင်အမျိုးအစားကို သတ်မှတ်ရန်",
-                        "ဖိုင်ကို ဖန်တီးသူကို သတ်မှတ်ရန်",
-                        "ဖိုင်ကို နောက်ဆုံး ပြင်ဆင်သည့်ရက်စွဲကို သတ်မှတ်ရန်"
-                    ],
-                    correct: 1,
-                    emoji: "📄"
-                },
-                {
-                    question: "cloud storage ဆိုသည်မှာ အဘယ်နည်း? ☁️",
-                    options: [
-                        "ကွန်ပျူတာပေါ်တွင် ဒေတာကို သိမ်းဆည်းခြင်း",
-                        "အင်တာနက်ပေါ်တွင် ဒေတာကို သိမ်းဆည်းခြင်း",
-                        "USB drive ပေါ်တွင် ဒေတာကို သိမ်းဆည်းခြင်း",
-                        "CD ပေါ်တွင် ဒေတာကို သိမ်းဆည်းခြင်း"
-                    ],
-                    correct: 1,
-                    emoji: "☁️"
-                }
-            ],
-            2: [
-                {
-                    question: "ကွန်ပျူတာကို စတင်ဖွင့်သောအခါ ပထမဆုံး လုပ်ဆောင်သည့် ပရိုဂရမ်ကို ဘာခေါ်သနည်း? 💻",
-                    options: [
-                        "Application",
-                        "Operating System",
-                        "BIOS",
-                        "Driver"
-                    ],
-                    correct: 2,
-                    emoji: "💻"
-                },
-                {
-                    question: "အောက်ပါတို့တွင် မည်သည့်အရာသည် ကွန်ပျူတာဗိုင်းရပ်စ် (computer virus) ၏ လက္ခဏာမဟုတ်သနည်း? 🦠",
-                    options: [
-                        "ကွန်ပျူတာ၏ လုပ်ဆောင်မှု နှေးကွေးခြင်း",
-                        "ဖိုင်များ ပျက်စီးခြင်း သို့မဟုတ် ပျောက်ဆုံးခြင်း",
-                        "ပရိုဂရမ်များ အလိုအလျောက် ပိတ်သွားခြင်း",
-                        "ကွန်ပျူတာ၏ စွမ်းအင်သုံး စွဲမှု လျော့နည်းခြင်း"
-                    ],
-                    correct: 3,
-                    emoji: "🦠"
-                },
-                {
-                    question: "\"Software\" ဆိုသည်မှာ အဘယ်နည်း? 💿",
-                    options: [
-                        "ကွန်ပျူတာ၏ ရုပ်ပိုင်းဆိုင်ရာ အစိတ်အပိုင်းများ",
-                        "ကွန်ပျူတာကို လုပ်ဆောင်စေရန် ညွှန်ကြားသည့် ပရိုဂရမ်များ",
-                        "ကွန်ပျူတာကို အသုံးပြုသူ",
-                        "ကွန်ပျူတာ၏ အပူချိန်"
-                    ],
-                    correct: 1,
-                    emoji: "💿"
-                },
-                {
-                    question: "အောက်ပါတို့တွင် မည်သည့်အရာသည် \"word processor\" ၏ ဥပမာဖြစ်သနည်း? 📝",
-                    options: [
-                        "Microsoft Excel",
-                        "Adobe Photoshop",
-                        "Microsoft Word",
-                        "Google Chrome"
-                    ],
-                    correct: 2,
-                    emoji: "📝"
-                },
-                {
-                    question: "\"File\" ဆိုသည်မှာ အဘယ်နည်း? 📁",
-                    options: [
-                        "ကွန်ပျူတာ၏ ဟာ့ဒ်ဝဲ အစိတ်အပိုင်းတစ်ခု",
-                        "ကွန်ပျူတာပေါ်တွင် သိမ်းဆည်းထားသော သတင်းအချက်အလက်များ စုစည်းမှု",
-                        "ကွန်ပျူတာကို အသုံးပြုသူ၏ အမည်",
-                        "ကွန်ပျူတာ၏ လျှို့ဝှက်နံပါတ်"
-                    ],
-                    correct: 1,
-                    emoji: "📁"
-                },
-                {
-                    question: "\"Folder\" ဆိုသည်မှာ အဘယ်နည်း? 📂",
-                    options: [
-                        "ဖိုင်များကို စုစည်းသိမ်းဆည်းရန် အသုံးပြုသည့် နေရာ",
-                        "ကွန်ပျူတာ၏ အဓိက အစိတ်အပိုင်း",
-                        "ကွန်ပျူတာကို အသုံးပြုသူ၏ အမည်",
-                        "ကွန်ပျူတာ၏ လျှို့ဝှက်နံပါတ်"
-                    ],
-                    correct: 0,
-                    emoji: "📂"
-                },
-                {
-                    question: "အောက်ပါတို့တွင် မည်သည့်အရာသည် \"search engine\" ၏ ဥပမာဖြစ်သနည်း? 🔍",
-                    options: [
-                        "Facebook",
-                        "Google",
-                        "YouTube",
-                        "Instagram"
-                    ],
-                    correct: 1,
-                    emoji: "🔍"
-                },
-                {
-                    question: "\"Email\" ဆိုသည်မှာ အဘယ်နည်း? 📧",
-                    options: [
-                        "စာရွက်စာတမ်းများကို ပုံနှိပ်ခြင်း",
-                        "အင်တာနက်မှတစ်ဆင့် စာများ ပေးပို့ခြင်းနှင့် လက်ခံခြင်း",
-                        "ကွန်ပျူတာဂိမ်းတစ်ခု",
-                        "ကွန်ပျူတာကို ပိတ်ခြင်း"
-                    ],
-                    correct: 1,
-                    emoji: "📧"
-                },
-                {
-                    question: "\"Password\" ဆိုသည်မှာ အဘယ်နည်း? 🔐",
-                    options: [
-                        "ကွန်ပျူတာကို အလှဆင်ရန် အသုံးပြုသည့် ပုံ",
-                        "ကွန်ပျူတာကို လုံခြုံစေရန် အသုံးပြုသည့် လျှို့ဝှက်စာလုံးများ",
-                        "ကွန်ပျူတာ၏ အမြန်နှုန်းကို တိုင်းတာသည့် ယူနစ်",
-                        "ကွန်ပျူတာ၏ အရောင်"
-                    ],
-                    correct: 1,
-                    emoji: "🔐"
-                },
-                {
-                    question: "\"Cloud computing\" ဆိုသည်မှာ အဘယ်နည်း? ☁️",
-                    options: [
-                        "ကွန်ပျူတာကို ရေခဲသေတ္တာထဲတွင် ထားခြင်း",
-                        "အင်တာနက်မှတစ်ဆင့် ကွန်ပျူတာဝန်ဆောင်မှုများကို ရယူသုံးစွဲခြင်း",
-                        "ကွန်ပျူတာကို လေထဲတွင် ပျံသန်းစေခြင်း",
-                        "ကွန်ပျူတာကို အဝတ်အစားများဖြင့် ဖုံးအုပ်ခြင်း"
-                    ],
-                    correct: 1,
-                    emoji: "☁️"
-                }
-            ],
+            1: [{
+                question: "ကွန်ပျူတာ၏ အဓိက လုပ်ဆောင်ချက်မှာ အဘယ်နည်း? 💻",
+                options: [
+                    "သတင်းအချက်အလက်များကို သိမ်းဆည်းခြင်းနှင့် ပြန်လည်ရယူခြင်း",
+                    "ဒေတာကို လုပ်ဆောင်ခြင်း",
+                    "အသုံးပြုသူနှင့် အပြန်အလှန် ဆက်သွယ်ခြင်း",
+                    "အထက်ပါ အားလုံး"
+                ],
+                correct: 3,
+                emoji: "💻"
+            }, {
+                question: "အောက်ပါတို့တွင် မည်သည့်အရာသည် ကွန်ပျူတာ၏ ဟာ့ဒ်ဝဲ (hardware) အစိတ်အပိုင်းဖြစ်သနည်း? 🖥️",
+                options: [
+                    "operating system",
+                    "web browser",
+                    "CPU",
+                    "word processor"
+                ],
+                correct: 2,
+                emoji: "🖥️"
+            }, {
+                question: "RAM ၏ အဓိက ရည်ရွယ်ချက်မှာ အဘယ်နည်း? 💾",
+                options: [
+                    "ဒေတာကို အမြဲတမ်း သိမ်းဆည်းရန်",
+                    "ကွန်ပျူတာပိတ်ထားသည့်တိုင် ဒေတာကို သိမ်းဆည်းရန်",
+                    "လက်ရှိအသုံးပြုနေသော ဒေတာနှင့် ပရိုဂရမ်များကို ယာယီ သိမ်းဆည်းရန်",
+                    "ဂရပ်ဖစ်ကို လုပ်ဆောင်ရန်"
+                ],
+                correct: 2,
+                emoji: "💾"
+            }, {
+                question: "အောက်ပါတို့တွင် မည်သည့်အရာသည် operating system (OS) ၏ ဥပမာဖြစ်သနည်း? 🖥️",
+                options: [
+                    "Microsoft Word",
+                    "Google Chrome",
+                    "Windows 10",
+                    "Adobe Photoshop"
+                ],
+                correct: 2,
+                emoji: "🖥️"
+            }, {
+                question: "အင်တာနက်ဆိုသည်မှာ အဘယ်နည်း? 🌐",
+                options: [
+                    "ကမ္ဘာတစ်ဝှမ်းရှိ ကွန်ပျူတာများ၏ ကွန်ရက်",
+                    "သီးသန့်ကွန်ပျူတာများ၏ ကွန်ရက်",
+                    "ဒေသတွင်း ကွန်ပျူတာများ၏ ကွန်ရက်",
+                    "အထက်ပါ အားလုံး"
+                ],
+                correct: 0,
+                emoji: "🌐"
+            }, {
+                question: "URL ဆိုသည်မှာ အဘယ်နည်း? 🔗",
+                options: [
+                    "ကွန်ပျူတာဖိုင်တစ်ခု၏ အမည်",
+                    "ဝဘ်ဆိုဒ်တစ်ခု၏ လိပ်စာ",
+                    "အီးမေးလ်လိပ်စာ",
+                    "ကွန်ပျူတာပရိုဂရမ်တစ်ခု၏ အမည်"
+                ],
+                correct: 1,
+                emoji: "🔗"
+            }, {
+                question: "အောက်ပါတို့တွင် မည်သည့်အရာသည် input device ဖြစ်သနည်း? ⌨️",
+                options: [
+                    "မော်နီတာ",
+                    "ပရင်တာ",
+                    "ကီးဘုတ်",
+                    "စပီကာ"
+                ],
+                correct: 2,
+                emoji: "⌨️"
+            }, {
+                question: "အောက်ပါတို့တွင် မည်သည့်အရာသည် output device ဖြစ်သနည်း? 🖨️",
+                options: [
+                    "မောက်စ်",
+                    "မိုက်ခရိုဖုန်း",
+                    "စကင်နာ",
+                    "ပရင်တာ"
+                ],
+                correct: 3,
+                emoji: "🖨️"
+            }, {
+                question: "ဖိုင် extension ၏ ရည်ရွယ်ချက်မှာ အဘယ်နည်း? 📄",
+                options: [
+                    "ဖိုင်၏အရွယ်အစားကို သတ်မှတ်ရန်",
+                    "ဖိုင်အမျိုးအစားကို သတ်မှတ်ရန်",
+                    "ဖိုင်ကို ဖန်တီးသူကို သတ်မှတ်ရန်",
+                    "ဖိုင်ကို နောက်ဆုံး ပြင်ဆင်သည့်ရက်စွဲကို သတ်မှတ်ရန်"
+                ],
+                correct: 1,
+                emoji: "📄"
+            }, {
+                question: "cloud storage ဆိုသည်မှာ အဘယ်နည်း? ☁️",
+                options: [
+                    "ကွန်ပျူတာပေါ်တွင် ဒေတာကို သိမ်းဆည်းခြင်း",
+                    "အင်တာနက်ပေါ်တွင် ဒေတာကို သိမ်းဆည်းခြင်း",
+                    "USB drive ပေါ်တွင် ဒေတာကို သိမ်းဆည်းခြင်း",
+                    "CD ပေါ်တွင် ဒေတာကို သိမ်းဆည်းခြင်း"
+                ],
+                correct: 1,
+                emoji: "☁️"
+            }],
+            2: [{
+                question: "ကွန်ပျူတာကို စတင်ဖွင့်သောအခါ ပထမဆုံး လုပ်ဆောင်သည့် ပရိုဂရမ်ကို ဘာခေါ်သနည်း? 💻",
+                options: [
+                    "Application",
+                    "Operating System",
+                    "BIOS",
+                    "Driver"
+                ],
+                correct: 2,
+                emoji: "💻"
+            }, {
+                question: "အောက်ပါတို့တွင် မည်သည့်အရာသည် ကွန်ပျူတာဗိုင်းရပ်စ် (computer virus) ၏ လက္ခဏာမဟုတ်သနည်း? 🦠",
+                options: [
+                    "ကွန်ပျူတာ၏ လုပ်ဆောင်မှု နှေးကွေးခြင်း",
+                    "ဖိုင်များ ပျက်စီးခြင်း သို့မဟုတ် ပျောက်ဆုံးခြင်း",
+                    "ပရိုဂရမ်များ အလိုအလျောက် ပိတ်သွားခြင်း",
+                    "ကွန်ပျူတာ၏ စွမ်းအင်သုံး စွဲမှု လျော့နည်းခြင်း"
+                ],
+                correct: 3,
+                emoji: "🦠"
+            }, {
+                question: "\"Software\" ဆိုသည်မှာ အဘယ်နည်း? 💿",
+                options: [
+                    "ကွန်ပျူတာ၏ ရုပ်ပိုင်းဆိုင်ရာ အစိတ်အပိုင်းများ",
+                    "ကွန်ပျူတာကို လုပ်ဆောင်စေရန် ညွှန်ကြားသည့် ပရိုဂရမ်များ",
+                    "ကွန်ပျူတာကို အသုံးပြုသူ",
+                    "ကွန်ပျူတာ၏ အပူချိန်"
+                ],
+                correct: 1,
+                emoji: "💿"
+            }, {
+                question: "အောက်ပါတို့တွင် မည်သည့်အရာသည် \"word processor\" ၏ ဥပမာဖြစ်သနည်း? 📝",
+                options: [
+                    "Microsoft Excel",
+                    "Adobe Photoshop",
+                    "Microsoft Word",
+                    "Google Chrome"
+                ],
+                correct: 2,
+                emoji: "📝"
+            }, {
+                question: "\"File\" ဆိုသည်မှာ အဘယ်နည်း? 📁",
+                options: [
+                    "ကွန်ပျူတာ၏ ဟာ့ဒ်ဝဲ အစိတ်အပိုင်းတစ်ခု",
+                    "ကွန်ပျူတာပေါ်တွင် သိမ်းဆည်းထားသော သတင်းအချက်အလက်များ စုစည်းမှု",
+                    "ကွန်ပျူတာကို အသုံးပြုသူ၏ အမည်",
+                    "ကွန်ပျူတာ၏ လျှို့ဝှက်နံပါတ်"
+                ],
+                correct: 1,
+                emoji: "📁"
+            }, {
+                question: "\"Folder\" ဆိုသည်မှာ အဘယ်နည်း? 📂",
+                options: [
+                    "ဖိုင်များကို စုစည်းသိမ်းဆည်းရန် အသုံးပြုသည့် နေရာ",
+                    "ကွန်ပျူတာ၏ အဓိက အစိတ်အပိုင်း",
+                    "ကွန်ပျူတာကို အသုံးပြုသူ၏ အမည်",
+                    "ကွန်ပျူတာ၏ လျှို့ဝှက်နံပါတ်"
+                ],
+                correct: 0,
+                emoji: "📂"
+            }, {
+                question: "အောက်ပါတို့တွင် မည်သည့်အရာသည် \"search engine\" ၏ ဥပမာဖြစ်သနည်း? 🔍",
+                options: [
+                    "Facebook",
+                    "Google",
+                    "YouTube",
+                    "Instagram"
+                ],
+                correct: 1,
+                emoji: "🔍"
+            }, {
+                question: "\"Email\" ဆိုသည်မှာ အဘယ်နည်း? 📧",
+                options: [
+                    "စာရွက်စာတမ်းများကို ပုံနှိပ်ခြင်း",
+                    "အင်တာနက်မှတစ်ဆင့် စာများ ပေးပို့ခြင်းနှင့် လက်ခံခြင်း",
+                    "ကွန်ပျူတာဂိမ်းတစ်ခု",
+                    "ကွန်ပျူတာကို ပိတ်ခြင်း"
+                ],
+                correct: 1,
+                emoji: "📧"
+            }, {
+                question: "\"Password\" ဆိုသည်မှာ အဘယ်နည်း? 🔐",
+                options: [
+                    "ကွန်ပျူတာကို အလှဆင်ရန် အသုံးပြုသည့် ပုံ",
+                    "ကွန်ပျူတာကို လုံခြုံစေရန် အသုံးပြုသည့် လျှို့ဝှက်စာလုံးများ",
+                    "ကွန်ပျူတာ၏ အမြန်နှုန်းကို တိုင်းတာသည့် ယူနစ်",
+                    "ကွန်ပျူတာ၏ အရောင်"
+                ],
+                correct: 1,
+                emoji: "🔐"
+            }, {
+                question: "\"Cloud computing\" ဆိုသည်မှာ အဘယ်နည်း? ☁️",
+                options: [
+                    "ကွန်ပျူတာကို ရေခဲသေတ္တာထဲတွင် ထားခြင်း",
+                    "အင်တာနက်မှတစ်ဆင့် ကွန်ပျူတာဝန်ဆောင်မှုများကို ရယူသုံးစွဲခြင်း",
+                    "ကွန်ပျူတာကို လေထဲတွင် ပျံသန်းစေခြင်း",
+                    "ကွန်ပျူတာကို အဝတ်အစားများဖြင့် ဖုံးအုပ်ခြင်း"
+                ],
+                correct: 1,
+                emoji: "☁️"
+            }],
             // Additional parts would be added here
             3: [
                 // Questions for part 3
-		 {
+                {
                     question: "1 byte ဆိုသည်မှာ ဘယ်နှစ် bit နှင့် တူနည်း? 💾",
                     options: [
                         "4 bit",
@@ -1331,8 +1297,7 @@
                     ],
                     correct: 1,
                     emoji: "💾"
-                },
-                {
+                }, {
                     question: "HDD နဲ့ SSD အဓိက ကွာခြားချက် ဘာလဲ? 💽",
                     options: [
                         "HDD မှာ ရှုပ်ထွေးသည့် ရွေ့လျားပစ္စည်းများ (moving parts) ရှိသည်",
@@ -1342,8 +1307,7 @@
                     ],
                     correct: 0,
                     emoji: "💽"
-                },
-                {
+                }, {
                     question: "Motherboard ရဲ့ အလုပ်က ဘာလဲ? 🔌",
                     options: [
                         "ဖိုင်များကို သိမ်းဆည်းပေးသည်",
@@ -1353,8 +1317,7 @@
                     ],
                     correct: 1,
                     emoji: "🔌"
-                },
-                {
+                }, {
                     question: "GPU (Graphics Processing Unit) ၏ အဓိက လုပ်ငန်းကဘာလဲ? 🎮",
                     options: [
                         "ဂရပ်ဖစ်/ဗီဒီယိုများကို ဇယားပုံစံဖြင့် ဆောင်ရွက်ပေးသည်",
@@ -1364,8 +1327,7 @@
                     ],
                     correct: 0,
                     emoji: "🎮"
-                },
-                {
+                }, {
                     question: "IP address ဆိုသည်မှာ အဘယ်နည်း? 🌐",
                     options: [
                         "ကွန်ပျူတာ၏ အွန်လိုင်း လိပ်စာ (network address)",
@@ -1375,8 +1337,7 @@
                     ],
                     correct: 0,
                     emoji: "🌐"
-                },
-                {
+                }, {
                     question: "Malware ဆိုသည်မှာ ဘာကို ဆိုလိုသလဲ? 🦠",
                     options: [
                         "အသုံးဝင်သော အက်ပ်လီကေးရှင်း",
@@ -1386,8 +1347,7 @@
                     ],
                     correct: 1,
                     emoji: "🦠"
-                },
-                {
+                }, {
                     question: "အင်တာနက်အကောင့်၏ အင်အားကြီး စကားဝှက်တစ်ခု ဖန်တီးချင်ရင် ဘာတွေ ထည့်သင့်သလဲ? 🔐",
                     options: [
                         "လူနာမည် သို့မဟုတ် ရိုးရိုးနံပါတ်များသာ",
@@ -1397,8 +1357,7 @@
                     ],
                     correct: 1,
                     emoji: "🔐"
-                },
-                {
+                }, {
                     question: "Two‑factor authentication (2FA) ဆိုသည်မှာ ဘာကို ခေါ်သလဲ? 🔒",
                     options: [
                         "ကြာရှည်စကားဝှက်တစ်ခုသာ အသုံးပြုခြင်း",
@@ -1408,8 +1367,7 @@
                     ],
                     correct: 1,
                     emoji: "🔒"
-                },
-                {
+                }, {
                     question: "Browser cache သည် မည်သည့်အရာကို သိမ်းဆည်းထားသလဲ? 💾",
                     options: [
                         "တစ်ကြိမ်တည်း ပြန်မှု အတွက် ဝက်ဘ်စာမျက်နှာ၏ အချို့ ဖိုင်များ (ပုံ၊ CSS, JS) ကို ယာယီ သိမ်းဆည်းသည်",
@@ -1419,8 +1377,7 @@
                     ],
                     correct: 0,
                     emoji: "💾"
-                },
-                {
+                }, {
                     question: "ပြန်လည်မိတ်ဆက်မှု (backup) အကောင်းဆုံးနည်းလမ်းအဖြစ် 3‑2‑1 rule ဆိုသည်မှာ ဘာလဲ? 💿",
                     options: [
                         "3 copies / 2 kinds of media / 1 offsite copy",
@@ -1435,7 +1392,7 @@
             ],
             4: [
                 // Questions for part 4
-		{
+                {
                     question: "ကွန်ပျူတာတစ်လုံး၏ \"bit\" ဆိုသည်မှာ အဘယ်နည်း? 💻",
                     options: [
                         "ကွန်ပျူတာ၏ အရွယ်အစား",
@@ -1445,8 +1402,7 @@
                     ],
                     correct: 1,
                     emoji: "💻"
-                },
-                {
+                }, {
                     question: "\"software\" နှင့် \"hardware\" ကွာခြားချက်မှာ အဘယ်နည်း? 💿",
                     options: [
                         "software သည် ကွန်ပျူတာ၏ ထိတွေ့ကိုင်တွယ်နိုင်သော အစိတ်အပိုင်းများဖြစ်ပြီး hardware သည် ပရိုဂရမ်များဖြစ်သည်",
@@ -1456,8 +1412,7 @@
                     ],
                     correct: 1,
                     emoji: "💿"
-                },
-                {
+                }, {
                     question: "\"file extension\" ဆိုသည်မှာ အဘယ်နည်း? 📄",
                     options: [
                         "ဖိုင်၏အမည်",
@@ -1467,8 +1422,7 @@
                     ],
                     correct: 2,
                     emoji: "📄"
-                },
-                {
+                }, {
                     question: "\"operating system\" ၏ အဓိကလုပ်ဆောင်ချက်မှာ အဘယ်နည်း? 🖥️",
                     options: [
                         "ဂိမ်းကစားရန်",
@@ -1478,8 +1432,7 @@
                     ],
                     correct: 2,
                     emoji: "🖥️"
-                },
-                {
+                }, {
                     question: "\"internet browser\" ဆိုသည်မှာ အဘယ်နည်း? 🌐",
                     options: [
                         "အင်တာနက်ကို အသုံးပြုရန် အသုံးပြုသည့် application",
@@ -1489,8 +1442,7 @@
                     ],
                     correct: 0,
                     emoji: "🌐"
-                },
-                {
+                }, {
                     question: "\"email\" ဆိုသည်မှာ အဘယ်နည်း? 📧",
                     options: [
                         "စာရိုက်ရန် အသုံးပြုသည့် application",
@@ -1500,8 +1452,7 @@
                     ],
                     correct: 1,
                     emoji: "📧"
-                },
-                {
+                }, {
                     question: "\"virus\" ဆိုသည်မှာ အဘယ်နည်း? 🦠",
                     options: [
                         "ကွန်ပျူတာကို ကာကွယ်ပေးသော ပရိုဂရမ်",
@@ -1511,8 +1462,7 @@
                     ],
                     correct: 1,
                     emoji: "🦠"
-                },
-                {
+                }, {
                     question: "\"firewall\" ဆိုသည်မှာ အဘယ်နည်း? 🔥",
                     options: [
                         "ကွန်ပျူတာကို အပူလွန်ကဲခြင်းမှ ကာကွယ်ပေးသော စက်",
@@ -1522,8 +1472,7 @@
                     ],
                     correct: 1,
                     emoji: "🔥"
-                },
-                {
+                }, {
                     question: "\"cloud storage\" ၏ အားသာချက်မှာ အဘယ်နည်း? ☁️",
                     options: [
                         "ဒေတာကို ကွန်ပျူတာတွင်သာ သိမ်းဆည်းနိုင်ခြင်း",
@@ -1533,8 +1482,7 @@
                     ],
                     correct: 1,
                     emoji: "☁️"
-                },
-                {
+                }, {
                     question: "\"password\" ကို ဘယ်လိုရွေးချယ်သင့်သနည်း? 🔐",
                     options: [
                         "မှတ်ရလွယ်ကူသော စကားလုံး",
@@ -1547,568 +1495,512 @@
                 }
 
             ],
-            5: [
-                {
-                    question: "ကွန်ပျူတာတစ်လုံး၏ \"CPU\" ဆိုသည်မှာ အဘယ်နည်း? 💻",
-                    options: [
-                        "Central Processing Unit",
-                        "Computer Processing Unit",
-                        "Central Program Unit",
-                        "Computer Program Unit"
-                    ],
-                    correct: 0,
-                    emoji: "💻"
-                },
-                {
-                    question: "\"keyboard\" ၏ အဓိကလုပ်ဆောင်ချက်မှာ အဘယ်နည်း? ⌨️",
-                    options: [
-                        "ရုပ်ပုံများကို ပြသရန်",
-                        "အသံကို ထုတ်လွှင့်ရန်",
-                        "ကွန်ပျူတာသို့ အချက်အလက်များ ထည့်သွင်းရန်",
-                        "စာရွက်စာတမ်းများကို ပုံနှိပ်ရန်"
-                    ],
-                    correct: 2,
-                    emoji: "⌨️"
-                },
-                {
-                    question: "\"mouse\" ကို အဘယ်အရာအတွက် အသုံးပြုသနည်း? 🖱️",
-                    options: [
-                        "စာရိုက်ရန်",
-                        "ကွန်ပျူတာ မျက်နှာပြင်ပေါ်ရှိ အရာများကို ထိန်းချုပ်ရန်",
-                        "အသံကို ဖမ်းယူရန်",
-                        "စာရွက်စာတမ်းများကို စကင်ဖတ်ရန်"
-                    ],
-                    correct: 1,
-                    emoji: "🖱️"
-                },
-                {
-                    question: "\"hard drive\" ၏ အဓိကလုပ်ဆောင်ချက်မှာ အဘယ်နည်း? 💽",
-                    options: [
-                        "ဒေတာကို ယာယီ သိမ်းဆည်းရန်",
-                        "ဒေတာကို အမြဲတမ်း သိမ်းဆည်းရန်",
-                        "ဂရပ်ဖစ်ကို လုပ်ဆောင်ရန်",
-                        "အသံကို ထုတ်လွှင့်ရန်"
-                    ],
-                    correct: 1,
-                    emoji: "💽"
-                },
-                {
-                    question: "\"desktop\" ဆိုသည်မှာ အဘယ်နည်း? 🖥️",
-                    options: [
-                        "ကွန်ပျူတာ၏ အဓိက မျက်နှာပြင်",
-                        "ကွန်ပျူတာ၏ အတွင်းပိုင်း အစိတ်အပိုင်း",
-                        "ကွန်ပျူတာ၏ အပြင်ပိုင်း အစိတ်အပိုင်း",
-                        "ကွန်ပျူတာ၏ အမြန်နှုန်း"
-                    ],
-                    correct: 0,
-                    emoji: "🖥️"
-                },
-                {
-                    question: "\"icon\" ဆိုသည်မှာ အဘယ်နည်း? 📱",
-                    options: [
-                        "ဖိုင်တစ်ခု သို့မဟုတ် ပရိုဂရမ်တစ်ခုကို ကိုယ်စားပြုသည့် ရုပ်ပုံ",
-                        "ကွန်ပျူတာ၏ အမည်",
-                        "ကွန်ပျူတာ၏ လိပ်စာ",
-                        "ကွန်ပျူတာ၏ အရွယ်အစား"
-                    ],
-                    correct: 0,
-                    emoji: "📱"
-                },
-                {
-                    question: "\"folder\" ကို အဘယ်အရာအတွက် အသုံးပြုသနည်း? 📂",
-                    options: [
-                        "ဖိုင်များကို စုစည်းရန်",
-                        "ကွန်ပျူတာကို သန့်ရှင်းရေးလုပ်ရန်",
-                        "အင်တာနက်ကို အသုံးပြုရန်",
-                        "ဂိမ်းကစားရန်"
-                    ],
-                    correct: 0,
-                    emoji: "📂"
-                },
-                {
-                    question: "\"recycle bin\" ဆိုသည်မှာ အဘယ်နည်း? 🗑️",
-                    options: [
-                        "ဖျက်လိုက်သော ဖိုင်များကို ယာယီ သိမ်းဆည်းထားသည့် နေရာ",
-                        "ဖိုင်များကို အမြဲတမ်း သိမ်းဆည်းထားသည့် နေရာ",
-                        "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် ပရိုဂရမ်",
-                        "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် ပရိုဂရမ်"
-                    ],
-                    correct: 0,
-                    emoji: "🗑️"
-                },
-                {
-                    question: "\"shortcut\" ဆိုသည်မှာ အဘယ်နည်း? 🔗",
-                    options: [
-                        "ဖိုင်တစ်ခု သို့မဟုတ် ပရိုဂရမ်တစ်ခုကို အမြန်ဖွင့်နိုင်ရန် ဖန်တီးထားသည့် လမ်းကြောင်း",
-                        "ကွန်ပျူတာကို ပိတ်ရန် အသုံးပြုသည့် ခလုတ်",
-                        "ကွန်ပျူတာကို ဖွင့်ရန် အသုံးပြုသည့် ခလုတ်",
-                        "ကွန်ပျူတာကို အသံတိတ်ရန် အသုံးပြုသည့် ခလုတ်"
-                    ],
-                    correct: 0,
-                    emoji: "🔗"
-                },
-                {
-                    question: "\"taskbar\" ဆိုသည်မှာ အဘယ်နည်း? 📊",
-                    options: [
-                        "ကွန်ပျူတာ၏ အဓိက မျက်နှာပြင်၏ အောက်ခြေတွင်ရှိသော ဘား",
-                        "ကွန်ပျူတာ၏ အဓိက မျက်နှာပြင်၏ အပေါ်ဆုံးတွင်ရှိသော ဘား",
-                        "ကွန်ပျူတာ၏ ဘယ်ဘက်တွင်ရှိသော ဘား",
-                        "ကွန်ပျူတာ၏ ညာဘက်တွင်ရှိသော ဘား"
-                    ],
-                    correct: 0,
-                    emoji: "📊"
-                }
-            ],
-            6: [
-                {
-                    question: "\"save\" ဆိုသည်မှာ အဘယ်နည်း? 💾",
-                    options: [
-                        "ဖိုင်ကို ဖျက်ရန်",
-                        "ဖိုင်ကို သိမ်းဆည်းရန်",
-                        "ဖိုင်ကို ပုံနှိပ် ရန်",
-                        "ဖိုင်ကို မျှဝေရန်"
-                    ],
-                    correct: 1,
-                    emoji: "💾"
-                },
-                {
-                    question: "\"copy\" and \"paste\" ဆိုသည်မှာ အဘယ်နည်း? 📋",
-                    options: [
-                        "ဖိုင်ကို ရွှေ့ပြောင်းရန်",
-                        "ဖိုင်ကို ပုံတူပွားရန်",
-                        "ဖိုင်ကို ဖျက်ရန်",
-                        "ဖိုင်ကို မျှဝေရန်"
-                    ],
-                    correct: 1,
-                    emoji: "📋"
-                },
-                {
-                    question: "\"delete\" ဆိုသည်မှာ အဘယ်နည်း? 🗑️",
-                    options: [
-                        "ဖိုင်ကို သိမ်းဆည်း ရန်",
-                        "ဖိုင်ကို ဖျက်ရန်",
-                        "ဖိုင်ကို ပုံနှိပ်ရန်",
-                        "ဖိုင်ကို မျှဝေရန်"
-                    ],
-                    correct: 1,
-                    emoji: "🗑️"
-                },
-                {
-                    question: "\"rename\" ဆိုသည်မှာ အဘယ်နည်း? 📝",
-                    options: [
-                        "ဖိုင်ကို အမည်ပြောင်းရန်",
-                        "ဖိုင်ကို သိမ်းဆည်းရန်",
-                        "ဖိုင်ကို ဖျက်ရန်",
-                        "ဖိုင်ကို မျှဝေရန်"
-                    ],
-                    correct: 0,
-                    emoji: "📝"
-                },
-                {
-                    question: "\"search\" ဆိုသည်မှာ အဘယ်နည်း? 🔍",
-                    options: [
-                        "ဖိုင်ကို ရှာဖွေရန်",
-                        "ဖိုင်ကို သိမ်းဆည်းရန်",
-                        "ဖိုင်ကို ဖျက်ရန်",
-                        "ဖိုင်ကို မျှဝေရန်"
-                    ],
-                    correct: 0,
-                    emoji: "🔍"
-                },
-                {
-                    question: "\"zoom\" ဆိုသည်မှာ အဘယ်နည်း? 🔍",
-                    options: [
-                        "ဖိုင်ကို ချဲ့ရန် သို့မဟုတ် ချုံ့ရန်",
-                        "ဖိုင်ကို သိမ်းဆည်းရန်",
-                        "ဖိုင်ကို ဖျက်ရန်",
-                        "ဖိုင်ကို မျှဝေရန်"
-                    ],
-                    correct: 0,
-                    emoji: "🔍"
-                },
-                {
-                    question: "\"scroll\" ဆိုသည်မှာ အဘယ်နည်း? 📜",
-                    options: [
-                        "စာမျက်နှာကို အပေါ် သို့မဟုတ် အောက် ရွှေ့ရန်",
-                        "ဖိုင်ကို သိမ်းဆည်းရန်",
-                        "ဖိုင်ကို ဖျက်ရန်",
-                        "ဖိုင်ကို မျှဝေရန်"
-                    ],
-                    correct: 0,
-                    emoji: "📜"
-                },
-                {
-                    question: "\"click\" ဆိုသည်မှာ အဘယ်နည်း? 🖱️",
-                    options: [
-                        "mouse ခလုတ်ကို တစ်ချက်နှိပ်ရန်",
-                        "ဖိုင်ကို သိမ်းဆည်းရန်",
-                        "ဖိုင်ကို ဖျက်ရန်",
-                        "ဖိုင်ကို မျှဝေရန်"
-                    ],
-                    correct: 0,
-                    emoji: "🖱️"
-                },
-                {
-                    question: "\"double-click\" ဆိုသည်မှာ အဘယ်နည်း? 🖱️🖱️",
-                    options: [
-                        "mouse ခလုတ်ကို နှစ်ချက်နှိပ်ရန်",
-                        "ဖိုင်ကို သိမ်းဆည်းရန်",
-                        "ဖိုင်ကို ဖျက်ရန်",
-                        "ဖိုင်ကို မျှဝေရန်"
-                    ],
-                    correct: 0,
-                    emoji: "🖱️🖱️"
-                },
-                {
-                    question: "\"right-click\" ဆိုသည်မှာ အဘယ်နည်း? 🖱️",
-                    options: [
-                        "mouse ၏ ညာဘက်ခလုတ်ကို နှိပ်ရန်",
-                        "ဖိုင်ကို သိမ်းဆည်းရန်",
-                        "ဖိုင်ကို ဖျက်ရန်",
-                        "ဖိုင်ကို မျှဝေရန်"
-                    ],
-                    correct: 0,
-                    emoji: "🖱️"
-                }
-            ],
-            7: [
-                {
-                    question: "\"Wi-Fi\" ဆိုသည်မှာ အဘယ်နည်း? 📶",
-                    options: [
-                        "ကြိုးမဲ့အင်တာနက်ဆက်သွယ်မှုနည်းပညာ",
-                        "ကွန်ပျူတာကို အပူချိန်ထိန်းညှိပေးသော စနစ်",
-                        "ဖိုင်များ ကို စီမံခန့်ခွဲရန် အသုံးပြုသည့် ပရိုဂရမ်",
-                        "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် ပရိုဂရမ်"
-                    ],
-                    correct: 0,
-                    emoji: "📶"
-                },
-                {
-                    question: "\"Bluetooth\" ကို အဘယ်အရာအတွက် အသုံးပြုသနည်း? 📱",
-                    options: [
-                        "ကွန်ပျူတာကို အင်တာနက်နှင့် ချိတ်ဆက်ရန်",
-                        "ကွန်ပျူတာကို ပရင်တာနှင့် ချိတ်ဆက်ရန်",
-                        "ကွန်ပျူတာကို အခြားစက်ပစ္စည်းများနှင့် ကြိုး မဲ့ချိတ်ဆက်ရန်",
-                        "ကွန်ပျူတာကို ပါဝါထောက်ပံ့ရန်"
-                    ],
-                    correct: 2,
-                    emoji: "📱"
-                },
-                {
-                    question: "\"download\" ဆိုသည်မှာ အဘယ်နည်း? ⬇️",
-                    options: [
-                        "အင်တာနက်မှ ဖိုင်များကို ကွန်ပျူတာသို့ ကူးယူခြင်း",
-                        "ကွန်ပျူတာမှ ဖိုင်များကို အင် တာနက်သို့ တင်ခြင်း",
-                        "ဖိုင်များကို ဖျက်ခြင်း",
-                        "ဖိုင်များကို သိမ်းဆည်းခြင်း"
-                    ],
-                    correct: 0,
-                    emoji: "⬇️"
-                },
-                {
-                    question: "\"upload\" ဆိုသည်မှာ အဘယ်နည်း? ⬆️",
-                    options: [
-                        "အင်တာနက်မှ ဖိုင်များကို ကွန်ပျူတာသို့ ကူးယူခြင်း",
-                        "ကွန်ပျူတာမှ ဖိုင်များကို အင် တာနက်သို့ တင်ခြင်း",
-                        "ဖိုင်များကို ဖျက်ခြင်း",
-                        "ဖိုင်များကို သိမ်းဆည်းခြင်း"
-                    ],
-                    correct: 1,
-                    emoji: "⬆️"
-                },
-                {
-                    question: "\"website\" ဆိုသည်မှာ အဘယ်နည်း? 🌐",
-                    options: [
-                        "အင်တာနက်ပေါ်တွင်ရှိသော စာမျက်နှာများ စုစည်းထားသော နေရာ",
-                        "ကွန်ပျူတာပေါ်တွင်ရှိသော ဖိုင်များ စု စည်းထားသော နေရာ",
-                        "ကွန်ပျူတာကို အသုံးပြုရန် လိုအပ်သော ပရိုဂရမ်များ စုစည်းထားသော နေရာ",
-                        "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် ပရိုဂရမ်များ စုစည်းထားသော နေရာ"
-                    ],
-                    correct: 0,
-                    emoji: "🌐"
-                },
-                {
-                    question: "\"link\" ဆိုသည်မှာ အဘယ်နည်း? 🔗",
-                    options: [
-                        "ဝဘ်စာမျက်နှာတစ်ခုမှ အခြားဝဘ်စာမျက်နှာတစ်ခုသို့ သွားရန် အသုံးပြုသည့် စာသား သို့မဟုတ် ရုပ်ပုံ",
-                        "ကွန်ပျူတာပေါ်တွင်ရှိသော ဖိုင်တစ်ခု၏ အမည်",
-                        "ကွန်ပျူတာ၏ လိပ်စာ",
-                        "ကွန်ပျူတာ၏ အရွယ်အစား"
-                    ],
-                    correct: 0,
-                    emoji: "🔗"
-                },
-                {
-                    question: "\"browser tab\" ဆိုသည်မှာ အဘယ်နည်း? 📑",
-                    options: [
-                        "browser တွင် ဝဘ်စာမျက်နှာအသစ်တစ်ခုကို ဖွင့်ရန် အသုံးပြုသည့် နေရာ",
-                        "browser တွင် ဖိုင်များကို သိမ်းဆည်းရန် အသုံးပြုသည့် နေရာ",
-                        "browser တွင် ဖိုင်များကို ဖျက်ရန် အသုံးပြုသည့် နေရာ",
-                        "browser တွင် ဖိုင်များကို မျှဝေရန် အသုံးပြုသည့် နေရာ"
-                    ],
-                    correct: 0,
-                    emoji: "📑"
-                },
-                {
-                    question: "\"bookmark\" ဆိုသည်မှာ အဘယ်နည်း? 🔖",
-                    options: [
-                        "ဝဘ်စာမျက်နှာတစ်ခုကို မှတ်သားထားရန် အသုံးပြုသည့် နည်းလမ်း",
-                        "ကွန်ပျူတာပေါ်တွင်ရှိသော ဖိုင်တစ်ခုကို မှတ်သားထားရန် အသုံးပြုသည့် နည်းလမ်း",
-                        "ကွန်ပျူတာကို အသုံးပြုရန် လိုအပ်သော ပရိုဂရမ်တစ်ခုကို မှတ်သားထားရန် အသုံးပြုသည့် နည်းလမ်း",
-                        "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် ပရိုဂရမ်တစ်ခုကို မှတ်သားထား ရန် အသုံးပြုသည့် နည်းလမ်း"
-                    ],
-                    correct: 0,
-                    emoji: "🔖"
-                },
-                {
-                    question: "\"cookies\" ဆိုသည်မှာ အဘယ်နည်း? 🍪",
-                    options: [
-                        "ဝဘ်ဆိုဒ်များက သင့်ကွန်ပျူတာပေါ်တွင် သိမ်းဆည်းထားသော သေးငယ်သည့် ဖိုင်များ",
-                        "ကွန်ပျူတာကို အသုံးပြုရန် လိုအပ်သော ပရိုဂရမ်များ",
-                        "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် ပရိုဂရမ်များ",
-                        "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် ပရိုဂရမ်များ"
-                    ],
-                    correct: 0,
-                    emoji: "🍪"
-                },
-                {
-                    question: "\"cache\" ဆိုသည်မှာ အဘယ်နည်း? 💾",
-                    options: [
-                        "ကွန်ပျူတာတွင် ယာယီ သိမ်းဆည်းထားသော ဒေတာ",
-                        "ကွန်ပျူတာတွင် အမြဲတမ်း သိမ်းဆည်းထားသော ဒေတာ",
-                        "ကွန်ပျူတာကို အသုံးပြုရန် လိုအပ်သော ပရိုဂရမ်များ",
-                        "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် ပရိုဂရမ်များ"
-                    ],
-                    correct: 0,
-                    emoji: "💾"
-                }
-            ],
-            8: [
-                {
-                    question: "\"antivirus\" software ဆိုသည်မှာ အဘယ်နည်း? 🛡️",
-                    options: [
-                        "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင် ရန် အသုံးပြုသည့် ပရိုဂရမ်",
-                        "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် ပရိုဂရမ်",
-                        "ဖိုင်များကို စီမံခန့်ခွဲရန် အသုံးပြုသည့် ပရိုဂရမ်",
-                        "အင်တာနက်ကို အသုံးပြုရန် အသုံးပြုသည့် ပရိုဂရမ်"
-                    ],
-                    correct: 1,
-                    emoji: "🛡️"
-                },
-                {
-                    question: "\"firewall\" ၏ အဓိကလုပ်ဆောင်ချက်မှာ အဘယ်နည်း? 🔥",
-                    options: [
-                        "ကွန်ပျူတာကို အပူချိန်ထိန်းညှိပေးရန်",
-                        "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန်",
-                        "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန်",
-                        "ကွန်ပျူတာကို ပါဝါထောက်ပံ့ရန်"
-                    ],
-                    correct: 1,
-                    emoji: "🔥"
-                },
-                {
-                    question: "\"phishing\" ဆိုသည်မှာ အဘယ်နည်း? 🎣",
-                    options: [
-                        "အင် တာနက်ပေါ်တွင် ငါးဖမ်းခြင်း",
-                        "သင့်အချက်အလက်များကို ခိုး ယူရန် ကြိုးစားသည့် လှည့်စားနည်း",
-                        "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် နည်းလမ်း",
-                        "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် နည်းလမ်း"
-                    ],
-                    correct: 1,
-                    emoji: "🎣"
-                },
-                {
-                    question: "\"spam\" ဆိုသည်မှာ အဘယ်နည်း? 📧",
-                    options: [
-                        "အသုံးမဝင်သော အီးမေးလ်များ သို့မဟုတ် မက်ဆေ့ချ်များ",
-                        "အသုံးဝင်သော အီးမေးလ်များ သို့မဟုတ် မက်ဆေ့ချ်များ",
-                        "ကွန်ပျူတာကို အမြန်နှုန်း မြှင့်တင်ရန် အသုံးပြုသည့် ပရိုဂရမ်",
-                        "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် ပရိုဂရမ်"
-                    ],
-                    correct: 0,
-                    emoji: "📧"
-                },
-                {
-                    question: "\"strong password\" ဆိုသည်မှာ အဘယ်နည်း? 🔐",
-                    options: [
-                        "မှတ်ရလွယ်ကူသော စကားလုံး",
-                        "မွေး နေ့ရက်စွဲ",
-                        "ခန့်မှန်းရခက်ခဲသော စကားလုံးများနှင့် သင်္ကေတများ",
-                        "အမည်"
-                    ],
-                    correct: 2,
-                    emoji: "🔐"
-                },
-                {
-                    question: "\"two-factor authentication\" (2FA) ဆိုသည်မှာ အဘယ်နည်း? 🔒",
-                    options: [
-                        "စကားဝှက်တစ်ခုတည်းကို အသုံးပြုခြင်း",
-                        "စကားဝှက်နှင့် အခြားအချက်အလက်တစ်ခုကို အသုံးပြုခြင်း",
-                        "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် နည်းလမ်း",
-                        "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် နည်းလမ်း"
-                    ],
-                    correct: 1,
-                    emoji: "🔒"
-                },
-                {
-                    question: "\"VPN\" (Virtual Private Network) ဆိုသည်မှာ အဘယ်နည်း? 🌐",
-                    options: [
-                        "အင်တာနက်ဆက်သွယ်မှုကို လုံခြုံစေရန် အသုံးပြုသည့် နည်းပညာ",
-                        "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် နည်းပညာ",
-                        "ဖိုင်များကို စီမံခန့်ခွဲရန် အသုံးပြုသည့် ပရိုဂရမ်",
-                        "အင်တာနက်ကို အသုံးပြုရန် အသုံးပြုသည့် ပရိုဂရမ်"
-                    ],
-                    correct: 0,
-                    emoji: "🌐"
-                },
-                {
-                    question: "\"malware\" ဆိုသည်မှာ အဘယ်နည်း? 🦠",
-                    options: [
-                        "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် ပရိုဂရမ်",
-                        "ကွန်ပျူတာကို ထိခိုက်စေသော ဆော့ဖ်ဝဲ",
-                        "ဖိုင်များကို စီမံခန့်ခွဲရန် အသုံးပြုသည့် ပရိုဂရမ်",
-                        "အင်တာနက်ကို အသုံးပြုရန် အသုံးပြုသည့် ပရိုဂရမ်"
-                    ],
-                    correct: 1,
-                    emoji: "🦠"
-                },
-                {
-                    question: "\"spyware\" ဆိုသည်မှာ အဘယ်နည်း? 🕵️",
-                    options: [
-                        "သင့်အချက်အလက်များကို ခိုးယူရန် အသုံးပြုသည့် ဆော့ဖ်ဝဲ",
-                        "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် ပရိုဂရမ်",
-                        "ဖိုင်များကို စီမံခန့်ခွဲရန် အသုံးပြုသည့် ပရိုဂရမ်",
-                        "အင်တာနက်ကို အသုံးပြုရန် အသုံးပြုသည့် ပရိုဂရမ်"
-                    ],
-                    correct: 0,
-                    emoji: "🕵️"
-                },
-                {
-                    question: "\"ransomware\" ဆိုသည်မှာ အဘယ်နည်း? 💰",
-                    options: [
-                        "သင့်ဖိုင်များကို ကုဒ်ဝှက်ပြီး ပြန်ပေးဆွဲရန် အသုံးပြုသည့် ဆော့ဖ်ဝဲ",
-                        "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် ပရိုဂရမ်",
-                        "ဖိုင်များကို စီမံခန့်ခွဲရန် အသုံးပြုသည့် ပရိုဂရမ်",
-                        "အင်တာနက်ကို အသုံးပြုရန် အသုံးပြုသည့် ပရိုဂရမ်"
-                    ],
-                    correct: 0,
-                    emoji: "💰"
-                }
-            ],
-            9: [
-                {
-                    question: "\"driver\" ဆိုသည်မှာ အဘယ်နည်း? 🚗",
-                    options: [
-                        "ကွန်ပျူတာကို မောင်းနှင်သူ",
-                        "hardware နှင့် operating system အကြား ဆက်သွယ်ပေးသော ဆော့ဖ် ဝဲ",
-                        "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် ပရိုဂရမ်",
-                        "ဖိုင်များကို စီမံခန့်ခွဲရန် အသုံးပြုသည့် ပရိုဂရမ်"
-                    ],
-                    correct: 1,
-                    emoji: "🚗"
-                },
-                {
-                    question: "\"plug and play\" ဆိုသည်မှာ အဘယ်နည်း? 🔌",
-                    options: [
-                        "ကွန်ပျူတာကို ပလပ်ထိုးပြီး ချက်ချင်းအသုံးပြုနိုင်သော စက်ပစ္စည်း",
-                        "ကွန်ပျူတာကို ပလပ်ထိုးပြီး အချိန်အကြာကြီး စောင့်ဆိုင်းရသော စက်ပစ္စည်း",
-                        "ကွန်ပျူတာကို ပလပ်ထိုးပြီး အလုပ်မလုပ်သော စက်ပစ္စည်း",
-                        "ကွန်ပျူတာကို ပလပ်ထိုးရန် မလိုအပ်သော စက်ပစ္စည်း"
-                    ],
-                    correct: 0,
-                    emoji: "🔌"
-                },
-                {
-                    question: "\"troubleshooting\" ဆိုသည်မှာ အဘယ်နည်း? 🔧",
-                    options: [
-                        "ကွန်ပျူတာကို အသုံးပြုခြင်း",
-                        "ကွန်ပျူတာကို ပြုပြင်ခြင်း",
-                        "ကွန်ပျူတာပြဿနာများကို ရှာဖွေဖြေရှင်းခြင်း",
-                        "ကွန်ပျူတာကို ပိတ်ခြင်း"
-                    ],
-                    correct: 2,
-                    emoji: "🔧"
-                },
-                {
-                    question: "\"default\" setting ဆိုသည်မှာ အဘယ်နည်း? ⚙️",
-                    options: [
-                        "သင်ပြောင်းလဲနိုင်သော setting",
-                        "သင်မပြောင်းလဲနိုင်သော setting",
-                        "အစကတည်းက သတ်မှတ်ထားသော setting",
-                        "အသုံးပြုသူမှ သတ်မှတ်ထားသော setting"
-                    ],
-                    correct: 2,
-                    emoji: "⚙️"
-                },
-                {
-                    question: "\"compatible\" ဆိုသည်မှာ အဘယ်နည်း? 🔄",
-                    options: [
-                        "အတူတကွ အလုပ်လုပ်နိုင်သော စက်ပစ္စည်းများ သို့မဟုတ် ဆော့ဖ်ဝဲ",
-                        "အတူတကွ အလုပ်မလုပ်နိုင်သော စက်ပစ္စည်း များ သို့မဟုတ် ဆော့ဖ်ဝဲ",
-                        "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် ပရိုဂရမ်",
-                        "ဖိုင်များကို စီမံခန့်ခွဲရန် အသုံးပြုသည့် ပရိုဂရမ်"
-                    ],
-                    correct: 0,
-                    emoji: "🔄"
-                },
-                {
-                    question: "\"upgrade\" ဆိုသည်မှာ အဘယ်နည်း? 📈",
-                    options: [
-                        "ပိုကောင်းသော ဗားရှင်းသို့ ပြောင်းလဲခြင်း",
-                        "ပိုဆိုးသော ဗားရှင်းသို့ ပြောင်းလဲခြင်း",
-                        "ဖိုင်ကို ဖျက်ခြင်း",
-                        "ဖိုင်ကို သိမ်းဆည်းခြင်း"
-                    ],
-                    correct: 0,
-                    emoji: "📈"
-                },
-                {
-                    question: "\"update\" ဆိုသည်မှာ အဘယ်နည်း? 🔄",
-                    options: [
-                        "ဆော့ဖ်ဝဲကို နောက်ဆုံးဗားရှင်းသို့ ပြောင်းလဲခြင်း",
-                        "ဆော့ဖ်ဝဲကို အဟောင်းဗားရှင်းသို့ ပြောင်းလဲခြင်း",
-                        "ဖိုင်ကို ဖျက်ခြင်း",
-                        "ဖိုင်ကို သိမ်းဆည်းခြင်း"
-                    ],
-                    correct: 0,
-                    emoji: "🔄"
-                },
-                {
-                    question: "\"restore\" ဆိုသည်မှာ အဘယ်နည်း? ↩️",
-                    options: [
-                        "ဖိုင်ကို ဖျက်ခြင်း",
-                        "ဖိုင်ကို သိမ်းဆည်းခြင်း",
-                        "ဖိုင်ကို ယခင်အခြေအနေသို့ ပြန်လည်ရောက်ရှိစေခြင်း",
-                        "ဖိုင်ကို မျှဝေခြင်း"
-                    ],
-                    correct: 2,
-                    emoji: "↩️"
-                },
-                {
-                    question: "\"backup\" ဆိုသည်မှာ အဘယ်နည်း? 💾",
-                    options: [
-                        "ဖိုင်များကို ကူးယူထားခြင်း",
-                        "ဖိုင်များကို ဖျက်ခြင်း",
-                        "ဖိုင်များကို သိမ်းဆည်းခြင်း",
-                        "ဖိုင်များကို မျှဝေခြင်း"
-                    ],
-                    correct: 0,
-                    emoji: "💾"
-                },
-                {
-                    question: "\"recovery\" ဆိုသည်မှာ အဘယ်နည်း? 🔄",
-                    options: [
-                        "ပျက်စီးသွားသော ဖိုင်များ ကို ပြန်လည်ရယူခြင်း",
-                        "ဖိုင်များကို ဖျက်ခြင်း",
-                        "ဖိုင်များကို သိမ်းဆည်းခြင်း",
-                        "ဖိုင်များကို မျှဝေခြင်း"
-                    ],
-                    correct: 0,
-                    emoji: "🔄"
-                }
-            ],
-            10: [
-                {
+            5: [{
+                question: "ကွန်ပျူတာတစ်လုံး၏ \"CPU\" ဆိုသည်မှာ အဘယ်နည်း? 💻",
+                options: [
+                    "Central Processing Unit",
+                    "Computer Processing Unit",
+                    "Central Program Unit",
+                    "Computer Program Unit"
+                ],
+                correct: 0,
+                emoji: "💻"
+            }, {
+                question: "\"keyboard\" ၏ အဓိကလုပ်ဆောင်ချက်မှာ အဘယ်နည်း? ⌨️",
+                options: [
+                    "ရုပ်ပုံများကို ပြသရန်",
+                    "အသံကို ထုတ်လွှင့်ရန်",
+                    "ကွန်ပျူတာသို့ အချက်အလက်များ ထည့်သွင်းရန်",
+                    "စာရွက်စာတမ်းများကို ပုံနှိပ်ရန်"
+                ],
+                correct: 2,
+                emoji: "⌨️"
+            }, {
+                question: "\"mouse\" ကို အဘယ်အရာအတွက် အသုံးပြုသနည်း? 🖱️",
+                options: [
+                    "စာရိုက်ရန်",
+                    "ကွန်ပျူတာ မျက်နှာပြင်ပေါ်ရှိ အရာများကို ထိန်းချုပ်ရန်",
+                    "အသံကို ဖမ်းယူရန်",
+                    "စာရွက်စာတမ်းများကို စကင်ဖတ်ရန်"
+                ],
+                correct: 1,
+                emoji: "🖱️"
+            }, {
+                question: "\"hard drive\" ၏ အဓိကလုပ်ဆောင်ချက်မှာ အဘယ်နည်း? 💽",
+                options: [
+                    "ဒေတာကို ယာယီ သိမ်းဆည်းရန်",
+                    "ဒေတာကို အမြဲတမ်း သိမ်းဆည်းရန်",
+                    "ဂရပ်ဖစ်ကို လုပ်ဆောင်ရန်",
+                    "အသံကို ထုတ်လွှင့်ရန်"
+                ],
+                correct: 1,
+                emoji: "💽"
+            }, {
+                question: "\"desktop\" ဆိုသည်မှာ အဘယ်နည်း? 🖥️",
+                options: [
+                    "ကွန်ပျူတာ၏ အဓိက မျက်နှာပြင်",
+                    "ကွန်ပျူတာ၏ အတွင်းပိုင်း အစိတ်အပိုင်း",
+                    "ကွန်ပျူတာ၏ အပြင်ပိုင်း အစိတ်အပိုင်း",
+                    "ကွန်ပျူတာ၏ အမြန်နှုန်း"
+                ],
+                correct: 0,
+                emoji: "🖥️"
+            }, {
+                question: "\"icon\" ဆိုသည်မှာ အဘယ်နည်း? 📱",
+                options: [
+                    "ဖိုင်တစ်ခု သို့မဟုတ် ပရိုဂရမ်တစ်ခုကို ကိုယ်စားပြုသည့် ရုပ်ပုံ",
+                    "ကွန်ပျူတာ၏ အမည်",
+                    "ကွန်ပျူတာ၏ လိပ်စာ",
+                    "ကွန်ပျူတာ၏ အရွယ်အစား"
+                ],
+                correct: 0,
+                emoji: "📱"
+            }, {
+                question: "\"folder\" ကို အဘယ်အရာအတွက် အသုံးပြုသနည်း? 📂",
+                options: [
+                    "ဖိုင်များကို စုစည်းရန်",
+                    "ကွန်ပျူတာကို သန့်ရှင်းရေးလုပ်ရန်",
+                    "အင်တာနက်ကို အသုံးပြုရန်",
+                    "ဂိမ်းကစားရန်"
+                ],
+                correct: 0,
+                emoji: "📂"
+            }, {
+                question: "\"recycle bin\" ဆိုသည်မှာ အဘယ်နည်း? 🗑️",
+                options: [
+                    "ဖျက်လိုက်သော ဖိုင်များကို ယာယီ သိမ်းဆည်းထားသည့် နေရာ",
+                    "ဖိုင်များကို အမြဲတမ်း သိမ်းဆည်းထားသည့် နေရာ",
+                    "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် ပရိုဂရမ်",
+                    "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် ပရိုဂရမ်"
+                ],
+                correct: 0,
+                emoji: "🗑️"
+            }, {
+                question: "\"shortcut\" ဆိုသည်မှာ အဘယ်နည်း? 🔗",
+                options: [
+                    "ဖိုင်တစ်ခု သို့မဟုတ် ပရိုဂရမ်တစ်ခုကို အမြန်ဖွင့်နိုင်ရန် ဖန်တီးထားသည့် လမ်းကြောင်း",
+                    "ကွန်ပျူတာကို ပိတ်ရန် အသုံးပြုသည့် ခလုတ်",
+                    "ကွန်ပျူတာကို ဖွင့်ရန် အသုံးပြုသည့် ခလုတ်",
+                    "ကွန်ပျူတာကို အသံတိတ်ရန် အသုံးပြုသည့် ခလုတ်"
+                ],
+                correct: 0,
+                emoji: "🔗"
+            }, {
+                question: "\"taskbar\" ဆိုသည်မှာ အဘယ်နည်း? 📊",
+                options: [
+                    "ကွန်ပျူတာ၏ အဓိက မျက်နှာပြင်၏ အောက်ခြေတွင်ရှိသော ဘား",
+                    "ကွန်ပျူတာ၏ အဓိက မျက်နှာပြင်၏ အပေါ်ဆုံးတွင်ရှိသော ဘား",
+                    "ကွန်ပျူတာ၏ ဘယ်ဘက်တွင်ရှိသော ဘား",
+                    "ကွန်ပျူတာ၏ ညာဘက်တွင်ရှိသော ဘား"
+                ],
+                correct: 0,
+                emoji: "📊"
+            }],
+            6: [{
+                question: "\"save\" ဆိုသည်မှာ အဘယ်နည်း? 💾",
+                options: [
+                    "ဖိုင်ကို ဖျက်ရန်",
+                    "ဖိုင်ကို သိမ်းဆည်းရန်",
+                    "ဖိုင်ကို ပုံနှိပ် ရန်",
+                    "ဖိုင်ကို မျှဝေရန်"
+                ],
+                correct: 1,
+                emoji: "💾"
+            }, {
+                question: "\"copy\" and \"paste\" ဆိုသည်မှာ အဘယ်နည်း? 📋",
+                options: [
+                    "ဖိုင်ကို ရွှေ့ပြောင်းရန်",
+                    "ဖိုင်ကို ပုံတူပွားရန်",
+                    "ဖိုင်ကို ဖျက်ရန်",
+                    "ဖိုင်ကို မျှဝေရန်"
+                ],
+                correct: 1,
+                emoji: "📋"
+            }, {
+                question: "\"delete\" ဆိုသည်မှာ အဘယ်နည်း? 🗑️",
+                options: [
+                    "ဖိုင်ကို သိမ်းဆည်း ရန်",
+                    "ဖိုင်ကို ဖျက်ရန်",
+                    "ဖိုင်ကို ပုံနှိပ်ရန်",
+                    "ဖိုင်ကို မျှဝေရန်"
+                ],
+                correct: 1,
+                emoji: "🗑️"
+            }, {
+                question: "\"rename\" ဆိုသည်မှာ အဘယ်နည်း? 📝",
+                options: [
+                    "ဖိုင်ကို အမည်ပြောင်းရန်",
+                    "ဖိုင်ကို သိမ်းဆည်းရန်",
+                    "ဖိုင်ကို ဖျက်ရန်",
+                    "ဖိုင်ကို မျှဝေရန်"
+                ],
+                correct: 0,
+                emoji: "📝"
+            }, {
+                question: "\"search\" ဆိုသည်မှာ အဘယ်နည်း? 🔍",
+                options: [
+                    "ဖိုင်ကို ရှာဖွေရန်",
+                    "ဖိုင်ကို သိမ်းဆည်းရန်",
+                    "ဖိုင်ကို ဖျက်ရန်",
+                    "ဖိုင်ကို မျှဝေရန်"
+                ],
+                correct: 0,
+                emoji: "🔍"
+            }, {
+                question: "\"zoom\" ဆိုသည်မှာ အဘယ်နည်း? 🔍",
+                options: [
+                    "ဖိုင်ကို ချဲ့ရန် သို့မဟုတ် ချုံ့ရန်",
+                    "ဖိုင်ကို သိမ်းဆည်းရန်",
+                    "ဖိုင်ကို ဖျက်ရန်",
+                    "ဖိုင်ကို မျှဝေရန်"
+                ],
+                correct: 0,
+                emoji: "🔍"
+            }, {
+                question: "\"scroll\" ဆိုသည်မှာ အဘယ်နည်း? 📜",
+                options: [
+                    "စာမျက်နှာကို အပေါ် သို့မဟုတ် အောက် ရွှေ့ရန်",
+                    "ဖိုင်ကို သိမ်းဆည်းရန်",
+                    "ဖိုင်ကို ဖျက်ရန်",
+                    "ဖိုင်ကို မျှဝေရန်"
+                ],
+                correct: 0,
+                emoji: "📜"
+            }, {
+                question: "\"click\" ဆိုသည်မှာ အဘယ်နည်း? 🖱️",
+                options: [
+                    "mouse ခလုတ်ကို တစ်ချက်နှိပ်ရန်",
+                    "ဖိုင်ကို သိမ်းဆည်းရန်",
+                    "ဖိုင်ကို ဖျက်ရန်",
+                    "ဖိုင်ကို မျှဝေရန်"
+                ],
+                correct: 0,
+                emoji: "🖱️"
+            }, {
+                question: "\"double-click\" ဆိုသည်မှာ အဘယ်နည်း? 🖱️🖱️",
+                options: [
+                    "mouse ခလုတ်ကို နှစ်ချက်နှိပ်ရန်",
+                    "ဖိုင်ကို သိမ်းဆည်းရန်",
+                    "ဖိုင်ကို ဖျက်ရန်",
+                    "ဖိုင်ကို မျှဝေရန်"
+                ],
+                correct: 0,
+                emoji: "🖱️🖱️"
+            }, {
+                question: "\"right-click\" ဆိုသည်မှာ အဘယ်နည်း? 🖱️",
+                options: [
+                    "mouse ၏ ညာဘက်ခလုတ်ကို နှိပ်ရန်",
+                    "ဖိုင်ကို သိမ်းဆည်းရန်",
+                    "ဖိုင်ကို ဖျက်ရန်",
+                    "ဖိုင်ကို မျှဝေရန်"
+                ],
+                correct: 0,
+                emoji: "🖱️"
+            }],
+            7: [{
+                question: "\"Wi-Fi\" ဆိုသည်မှာ အဘယ်နည်း? 📶",
+                options: [
+                    "ကြိုးမဲ့အင်တာနက်ဆက်သွယ်မှုနည်းပညာ",
+                    "ကွန်ပျူတာကို အပူချိန်ထိန်းညှိပေးသော စနစ်",
+                    "ဖိုင်များ ကို စီမံခန့်ခွဲရန် အသုံးပြုသည့် ပရိုဂရမ်",
+                    "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် ပရိုဂရမ်"
+                ],
+                correct: 0,
+                emoji: "📶"
+            }, {
+                question: "\"Bluetooth\" ကို အဘယ်အရာအတွက် အသုံးပြုသနည်း? 📱",
+                options: [
+                    "ကွန်ပျူတာကို အင်တာနက်နှင့် ချိတ်ဆက်ရန်",
+                    "ကွန်ပျူတာကို ပရင်တာနှင့် ချိတ်ဆက်ရန်",
+                    "ကွန်ပျူတာကို အခြားစက်ပစ္စည်းများနှင့် ကြိုး မဲ့ချိတ်ဆက်ရန်",
+                    "ကွန်ပျူတာကို ပါဝါထောက်ပံ့ရန်"
+                ],
+                correct: 2,
+                emoji: "📱"
+            }, {
+                question: "\"download\" ဆိုသည်မှာ အဘယ်နည်း? ⬇️",
+                options: [
+                    "အင်တာနက်မှ ဖိုင်များကို ကွန်ပျူတာသို့ ကူးယူခြင်း",
+                    "ကွန်ပျူတာမှ ဖိုင်များကို အင် တာနက်သို့ တင်ခြင်း",
+                    "ဖိုင်များကို ဖျက်ခြင်း",
+                    "ဖိုင်များကို သိမ်းဆည်းခြင်း"
+                ],
+                correct: 0,
+                emoji: "⬇️"
+            }, {
+                question: "\"upload\" ဆိုသည်မှာ အဘယ်နည်း? ⬆️",
+                options: [
+                    "အင်တာနက်မှ ဖိုင်များကို ကွန်ပျူတာသို့ ကူးယူခြင်း",
+                    "ကွန်ပျူတာမှ ဖိုင်များကို အင် တာနက်သို့ တင်ခြင်း",
+                    "ဖိုင်များကို ဖျက်ခြင်း",
+                    "ဖိုင်များကို သိမ်းဆည်းခြင်း"
+                ],
+                correct: 1,
+                emoji: "⬆️"
+            }, {
+                question: "\"website\" ဆိုသည်မှာ အဘယ်နည်း? 🌐",
+                options: [
+                    "အင်တာနက်ပေါ်တွင်ရှိသော စာမျက်နှာများ စုစည်းထားသော နေရာ",
+                    "ကွန်ပျူတာပေါ်တွင်ရှိသော ဖိုင်များ စု စည်းထားသော နေရာ",
+                    "ကွန်ပျူတာကို အသုံးပြုရန် လိုအပ်သော ပရိုဂရမ်များ စုစည်းထားသော နေရာ",
+                    "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် ပရိုဂရမ်များ စုစည်းထားသော နေရာ"
+                ],
+                correct: 0,
+                emoji: "🌐"
+            }, {
+                question: "\"link\" ဆိုသည်မှာ အဘယ်နည်း? 🔗",
+                options: [
+                    "ဝဘ်စာမျက်နှာတစ်ခုမှ အခြားဝဘ်စာမျက်နှာတစ်ခုသို့ သွားရန် အသုံးပြုသည့် စာသား သို့မဟုတ် ရုပ်ပုံ",
+                    "ကွန်ပျူတာပေါ်တွင်ရှိသော ဖိုင်တစ်ခု၏ အမည်",
+                    "ကွန်ပျူတာ၏ လိပ်စာ",
+                    "ကွန်ပျူတာ၏ အရွယ်အစား"
+                ],
+                correct: 0,
+                emoji: "🔗"
+            }, {
+                question: "\"browser tab\" ဆိုသည်မှာ အဘယ်နည်း? 📑",
+                options: [
+                    "browser တွင် ဝဘ်စာမျက်နှာအသစ်တစ်ခုကို ဖွင့်ရန် အသုံးပြုသည့် နေရာ",
+                    "browser တွင် ဖိုင်များကို သိမ်းဆည်းရန် အသုံးပြုသည့် နေရာ",
+                    "browser တွင် ဖိုင်များကို ဖျက်ရန် အသုံးပြုသည့် နေရာ",
+                    "browser တွင် ဖိုင်များကို မျှဝေရန် အသုံးပြုသည့် နေရာ"
+                ],
+                correct: 0,
+                emoji: "📑"
+            }, {
+                question: "\"bookmark\" ဆိုသည်မှာ အဘယ်နည်း? 🔖",
+                options: [
+                    "ဝဘ်စာမျက်နှာတစ်ခုကို မှတ်သားထားရန် အသုံးပြုသည့် နည်းလမ်း",
+                    "ကွန်ပျူတာပေါ်တွင်ရှိသော ဖိုင်တစ်ခုကို မှတ်သားထားရန် အသုံးပြုသည့် နည်းလမ်း",
+                    "ကွန်ပျူတာကို အသုံးပြုရန် လိုအပ်သော ပရိုဂရမ်တစ်ခုကို မှတ်သားထားရန် အသုံးပြုသည့် နည်းလမ်း",
+                    "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် ပရိုဂရမ်တစ်ခုကို မှတ်သားထား ရန် အသုံးပြုသည့် နည်းလမ်း"
+                ],
+                correct: 0,
+                emoji: "🔖"
+            }, {
+                question: "\"cookies\" ဆိုသည်မှာ အဘယ်နည်း? 🍪",
+                options: [
+                    "ဝဘ်ဆိုဒ်များက သင့်ကွန်ပျူတာပေါ်တွင် သိမ်းဆည်းထားသော သေးငယ်သည့် ဖိုင်များ",
+                    "ကွန်ပျူတာကို အသုံးပြုရန် လိုအပ်သော ပရိုဂရမ်များ",
+                    "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် ပရိုဂရမ်များ",
+                    "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် ပရိုဂရမ်များ"
+                ],
+                correct: 0,
+                emoji: "🍪"
+            }, {
+                question: "\"cache\" ဆိုသည်မှာ အဘယ်နည်း? 💾",
+                options: [
+                    "ကွန်ပျူတာတွင် ယာယီ သိမ်းဆည်းထားသော ဒေတာ",
+                    "ကွန်ပျူတာတွင် အမြဲတမ်း သိမ်းဆည်းထားသော ဒေတာ",
+                    "ကွန်ပျူတာကို အသုံးပြုရန် လိုအပ်သော ပရိုဂရမ်များ",
+                    "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် ပရိုဂရမ်များ"
+                ],
+                correct: 0,
+                emoji: "💾"
+            }],
+            8: [{
+                question: "\"antivirus\" software ဆိုသည်မှာ အဘယ်နည်း? 🛡️",
+                options: [
+                    "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင် ရန် အသုံးပြုသည့် ပရိုဂရမ်",
+                    "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် ပရိုဂရမ်",
+                    "ဖိုင်များကို စီမံခန့်ခွဲရန် အသုံးပြုသည့် ပရိုဂရမ်",
+                    "အင်တာနက်ကို အသုံးပြုရန် အသုံးပြုသည့် ပရိုဂရမ်"
+                ],
+                correct: 1,
+                emoji: "🛡️"
+            }, {
+                question: "\"firewall\" ၏ အဓိကလုပ်ဆောင်ချက်မှာ အဘယ်နည်း? 🔥",
+                options: [
+                    "ကွန်ပျူတာကို အပူချိန်ထိန်းညှိပေးရန်",
+                    "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန်",
+                    "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန်",
+                    "ကွန်ပျူတာကို ပါဝါထောက်ပံ့ရန်"
+                ],
+                correct: 1,
+                emoji: "🔥"
+            }, {
+                question: "\"phishing\" ဆိုသည်မှာ အဘယ်နည်း? 🎣",
+                options: [
+                    "အင် တာနက်ပေါ်တွင် ငါးဖမ်းခြင်း",
+                    "သင့်အချက်အလက်များကို ခိုး ယူရန် ကြိုးစားသည့် လှည့်စားနည်း",
+                    "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် နည်းလမ်း",
+                    "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် နည်းလမ်း"
+                ],
+                correct: 1,
+                emoji: "🎣"
+            }, {
+                question: "\"spam\" ဆိုသည်မှာ အဘယ်နည်း? 📧",
+                options: [
+                    "အသုံးမဝင်သော အီးမေးလ်များ သို့မဟုတ် မက်ဆေ့ချ်များ",
+                    "အသုံးဝင်သော အီးမေးလ်များ သို့မဟုတ် မက်ဆေ့ချ်များ",
+                    "ကွန်ပျူတာကို အမြန်နှုန်း မြှင့်တင်ရန် အသုံးပြုသည့် ပရိုဂရမ်",
+                    "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် ပရိုဂရမ်"
+                ],
+                correct: 0,
+                emoji: "📧"
+            }, {
+                question: "\"strong password\" ဆိုသည်မှာ အဘယ်နည်း? 🔐",
+                options: [
+                    "မှတ်ရလွယ်ကူသော စကားလုံး",
+                    "မွေး နေ့ရက်စွဲ",
+                    "ခန့်မှန်းရခက်ခဲသော စကားလုံးများနှင့် သင်္ကေတများ",
+                    "အမည်"
+                ],
+                correct: 2,
+                emoji: "🔐"
+            }, {
+                question: "\"two-factor authentication\" (2FA) ဆိုသည်မှာ အဘယ်နည်း? 🔒",
+                options: [
+                    "စကားဝှက်တစ်ခုတည်းကို အသုံးပြုခြင်း",
+                    "စကားဝှက်နှင့် အခြားအချက်အလက်တစ်ခုကို အသုံးပြုခြင်း",
+                    "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် နည်းလမ်း",
+                    "ကွန်ပျူတာကို ဗိုင်းရပ်စ်များမှ ကာကွယ်ရန် အသုံးပြုသည့် နည်းလမ်း"
+                ],
+                correct: 1,
+                emoji: "🔒"
+            }, {
+                question: "\"VPN\" (Virtual Private Network) ဆိုသည်မှာ အဘယ်နည်း? 🌐",
+                options: [
+                    "အင်တာနက်ဆက်သွယ်မှုကို လုံခြုံစေရန် အသုံးပြုသည့် နည်းပညာ",
+                    "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် နည်းပညာ",
+                    "ဖိုင်များကို စီမံခန့်ခွဲရန် အသုံးပြုသည့် ပရိုဂရမ်",
+                    "အင်တာနက်ကို အသုံးပြုရန် အသုံးပြုသည့် ပရိုဂရမ်"
+                ],
+                correct: 0,
+                emoji: "🌐"
+            }, {
+                question: "\"malware\" ဆိုသည်မှာ အဘယ်နည်း? 🦠",
+                options: [
+                    "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် ပရိုဂရမ်",
+                    "ကွန်ပျူတာကို ထိခိုက်စေသော ဆော့ဖ်ဝဲ",
+                    "ဖိုင်များကို စီမံခန့်ခွဲရန် အသုံးပြုသည့် ပရိုဂရမ်",
+                    "အင်တာနက်ကို အသုံးပြုရန် အသုံးပြုသည့် ပရိုဂရမ်"
+                ],
+                correct: 1,
+                emoji: "🦠"
+            }, {
+                question: "\"spyware\" ဆိုသည်မှာ အဘယ်နည်း? 🕵️",
+                options: [
+                    "သင့်အချက်အလက်များကို ခိုးယူရန် အသုံးပြုသည့် ဆော့ဖ်ဝဲ",
+                    "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် ပရိုဂရမ်",
+                    "ဖိုင်များကို စီမံခန့်ခွဲရန် အသုံးပြုသည့် ပရိုဂရမ်",
+                    "အင်တာနက်ကို အသုံးပြုရန် အသုံးပြုသည့် ပရိုဂရမ်"
+                ],
+                correct: 0,
+                emoji: "🕵️"
+            }, {
+                question: "\"ransomware\" ဆိုသည်မှာ အဘယ်နည်း? 💰",
+                options: [
+                    "သင့်ဖိုင်များကို ကုဒ်ဝှက်ပြီး ပြန်ပေးဆွဲရန် အသုံးပြုသည့် ဆော့ဖ်ဝဲ",
+                    "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် ပရိုဂရမ်",
+                    "ဖိုင်များကို စီမံခန့်ခွဲရန် အသုံးပြုသည့် ပရိုဂရမ်",
+                    "အင်တာနက်ကို အသုံးပြုရန် အသုံးပြုသည့် ပရိုဂရမ်"
+                ],
+                correct: 0,
+                emoji: "💰"
+            }],
+            9: [{
+                question: "\"driver\" ဆိုသည်မှာ အဘယ်နည်း? 🚗",
+                options: [
+                    "ကွန်ပျူတာကို မောင်းနှင်သူ",
+                    "hardware နှင့် operating system အကြား ဆက်သွယ်ပေးသော ဆော့ဖ် ဝဲ",
+                    "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် ပရိုဂရမ်",
+                    "ဖိုင်များကို စီမံခန့်ခွဲရန် အသုံးပြုသည့် ပရိုဂရမ်"
+                ],
+                correct: 1,
+                emoji: "🚗"
+            }, {
+                question: "\"plug and play\" ဆိုသည်မှာ အဘယ်နည်း? 🔌",
+                options: [
+                    "ကွန်ပျူတာကို ပလပ်ထိုးပြီး ချက်ချင်းအသုံးပြုနိုင်သော စက်ပစ္စည်း",
+                    "ကွန်ပျူတာကို ပလပ်ထိုးပြီး အချိန်အကြာကြီး စောင့်ဆိုင်းရသော စက်ပစ္စည်း",
+                    "ကွန်ပျူတာကို ပလပ်ထိုးပြီး အလုပ်မလုပ်သော စက်ပစ္စည်း",
+                    "ကွန်ပျူတာကို ပလပ်ထိုးရန် မလိုအပ်သော စက်ပစ္စည်း"
+                ],
+                correct: 0,
+                emoji: "🔌"
+            }, {
+                question: "\"troubleshooting\" ဆိုသည်မှာ အဘယ်နည်း? 🔧",
+                options: [
+                    "ကွန်ပျူတာကို အသုံးပြုခြင်း",
+                    "ကွန်ပျူတာကို ပြုပြင်ခြင်း",
+                    "ကွန်ပျူတာပြဿနာများကို ရှာဖွေဖြေရှင်းခြင်း",
+                    "ကွန်ပျူတာကို ပိတ်ခြင်း"
+                ],
+                correct: 2,
+                emoji: "🔧"
+            }, {
+                question: "\"default\" setting ဆိုသည်မှာ အဘယ်နည်း? ⚙️",
+                options: [
+                    "သင်ပြောင်းလဲနိုင်သော setting",
+                    "သင်မပြောင်းလဲနိုင်သော setting",
+                    "အစကတည်းက သတ်မှတ်ထားသော setting",
+                    "အသုံးပြုသူမှ သတ်မှတ်ထားသော setting"
+                ],
+                correct: 2,
+                emoji: "⚙️"
+            }, {
+                question: "\"compatible\" ဆိုသည်မှာ အဘယ်နည်း? 🔄",
+                options: [
+                    "အတူတကွ အလုပ်လုပ်နိုင်သော စက်ပစ္စည်းများ သို့မဟုတ် ဆော့ဖ်ဝဲ",
+                    "အတူတကွ အလုပ်မလုပ်နိုင်သော စက်ပစ္စည်း များ သို့မဟုတ် ဆော့ဖ်ဝဲ",
+                    "ကွန်ပျူတာကို အမြန်နှုန်းမြှင့်တင်ရန် အသုံးပြုသည့် ပရိုဂရမ်",
+                    "ဖိုင်များကို စီမံခန့်ခွဲရန် အသုံးပြုသည့် ပရိုဂရမ်"
+                ],
+                correct: 0,
+                emoji: "🔄"
+            }, {
+                question: "\"upgrade\" ဆိုသည်မှာ အဘယ်နည်း? 📈",
+                options: [
+                    "ပိုကောင်းသော ဗားရှင်းသို့ ပြောင်းလဲခြင်း",
+                    "ပိုဆိုးသော ဗားရှင်းသို့ ပြောင်းလဲခြင်း",
+                    "ဖိုင်ကို ဖျက်ခြင်း",
+                    "ဖိုင်ကို သိမ်းဆည်းခြင်း"
+                ],
+                correct: 0,
+                emoji: "📈"
+            }, {
+                question: "\"update\" ဆိုသည်မှာ အဘယ်နည်း? 🔄",
+                options: [
+                    "ဆော့ဖ်ဝဲကို နောက်ဆုံးဗားရှင်းသို့ ပြောင်းလဲခြင်း",
+                    "ဆော့ဖ်ဝဲကို အဟောင်းဗားရှင်းသို့ ပြောင်းလဲခြင်း",
+                    "ဖိုင်ကို ဖျက်ခြင်း",
+                    "ဖိုင်ကို သိမ်းဆည်းခြင်း"
+                ],
+                correct: 0,
+                emoji: "🔄"
+            }, {
+                question: "\"restore\" ဆိုသည်မှာ အဘယ်နည်း? ↩️",
+                options: [
+                    "ဖိုင်ကို ဖျက်ခြင်း",
+                    "ဖိုင်ကို သိမ်းဆည်းခြင်း",
+                    "ဖိုင်ကို ယခင်အခြေအနေသို့ ပြန်လည်ရောက်ရှိစေခြင်း",
+                    "ဖိုင်ကို မျှဝေခြင်း"
+                ],
+                correct: 2,
+                emoji: "↩️"
+            }, {
+                question: "\"backup\" ဆိုသည်မှာ အဘယ်နည်း? 💾",
+                options: [
+                    "ဖိုင်များကို ကူးယူထားခြင်း",
+                    "ဖိုင်များကို ဖျက်ခြင်း",
+                    "ဖိုင်များကို သိမ်းဆည်းခြင်း",
+                    "ဖိုင်များကို မျှဝေခြင်း"
+                ],
+                correct: 0,
+                emoji: "💾"
+            }, {
+                question: "\"recovery\" ဆိုသည်မှာ အဘယ်နည်း? 🔄",
+                options: [
+                    "ပျက်စီးသွားသော ဖိုင်များ ကို ပြန်လည်ရယူခြင်း",
+                    "ဖိုင်များကို ဖျက်ခြင်း",
+                    "ဖိုင်များကို သိမ်းဆည်းခြင်း",
+                    "ဖိုင်များကို မျှဝေခြင်း"
+                ],
+                correct: 0,
+                emoji: "🔄"
+            }],
+            10: [{
                     question: "\"open source\" software ဆိုသည်မှာ အဘယ်နည်း? 📖",
                     options: [
                         "အခမဲ့အသုံးပြုနိုင်သော ဆော့ဖ်ဝဲ",
@@ -2118,8 +2010,7 @@
                     ],
                     correct: 1,
                     emoji: "📖"
-                },
-                {
+                }, {
                     question: "\"proprietary\" software ဆိုသည်မှာ အဘယ်နည်း? 🔒",
                     options: [
                         "မူရင်းကုဒ်ကို လျှို့ဝှက်ထားသော ဆော့ဖ် ဝဲ",
@@ -2129,8 +2020,7 @@
                     ],
                     correct: 0,
                     emoji: "🔒"
-                },
-                {
+                }, {
                     question: "\"algorithm\" ဆိုသည်မှာ အဘယ်နည်း? 🧮",
                     options: [
                         "ပြဿနာတစ်ခုကို ဖြေရှင်းရန် အသုံးပြုသည့် အဆင့်ဆင့် ညွှန်ကြားချက်များ",
@@ -2140,8 +2030,7 @@
                     ],
                     correct: 0,
                     emoji: "🧮"
-                },
-                {
+                }, {
                     question: "\"programming language\" ဆိုသည်မှာ အဘယ်နည်း? 💻",
                     options: [
                         "ကွန်ပျူတာနှင့် ဆက်သွယ်ရန် အသုံးပြုသည့် ဘာသာစကား",
@@ -2151,8 +2040,7 @@
                     ],
                     correct: 0,
                     emoji: "💻"
-                },
-                {
+                }, {
                     question: "\"variable\" ဆိုသည်မှာ အဘယ်နည်း? 🔤",
                     options: [
                         "ကွန်ပျူတာတွင် ဒေတာကို သိမ်းဆည်းရန် အသုံးပြုသည့် နေရာ",
@@ -2162,8 +2050,7 @@
                     ],
                     correct: 0,
                     emoji: "🔤"
-                },
-                {
+                }, {
                     question: "\"function\" ဆိုသည်မှာ အဘယ်နည်း? 🔧",
                     options: [
                         "တိကျသော လုပ်ဆောင်ချက်တစ်ခုကို လုပ်ဆောင်ရန် အသုံးပြုသည့် ကုဒ်အပိုင်းအစ",
@@ -2173,8 +2060,7 @@
                     ],
                     correct: 0,
                     emoji: "🔧"
-                },
-                {
+                }, {
                     question: "\"debugging\" ဆိုသည်မှာ အဘယ်နည်း? 🐞",
                     options: [
                         "ကွန်ပျူတာကို ပိတ်ခြင်း",
@@ -2184,8 +2070,7 @@
                     ],
                     correct: 2,
                     emoji: "🐞"
-                },
-                {
+                }, {
                     question: "\"API\" (Application Programming Interface) ဆိုသည်မှာ အဘယ်နည်း? 🔗",
                     options: [
                         "ဆော့ဖ်ဝဲများအကြား ဆက်သွယ်ရန် အသုံးပြုသည့် နည်းလမ်း",
@@ -2195,8 +2080,7 @@
                     ],
                     correct: 0,
                     emoji: "🔗"
-                },
-                {
+                }, {
                     question: "\"database\" ဆိုသည်မှာ အဘယ်နည်း? 🗃️",
                     options: [
                         "ဒေတာများကို စနစ်တကျ သိမ်းဆည်းထားသော နေရာ",
@@ -2206,8 +2090,7 @@
                     ],
                     correct: 0,
                     emoji: "🗃️"
-                },
-                {
+                }, {
                     question: "\"cloud computing\" ဆိုသည်မှာ အဘယ်နည်း? ☁️",
                     options: [
                         "အင်တာနက်မှတစ်ဆင့် ကွန်ပျူတာဝန်ဆောင်မှုများကို ရယူသုံးစွဲခြင်း",
@@ -2241,17 +2124,17 @@
             if (savedState) {
                 Object.assign(state, JSON.parse(savedState));
             }
-            
+
             // Check if user is logged in
             if (state.currentUser) {
                 showUserProfile();
             } else {
                 showLoginForm();
             }
-            
+
             // Setup navigation
             setupNavigation();
-            
+
             // Initialize quiz part selector
             initQuizPartSelector();
         }
@@ -2274,13 +2157,13 @@
             screens.forEach(screen => {
                 screen.classList.remove('active');
             });
-            
+
             // Show the requested screen
             document.getElementById(screenName).classList.add('active');
             state.currentScreen = screenName;
-            
+
             // Initialize screen-specific content
-            switch(screenName) {
+            switch (screenName) {
                 case 'account':
                     if (state.currentUser) {
                         showUserProfile();
@@ -2292,7 +2175,7 @@
                     initQuizPartSelector();
                     break;
             }
-            
+
             saveState();
         }
 
@@ -2300,19 +2183,19 @@
         function initQuizPartSelector() {
             const partSelector = document.getElementById('partSelector');
             partSelector.innerHTML = '';
-            
+
             // Create part buttons
             for (let i = 1; i <= 10; i++) {
                 const partBtn = document.createElement('button');
                 partBtn.className = 'part-btn';
                 partBtn.textContent = `အပိုင်း ${i}`;
                 partBtn.dataset.part = i;
-                
+
                 // Set button status based on user progress
                 if (state.currentUser && state.currentUser.completedParts && state.currentUser.completedParts.includes(i)) {
                     partBtn.classList.add('active');
                 }
-                
+
                 partBtn.addEventListener('click', () => {
                     if (state.currentUser) {
                         startQuiz(i);
@@ -2321,7 +2204,7 @@
                         showScreen('account');
                     }
                 });
-                
+
                 partSelector.appendChild(partBtn);
             }
         }
@@ -2331,7 +2214,7 @@
             state.quizState.currentPart = part;
             state.quizState.currentQuestion = 0;
             state.quizState.userAnswers[part] = [];
-            
+
             // Update quiz content
             const quizContent = document.getElementById('quizContent');
             quizContent.innerHTML = `
@@ -2350,10 +2233,10 @@
                     </div>
                 </div>
             `;
-            
+
             // Initialize the first question
             updateQuestion();
-            
+
             // Setup event listeners
             document.getElementById('prevBtn').addEventListener('click', prevQuestion);
             document.getElementById('nextBtn').addEventListener('click', nextQuestion);
@@ -2365,22 +2248,22 @@
             const part = state.quizState.currentPart;
             const questionIndex = state.quizState.currentQuestion;
             const question = quizData[part][questionIndex];
-            
+
             // Update question text
             document.getElementById('questionText').textContent = question.question;
-            
+
             // Update question number
-            document.querySelector('.question-number').textContent = 
+            document.querySelector('.question-number').textContent =
                 `အပိုင်း ${part} - မေးခွန်း ${questionIndex + 1}/${quizData[part].length}`;
-            
+
             // Update options
             const optionsContainer = document.getElementById('optionsContainer');
             optionsContainer.innerHTML = '';
-            
+
             question.options.forEach((option, index) => {
                 const optionElement = document.createElement('div');
                 optionElement.className = 'option';
-                if (state.quizState.userAnswers[part] && 
+                if (state.quizState.userAnswers[part] &&
                     state.quizState.userAnswers[part][questionIndex] === index) {
                     optionElement.classList.add('selected');
                 }
@@ -2391,12 +2274,12 @@
                 optionElement.addEventListener('click', () => selectOption(index));
                 optionsContainer.appendChild(optionElement);
             });
-            
+
             // Update navigation buttons
             document.getElementById('prevBtn').disabled = questionIndex === 0;
-            document.getElementById('nextBtn').style.display = 
+            document.getElementById('nextBtn').style.display =
                 questionIndex === quizData[part].length - 1 ? 'none' : 'block';
-            document.getElementById('submitBtn').style.display = 
+            document.getElementById('submitBtn').style.display =
                 questionIndex === quizData[part].length - 1 ? 'block' : 'none';
         }
 
@@ -2404,20 +2287,20 @@
         function selectOption(optionIndex) {
             const part = state.quizState.currentPart;
             const questionIndex = state.quizState.currentQuestion;
-            
+
             // Clear previous selection
             const options = document.querySelectorAll('.option');
             options.forEach(option => option.classList.remove('selected'));
-            
+
             // Select new option
             options[optionIndex].classList.add('selected');
-            
+
             // Save answer
             if (!state.quizState.userAnswers[part]) {
                 state.quizState.userAnswers[part] = [];
             }
             state.quizState.userAnswers[part][questionIndex] = optionIndex;
-            
+
             saveState();
         }
 
@@ -2443,7 +2326,7 @@
             const part = state.quizState.currentPart;
             const questions = quizData[part];
             const userAnswers = state.quizState.userAnswers[part] || [];
-            
+
             // Calculate score
             let correctCount = 0;
             questions.forEach((question, index) => {
@@ -2451,26 +2334,26 @@
                     correctCount++;
                 }
             });
-            
+
             const score = (correctCount / questions.length) * 100;
-            
+
             // Update user progress
             if (!state.currentUser.completedParts) {
                 state.currentUser.completedParts = [];
             }
-            
+
             if (score >= 80 && !state.currentUser.completedParts.includes(part)) {
                 state.currentUser.completedParts.push(part);
-                
+
                 // Generate certificate if all parts are completed
                 if (state.currentUser.completedParts.length === 10) {
                     generateCertificate();
                 }
-                
+
                 // Update user in database
                 userDatabase[state.currentUser.email] = state.currentUser;
                 localStorage.setItem('myComputerStudioUsers', JSON.stringify(userDatabase));
-                
+
                 // Show success message
                 const quizContent = document.getElementById('quizContent');
                 quizContent.innerHTML = `
@@ -2484,7 +2367,7 @@
                         <button class="btn btn-primary" id="backToQuizBtn">စမ်းသပ်မှုများသို့ ပြန်သွားရန်</button>
                     </div>
                 `;
-                
+
                 document.getElementById('backToQuizBtn').addEventListener('click', () => {
                     initQuizPartSelector();
                     const quizContent = document.getElementById('quizContent');
@@ -2508,11 +2391,11 @@
                         <button class="btn btn-secondary" id="backToQuizBtn">စမ်းသပ်မှုများသို့ ပြန်သွားရန်</button>
                     </div>
                 `;
-                
+
                 document.getElementById('retryBtn').addEventListener('click', () => {
                     startQuiz(part);
                 });
-                
+
                 document.getElementById('backToQuizBtn').addEventListener('click', () => {
                     initQuizPartSelector();
                     const quizContent = document.getElementById('quizContent');
@@ -2524,7 +2407,7 @@
                     `;
                 });
             }
-            
+
             saveState();
         }
 
@@ -2532,26 +2415,26 @@
         function generateCertificate() {
             const now = new Date();
             const certificateId = `MCST-${now.getFullYear()}-${Math.floor(10000 + Math.random() * 90000)}`;
-            
+
             // Calculate overall score
             let totalQuestions = 0;
             let totalCorrect = 0;
-            
+
             state.currentUser.completedParts.forEach(part => {
                 const questions = quizData[part];
                 const userAnswers = state.quizState.userAnswers[part] || [];
-                
+
                 totalQuestions += questions.length;
-                
+
                 questions.forEach((question, index) => {
                     if (userAnswers[index] === question.correct) {
                         totalCorrect++;
                     }
                 });
             });
-            
+
             const overallPercentage = totalQuestions > 0 ? (totalCorrect / totalQuestions) * 100 : 0;
-            
+
             // Create certificate
             const certificate = {
                 id: certificateId,
@@ -2559,30 +2442,34 @@
                 userName: state.currentUser.name,
                 dateOfBirth: state.currentUser.dateOfBirth,
                 fatherName: state.currentUser.fatherName,
-                date: now.toLocaleDateString('my-MM', { year: 'numeric', month: 'long', day: 'numeric' }),
+                date: now.toLocaleDateString('my-MM', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                }),
                 score: `${Math.round(overallPercentage)}%`,
                 partsCompleted: state.currentUser.completedParts.length
             };
-            
+
             // Save certificate to database
             if (!certificateDatabase[state.currentUser.email]) {
                 certificateDatabase[state.currentUser.email] = [];
             }
             certificateDatabase[state.currentUser.email].push(certificate);
             localStorage.setItem('myComputerStudioCertificates', JSON.stringify(certificateDatabase));
-            
+
             // Add certificate to user
             if (!state.currentUser.certificates) {
                 state.currentUser.certificates = [];
             }
             state.currentUser.certificates.push(certificateId);
-            
+
             // Update user in database
             userDatabase[state.currentUser.email] = state.currentUser;
             localStorage.setItem('myComputerStudioUsers', JSON.stringify(userDatabase));
-            
+
             saveState();
-            
+
             return certificate;
         }
 
@@ -2673,20 +2560,20 @@
                     <div id="messageArea"></div>
                 </div>
             `;
-            
+
             // Setup event listeners
             document.getElementById('loginBtn').addEventListener('click', login);
             document.getElementById('showRegisterBtn').addEventListener('click', () => {
                 document.getElementById('loginForm').style.display = 'none';
                 document.getElementById('registerForm').style.display = 'block';
             });
-            
+
             document.getElementById('registerBtn').addEventListener('click', register);
             document.getElementById('showLoginBtn').addEventListener('click', () => {
                 document.getElementById('registerForm').style.display = 'none';
                 document.getElementById('loginForm').style.display = 'block';
             });
-            
+
             document.getElementById('verifyBtn').addEventListener('click', verifyEmail);
             document.getElementById('resendCodeBtn').addEventListener('click', resendVerificationCode);
         }
@@ -2745,7 +2632,7 @@
                     <button class="btn btn-secondary" id="logoutBtn">အကောင့်မှ ထွက်ရန်</button>
                 </div>
             `;
-            
+
             document.getElementById('logoutBtn').addEventListener('click', logout);
         }
 
@@ -2753,7 +2640,7 @@
         function renderCertificates() {
             const userCertificates = certificateDatabase[state.currentUser.email] || [];
             if (userCertificates.length === 0) return '<p>မည်သည့် Certificate မျှ မရှိသေးပါ။</p>';
-            
+
             let html = '';
             userCertificates.forEach(cert => {
                 html += `
@@ -2770,7 +2657,7 @@
                     </div>
                 `;
             });
-            
+
             // Add event listeners for certificate buttons
             setTimeout(() => {
                 document.querySelectorAll('.certificate-actions .btn').forEach(btn => {
@@ -2784,7 +2671,7 @@
                     });
                 });
             }, 100);
-            
+
             return html;
         }
 
@@ -2792,12 +2679,12 @@
         function viewCertificate(certificateId) {
             const userCertificates = certificateDatabase[state.currentUser.email] || [];
             const certificate = userCertificates.find(cert => cert.id === certificateId);
-            
+
             if (!certificate) {
                 alert('Certificate မတွေ့ပါ');
                 return;
             }
-            
+
             const accountContent = document.getElementById('accountContent');
             accountContent.innerHTML = `
                 <div class="welcome-section">
@@ -2866,11 +2753,11 @@
                     <button class="btn btn-secondary" id="backToProfileBtn2">အကောင့်သို့ ပြန်သွားရန်</button>
                 </div>
             `;
-            
+
             document.getElementById('downloadCertBtn').addEventListener('click', () => {
                 downloadCertificate(certificateId);
             });
-            
+
             document.getElementById('backToProfileBtn').addEventListener('click', showUserProfile);
             document.getElementById('backToProfileBtn2').addEventListener('click', showUserProfile);
         }
@@ -2878,12 +2765,12 @@
         // Download certificate as PDF
         function downloadCertificate(certificateId) {
             const certificateElement = document.querySelector('.certificate-container');
-            
+
             if (!certificateElement) {
                 alert('Certificate element not found');
                 return;
             }
-            
+
             // Use html2canvas to capture the certificate as an image
             html2canvas(certificateElement, {
                 scale: 2,
@@ -2892,13 +2779,15 @@
                 backgroundColor: '#ffffff'
             }).then(canvas => {
                 const imgData = canvas.toDataURL('image/png');
-                
+
                 // Use jsPDF to create a PDF
-                const { jsPDF } = window.jspdf;
+                const {
+                    jsPDF
+                } = window.jspdf;
                 const pdf = new jsPDF('l', 'mm', 'a4');
                 const imgWidth = 297; // A4 width in mm
                 const imgHeight = (canvas.height * imgWidth) / canvas.width;
-                
+
                 pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
                 pdf.save(`MyComputerStudio_Certificate_${certificateId}.pdf`);
             });
@@ -2915,26 +2804,26 @@
             const fatherName = document.getElementById('regFatherName').value.trim();
             const password = document.getElementById('regPassword').value;
             const confirmPassword = document.getElementById('regConfirmPassword').value;
-            
+
             // Validation
             if (!name || !email || !phone || !country || !city || !dateOfBirth || !fatherName || !password) {
                 showMessage('ကျေးဇူးပြု၍ အကုန်လုံးဖြည့်ပါ', 'error');
                 return;
             }
-            
+
             if (password !== confirmPassword) {
                 showMessage('စကားဝှက်များ မတူညီပါ', 'error');
                 return;
             }
-            
+
             if (userDatabase[email]) {
                 showMessage('ဤ Email ဖြင့် အကောင့်ရှိပြီးသားဖြစ်သည်', 'error');
                 return;
             }
-            
+
             // Generate verification code
             const verificationCode = Math.floor(100000 + Math.random() * 900000).toString();
-            
+
             // Create user object
             const user = {
                 name,
@@ -2951,10 +2840,10 @@
                 completedParts: [],
                 certificates: []
             };
-            
+
             // Save user to database (temporarily)
             userDatabase[email] = user;
-            
+
             // Send verification email
             sendVerificationEmail(email, verificationCode)
                 .then(() => {
@@ -2971,12 +2860,14 @@
 
         // Send verification email
         function sendVerificationEmail(email, code) {
+            // EmailJS သုံးခြင်း (အကြံပြုထားသည်)
             const templateParams = {
                 to_email: email,
                 verification_code: code,
+                user_name: document.getElementById('regName').value.trim(),
                 from_name: 'My Computer Studio & Training'
             };
-            
+
             return emailjs.send('service_f4bxa23', 'template_lrz8vhb', templateParams);
         }
 
@@ -2984,37 +2875,37 @@
         function verifyEmail() {
             const code = document.getElementById('verificationCode').value.trim();
             const email = document.getElementById('regEmail').value.trim();
-            
+
             if (!code) {
                 showMessage('Verification code ထည့်ပါ', 'error');
                 return;
             }
-            
+
             const user = userDatabase[email];
             if (!user) {
                 showMessage('အသုံးပြုသူမတွေ့ပါ', 'error');
                 return;
             }
-            
+
             if (user.verificationCode !== code) {
                 showMessage('Verification code မှားယွင်းနေသည်', 'error');
                 return;
             }
-            
+
             // Mark user as verified
             user.verified = true;
             delete user.verificationCode;
-            
+
             // Save user to database
             userDatabase[email] = user;
             localStorage.setItem('myComputerStudioUsers', JSON.stringify(userDatabase));
-            
+
             // Log the user in
             state.currentUser = user;
             saveState();
-            
+
             showMessage('Email အတည်ပြုပြီးပါပြီ! အကောင့်ဝင်ပြီးပါပြီ', 'success');
-            
+
             // Show user profile
             setTimeout(() => {
                 showUserProfile();
@@ -3025,16 +2916,16 @@
         function resendVerificationCode() {
             const email = document.getElementById('regEmail').value.trim();
             const user = userDatabase[email];
-            
+
             if (!user) {
                 showMessage('အသုံးပြုသူမတွေ့ပါ', 'error');
                 return;
             }
-            
+
             // Generate new verification code
             const verificationCode = Math.floor(100000 + Math.random() * 900000).toString();
             user.verificationCode = verificationCode;
-            
+
             // Send verification email
             sendVerificationEmail(email, verificationCode)
                 .then(() => {
@@ -3050,34 +2941,34 @@
         function login() {
             const email = document.getElementById('loginEmail').value.trim();
             const password = document.getElementById('loginPassword').value;
-            
+
             if (!email || !password) {
                 showMessage('Email နှင့် စကားဝှက်ထည့်ပါ', 'error');
                 return;
             }
-            
+
             const user = userDatabase[email];
             if (!user) {
                 showMessage('ဤ Email ဖြင့် အကောင့်မရှိပါ', 'error');
                 return;
             }
-            
+
             if (user.password !== password) {
                 showMessage('စကားဝှက်မှားယွင်းနေသည်', 'error');
                 return;
             }
-            
+
             if (!user.verified) {
                 showMessage('ကျေးဇူးပြု၍ သင့် Email ကို အတည်ပြုပါ', 'error');
                 return;
             }
-            
+
             // Log the user in
             state.currentUser = user;
             saveState();
-            
+
             showMessage('အကောင့်ဝင်ပြီးပါပြီ', 'success');
-            
+
             // Show user profile
             setTimeout(() => {
                 showUserProfile();
@@ -3095,7 +2986,7 @@
         function showMessage(message, type) {
             const messageArea = document.getElementById('messageArea');
             messageArea.innerHTML = `<div class="message ${type}">${message}</div>`;
-            
+
             // Auto hide after 5 seconds
             setTimeout(() => {
                 messageArea.innerHTML = '';
@@ -3111,4 +3002,5 @@
         document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
+
 </html>
